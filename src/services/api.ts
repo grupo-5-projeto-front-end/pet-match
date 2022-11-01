@@ -1,8 +1,8 @@
-import axios from "axios"
+import axios, { AxiosInstance } from "axios"
 
-const token = localStorage.getItem("@petmatch:token")
+const token: string | null = localStorage.getItem("@petmatch:token")
 
-export const api = axios.create({
+export const api: AxiosInstance = axios.create({
     baseURL: "https://petmatchapi.herokuapp.com",
     timeout: 5000,
     headers: {
