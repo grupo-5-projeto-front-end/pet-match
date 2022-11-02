@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyleBaseModal = styled.div`
+export const StyledBaseModal = styled.div`
 inset: 0;
 background-color: hsla(0, 0%, 0%, 0.701) ;
 
