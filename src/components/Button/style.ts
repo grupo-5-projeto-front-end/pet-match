@@ -11,6 +11,7 @@ height: ${({height})=>`${height}px` };
 
 font-size: ${({fontSize})=>`${fontSize}rem` };
 border-radius: 5px;
+font-weight: 700;
 
 
 `
