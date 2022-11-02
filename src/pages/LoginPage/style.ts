@@ -19,7 +19,7 @@ export const StyledLoginPage = styled.div`
         }
     }
 
-    div{
+    .textContainer{
         display: none;
     }
 
@@ -86,7 +86,7 @@ export const StyledLoginPage = styled.div`
         main{
 
         
-         div{
+         .textContainer{
             display: flex;
             width: 90%;
             max-width: 500px;

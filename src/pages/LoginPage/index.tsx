@@ -1,10 +1,12 @@
-import { StyledHeader } from "../../components/Header/style";
+import { StyledHeader } from "../../styles/header";
 import PetMatchLogo from "../../assets/PETMATCH.png";
 import { StyledButton } from "../../components/Button/style";
 import { StyledLoginPage } from "./style";
-import { StyledFormBase } from "../../components/FormBase/style";
+import { StyledFormBase } from "../../styles/styledFormBase";
 import { StyledInput } from "../../styles/StyledInput";
 import ImgPatinha from "../../assets/patinha.png";
+import { StyledInputContainer } from "../../styles/inputContainer";
+import { StyledError } from "../../styles/styledError";
 
 export const LoginPage = () => {
   return (
@@ -12,13 +14,13 @@ export const LoginPage = () => {
       <StyledHeader>
         <div>
           <img src={PetMatchLogo} alt="Logo PetMatch" />
-          <StyledButton width="100" height="30" background="--color-salmon">
+          <StyledButton fontSize="1.5" color="--color-white" width="150px" height="40" background="--color-salmon">
             Início
           </StyledButton>
         </div>
       </StyledHeader>
       <main>
-        <div>
+        <div className="textContainer">
           <h2>
             Texto de chamada falando sobre oe benefícios de se cadastrar aqui
           </h2>
@@ -38,31 +40,31 @@ export const LoginPage = () => {
         </div>
         <StyledFormBase>
             <h2>Login</h2>
-          <div className="inputBox">
+          <StyledInputContainer>
             <label htmlFor="EmailInput">Email</label>
             <StyledInput
               id="EmailInput"
               placeholder="Digite seu E-mail"
             ></StyledInput>
-            <span></span>
-          </div>
-          <div className="inputBox">
+            <StyledError></StyledError>
+          </StyledInputContainer>
+          <StyledInputContainer>
             <label htmlFor="PasswordInput">Senha</label>
             <StyledInput
               id="PasswordInput"
               placeholder="Digite sua senha"
             ></StyledInput>
-            <span></span>
-          </div>
-          <StyledButton width="90%" height="48" background="--color-salmon">
+            <StyledError></StyledError>
+          </StyledInputContainer>
+           <StyledButton color="--color-white" fontSize="3" width="100%" height="70" background="--color-salmon">
             Logar
-          </StyledButton>
+          </StyledButton> 
           <span className="spanForgetMyPass">Esqueci minha senha</span>
           <span className="whiteLine"></span>
           <span className="spanDontHaveAcccount">Ainda não possuí conta?</span>
-          <StyledButton width="" height="48" background="--color-salmon">
+           <StyledButton color="--color-white" fontSize="3" width="100%" height="70" background="--color-salmon">
             Cadastre-se
-          </StyledButton>
+          </StyledButton> 
         </StyledFormBase>
       </main>
     </StyledLoginPage>
