@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFormBase = styled.form`
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   max-width: 516px;
   border-radius: 5px;
   
@@ -10,4 +10,5 @@ export const StyledFormBase = styled.form`
 
   display: flex;
   flex-direction: column;
+  gap: 20px;
 `;

@@ -6,8 +6,8 @@ export const StyledGlobal = createGlobalStyle`
     --color-black:#242222;
     --color-gray: #EEEEEE;
     --color-salmon:#ff5757;
-    --color-white:#fff  
-    --color-placeholder:#8A8787  
+    --color-white:#fff;  
+    --color-placeholder:#8A8787;  
 }
 
 html, body, div, span, applet, object, iframe,
