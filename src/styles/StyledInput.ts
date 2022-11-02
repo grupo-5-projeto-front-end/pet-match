@@ -13,27 +13,26 @@ export const StyledInput = styled.input`
 
     :focus {
         outline: none;
-        border: 1px solid var(--color-placeholder);
-        color: var(--color-placeholder);
+        color: var(--color-gray);
         ::placeholder {
-        color: var(--color-placeholder);
+        color: var(--color-gray);
         opacity: 1; /* Firefox */
         }
         :-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: var(--color-placeholder);
+            color: var(--color-gray);
         }
         ::-ms-input-placeholder { /* Microsoft Edge */
-            color: var(--color-placeholder);
+            color: var(--color-gray);
         }
         :focus::placeholder {
-            color: var(--color-placeholder);
+            color: var(--color-gray);
             opacity: 1; /* Firefox */
         }
         :focus:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: var(--color-placeholder);
+            color: var(--color-gray);
         }
         :focus::-ms-input-placeholder { /* Microsoft Edge */
-            color: var(--color-placeholder);
+            color: var(--color-gray);
         }
     }
     ::placeholder {
