@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { iPropsButtom } from "./interface";
 
-export const  StyledButton = styled.button<iPropsButtom>`
+export const StyleButton = styled.button<iPropsButtom>`
 
 width: ${({width})=> `${width}px` };
 
