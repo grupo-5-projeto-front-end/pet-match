@@ -7,8 +7,20 @@ import { StyledInput } from "../../styles/StyledInput";
 import ImgPatinha from "../../assets/patinha.png";
 import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledError } from "../../styles/styledError";
+import { loginFormSchema } from "./schema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { iLoginRegister } from "../../services/requests/login";
+import { useUserContext } from "../../contexts/UserContext";
 
 export const LoginPage = () => {
+
+    const {onSubmitLogin} = useUserContext()
+
+    const { register, handleSubmit,  formState: { errors } } = useForm<iLoginRegister>({
+        resolver: yupResolver(loginFormSchema),
+      });
+
   return (
     <StyledLoginPage>
       <StyledHeader>
@@ -38,23 +50,27 @@ export const LoginPage = () => {
           <h3>Bora encontrar o número daquela cadelinha?</h3>
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
-        <StyledFormBase>
+        <StyledFormBase onSubmit={handleSubmit(onSubmitLogin)}>
             <h2>Login</h2>
           <StyledInputContainer>
             <label htmlFor="EmailInput">Email</label>
             <StyledInput
+              type="email"
               id="EmailInput"
               placeholder="Digite seu E-mail"
+              {...register("email")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.email?.message}</StyledError>
           </StyledInputContainer>
           <StyledInputContainer>
             <label htmlFor="PasswordInput">Senha</label>
             <StyledInput
+              type="password"
               id="PasswordInput"
               placeholder="Digite sua senha"
+              {...register("password")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.password?.message}</StyledError>
           </StyledInputContainer>
            <StyledButton color="--color-white" fontSize="3" width="100%" height="70" background="--color-salmon">
             Logar

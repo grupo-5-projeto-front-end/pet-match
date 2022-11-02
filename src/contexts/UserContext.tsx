@@ -1,8 +1,10 @@
+import { toNamespacedPath } from "node:path/win32";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
 import { iBodyPatchUser, patchUser } from "../services/requests/patchUser";
+import { toast } from "react-toastify";
 
 interface iUserProps {
   children: ReactNode;
@@ -66,10 +68,11 @@ export const UserProvider = ({ children }: iUserProps) => {
       window.localStorage.setItem("@petmatch:token", accessToken);
       window.localStorage.setItem("@petmatch:userid", user.id.toString());
       setUser(user);
-
+      toast.success("Login realizado com sucesso")
       navigate("/dashboard");
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado")
     }
   };
 
