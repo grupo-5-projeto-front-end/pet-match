@@ -9,4 +9,6 @@ background: var(${({background})=>background });
 
 height: ${({height})=>`${height}px` };
 
+font-size: ${({fontSize})=>`${fontSize}rem` };
+
 `
