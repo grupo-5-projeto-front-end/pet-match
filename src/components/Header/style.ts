@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
     width: 100%;
-    height: 10vh;
-    background-color: #000;
-    color: #fff;
+    height: 90px;
+    background-color: var(--color-black);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: .2s;
+
+    @media all and (max-width: 480px) {
+        height: 50px;
+    }
 
 `;
