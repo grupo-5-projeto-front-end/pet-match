@@ -13,21 +13,22 @@ export const StyledFooter = styled.footer`
     bottom: 0;
     left: 0;
 
-    background-color: #242222; //mudar para variável quando estilização global for feita
+    background-color: var(--color-black);
 
     div {
-        height: 30px;
+        height: 70px;
+        width: fit-content;
 
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 7px;
 
         p {
             font-weight: 500;
-            font-size: 10px;
+            font-size: 0.70rem;
             line-height: 12px;
             text-align: center;
-            color: #f5f5f5; //mudar para variável quando estilização global for feita
+            color: var(--color-white); 
         }
     }
 `
