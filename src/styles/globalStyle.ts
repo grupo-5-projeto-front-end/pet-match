@@ -58,7 +58,7 @@ table {
 }
 body{
 	width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 img{

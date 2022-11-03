@@ -87,9 +87,7 @@ export const UserProvider = ({ children }: iUserProps) => {
     }
   };
 
-  const handlePatchUser = async (
-    id: number,
-    body: iBodyPatchUser
+  const handlePatchUser = async ( id: number,body: iBodyPatchUser
   ): Promise<void> => {
     try {
       const data = await patchUser(id, body);
