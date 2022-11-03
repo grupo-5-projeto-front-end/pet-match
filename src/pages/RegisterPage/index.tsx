@@ -9,6 +9,7 @@ import { StyledInput } from "../../styles/StyledInput";
 import ImgPatinha from "../../assets/patinha.png";
 import { BrasilianStates } from "./BrazilianStates";
 import { useNavigate } from "react-router-dom";
+import { StyledSelect } from "../../styles/styledSelect";
 
 export const RegisterPage = () => {
 
@@ -89,12 +90,12 @@ export const RegisterPage = () => {
                 <StyledError></StyledError>
               </StyledInputContainer>
             </div>
-            <div>
+            <div className="containerStates">
               <StyledInputContainer>
                 <label htmlFor="StateInput">Estado</label>
-                <select id="StateInput">
+                <StyledSelect id="StateInput">
                   <BrasilianStates/>
-                </select>
+                </StyledSelect>
               </StyledInputContainer>
             </div>
           </div>

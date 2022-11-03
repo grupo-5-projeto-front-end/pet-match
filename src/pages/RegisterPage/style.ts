@@ -41,7 +41,14 @@ export const StyledRegisterPage = styled.div`
 
     .selectContainer{
         display: flex;
+        width: 100%;
+        
+        .containerStates{
+            width: 30%;
+            margin-left: 2rem;
+        }
     }
+
     @media (min-width: 768px){
         .textContainer{
             display: block;
