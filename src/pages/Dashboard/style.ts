@@ -51,6 +51,61 @@ export const StyledDashboard = styled.div `
         }
     }
 
+    .sponsor {
+        height: 150px;
+        width: 100%;
+        max-width: 470px;
+
+        background-color: var(--color-black);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .sponsor__text {
+            width: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h4 {
+                font-size: 0.8rem;
+                font-weight: 300;
+                color: var(--color-white);
+                line-height: 20px;
+
+                margin: 5px 0 0 10px;
+            }
+
+            h3 {
+                font-size: 3rem;
+                font-weight: 700;
+                color: var(--color-white);
+                line-height: 50px;
+
+                margin: 15px 0 15px 10px;
+            }
+        }
+
+        .sponsor__divider {
+            height: 130px;
+            width: 1px;
+
+            margin: 0 20px;
+
+            background-color: var(--color-white);
+        }
+
+        p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-white);
+
+            margin-right: 10px;
+        }
+    }
+
     @media all and (min-width: 480px) {
             form {
                 width: 400px;

@@ -28,6 +28,20 @@ export const Dashboard = () => {
                         </li>
                     </StyledCarrousel>
             </section>
+            <section>
+                {/* <div className="suggestions">
+                    SUGESTÕES
+                </div> PLACEHOLDER DO COMPONENTE DE SUGESTÕES */}
+
+                <div className="sponsor">
+                    <div className="sponsor__text">
+                        <h4>Patrocinado</h4>
+                        <h3>ONLY PETS</h3>
+                    </div>
+                    <div className="sponsor__divider"></div>
+                    <p>Parceiro oficial para adoção de amiguinhos</p>
+                </div>
+            </section>
                 <div className="carrousel_suggestions">
 
                 </div>
