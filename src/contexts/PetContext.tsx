@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../services/api";
 import { getPetsUser } from "../services/requests/getPetsUser";
+import { iBodyPatchPet, patchPet } from "../services/requests/patchPet";
 
 interface iPetProps {
   children: ReactNode;
@@ -78,6 +79,25 @@ export const PetProvider = ({ children }: iPetProps) => {
     }
   };
 
+  const handlePatchPet = async (
+    id: number,
+    body: iBodyPatchPet
+  ): Promise<void> => {
+    try {
+      await patchPet(id, body);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deletePet = async (id: number): Promise<void> => {
+    try {
+      await api.delete(`/pets/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <PetContext.Provider
       value={{
@@ -88,6 +108,8 @@ export const PetProvider = ({ children }: iPetProps) => {
         getPetById,
         getAllPets,
         createPet,
+        handlePatchPet,
+        deletePet,
       }}
     >
       {children}
