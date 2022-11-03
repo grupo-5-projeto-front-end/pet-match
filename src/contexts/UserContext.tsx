@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
-import { iBodyPatchUser, patchUser } from "../services/requests/patchUser";
+import { iBodyPatchUser } from "../services/requests/patchUser";
 import { toast } from "react-toastify";
 
 interface iUserProps {
@@ -38,7 +38,7 @@ interface iUserContext {
   onSubmitRegister: (body: iBodyRegister) => Promise<void>;
   onSubmitLogin: (body: iLoginRegister) => Promise<void>;
   getAllUsers: () => Promise<void>;
-  handlePatchUser: (id: number, body: iBodyPatchUser) => Promise<void>;
+  handlePatchUser: (body: iBodyPatchUser) => Promise<void>;
   handleDeleteUser: (id: number) => Promise<void>;
 }
 
@@ -49,7 +49,6 @@ export const UserProvider = ({ children }: iUserProps) => {
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
 
   const navigate = useNavigate();
-
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
     try {
       await api.post("/register", body);
@@ -87,17 +86,18 @@ export const UserProvider = ({ children }: iUserProps) => {
     }
   };
 
-  const handlePatchUser = async ( id: number,body: iBodyPatchUser
-  ): Promise<void> => {
+  const handlePatchUser = async ( body: iBodyPatchUser ): Promise<void> => {
     try {
-      const data = await patchUser(id, body);
-
+      const userId = localStorage.getItem("@petmatch:userid")
+      console.log(userId)
+      const { data } = await api.patch(`/users/${userId}`, body);
+      // const data = await patchUser(id, body);
+      console.log(data)
       setUser(data);
     } catch (error) {
       console.error(error);
     }
   };
-
   const handleDeleteUser = async (id: number): Promise<void> => {
     try {
       await api.delete(`/users/${id}`);

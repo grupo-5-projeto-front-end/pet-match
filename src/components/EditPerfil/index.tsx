@@ -6,10 +6,13 @@ import { StyledButton } from "../Button/style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Schema } from "./schema";
-import { iUseEdit } from "./interface";
 import { StyledInput } from "../../styles/StyledInput";
+import { useUserContext } from "../../contexts/UserContext";
+import { iUseEdit } from "./interface";
 
 export const EditPerfil = () => {
+  const { user, handlePatchUser } = useUserContext();
+
   const {
     register,
     handleSubmit,
@@ -18,19 +21,17 @@ export const EditPerfil = () => {
     resolver: yupResolver(Schema),
   });
 
-  const onSubmitEdit = (data: any) => {
-    console.log(data);
-  };
-
   return (
     <StyledBaseModal>
-      <StyledForm onSubmit={handleSubmit(onSubmitEdit)}>
+      <StyledForm onSubmit={handleSubmit((data)=>handlePatchUser(data))}>
+        
         <TiitleAndCloseModal text={"Editar Perfil"} />
 
         <StyledBoxInput>
           <label htmlFor="email">E-mail</label>
 
           <StyledInput
+            defaultValue={user?.email}
             type="text"
             id="email"
             placeholder="Digite eu e-mail"
@@ -43,9 +44,10 @@ export const EditPerfil = () => {
           <label htmlFor="name">Nome</label>
 
           <StyledInput
+            defaultValue={user?.name}
             id="name"
             type="text"
-            placeholder="Digite sua senha"
+            placeholder="Digite sua nome"
             {...register("name")}
           />
           <StyledError>{errors.name?.message} </StyledError>
@@ -56,6 +58,7 @@ export const EditPerfil = () => {
             <label htmlFor="adress">Cidade</label>
 
             <StyledInput
+              defaultValue={user?.adress}
               id="adress"
               type="text"
               placeholder="Digite a cidade"
@@ -67,7 +70,7 @@ export const EditPerfil = () => {
           <div className="Stat">
             <label htmlFor="city">Estado</label>
 
-            <select id="city" {...register("city")}>
+            <select defaultValue={user?.city} id="city" {...register("city")}>
               <option value="none">Estado</option>
               <option value="SP">SP</option>
               <option value="SP">RJ</option>
@@ -75,14 +78,14 @@ export const EditPerfil = () => {
             </select>
             <StyledError> {errors.city?.message} </StyledError>
           </div>
-
         </StyledBoxContentCidade>
 
         <StyledBoxInput>
           <label htmlFor="tel">Telefone</label>
 
           <StyledInput
-            type="text"
+            defaultValue={user?.tel}
+            type="number"
             placeholder="Digite seu telefone "
             {...register("tel")}
           />
@@ -91,8 +94,9 @@ export const EditPerfil = () => {
 
         <StyledBoxInput>
           <label htmlFor="avatar">Avatar</label>
-          
+
           <StyledInput
+            defaultValue={user?.avatar}
             id="avatar"
             type="text"
             placeholder="foto de perfil "

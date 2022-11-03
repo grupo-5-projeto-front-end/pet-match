@@ -5,12 +5,9 @@ import { StyledBoxContent } from "./style";
 interface iText {
   text: string;
 }
-
 export const TiitleAndCloseModal = ({ text }: iText) => {
 
-  const { modal, closeModal} =useModalContext()
-
-  
+  const {closeModal} =useModalContext()  
   return (
     <StyledBoxContent className="titleAndCloseModal">
       <h2>{text}</h2>

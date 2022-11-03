@@ -1,8 +1,10 @@
 export interface iUseEdit {
-  email: string;
-  name: string;
-  adress: string;
-  city: string;
-  tel: string;
-  avatar: String;
+  name?: string;
+  city?: string;
+  adress?: string;
+  email?: string;
+  password?: string;
+  tel?: string;
+  avatar?: string | null;
+  favoritePets?: [];
 }
