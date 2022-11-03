@@ -6,6 +6,7 @@ import { StyledDashboard } from "./style"
 import { BiSearch } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
+import { StyledPetCard } from "../../styles/petCard"
 
 export const Dashboard = () => {
     
@@ -26,11 +27,15 @@ export const Dashboard = () => {
 
                     <StyledCarrousel>
                         {allPets?.map(e => (
-                            <li>
-                                <img src={e.image[0]} alt="Imagem do dog"/>
-                                <h4>{e.name}</h4>
-                                <p>{e.bio}</p>
-                            </li>
+                            <StyledPetCard>
+                                <figure>
+                                    <img src={e.image[0]} alt="Imagem do dog"/>
+                                </figure>
+                                <div>
+                                    <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
+                                    <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
+                                </div>
+                            </StyledPetCard>
                         ))}
                     </StyledCarrousel>
             </section>

@@ -17,13 +17,6 @@ export const StyledDashboard = styled.div `
         display: flex;
         flex-direction: column;
 
-        ul {
-            li {
-                height: 325px;
-                min-width: 232px;
-            }
-        }
-
     }
 
     form {
