@@ -37,12 +37,34 @@ export const PetContext = createContext({});
 
 export const PetProvider = ({ children }: iPetProps) => {
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
+  const [currentPet, setCurrentPet] = useState<iPet | null>(null);
+  const [allPets, setAllPets] = useState<iPet[] | null>(null);
 
   const getAllPetsUser = async (id: number): Promise<void> => {
     try {
       const data = await getPetsUser(id);
 
       setUserPets(data.pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getPetById = async (id: number): Promise<void> => {
+    try {
+      const { data } = await api.get(`/pets/${id}`);
+
+      setCurrentPet(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getAllPets = async (): Promise<void> => {
+    try {
+      const { data } = await api.get("/pets");
+
+      setAllPets(data);
     } catch (error) {
       console.error(error);
     }
@@ -57,7 +79,17 @@ export const PetProvider = ({ children }: iPetProps) => {
   };
 
   return (
-    <PetContext.Provider value={{ userPets, getAllPetsUser, createPet }}>
+    <PetContext.Provider
+      value={{
+        userPets,
+        currentPet,
+        allPets,
+        getAllPetsUser,
+        getPetById,
+        getAllPets,
+        createPet,
+      }}
+    >
       {children}
     </PetContext.Provider>
   );
