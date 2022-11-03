@@ -1,12 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
-export const StyleGlobal = createGlobalStyle`
+export const StyledGlobal = createGlobalStyle`
 
 :root{
     --color-black:#242222;
     --color-gray: #EEEEEE;
-    --color-salmon:#ff5757;
-    --color-white:#fff  
+    --color-white: #fff;
+    --color-placeholder: #8A8787;
+	
+    --color-salmon: #ff5757;
+	--color-green: #3FE864;
+
+	--toastify-color-dark: var(--color-black);
+    --toastify-color-error: var(--color-salmon);
+    --toastify-color-success: var(--color-green);
 }
 
 html, body, div, span, applet, object, iframe,
