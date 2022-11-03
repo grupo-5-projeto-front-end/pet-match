@@ -5,8 +5,12 @@ import { StyledInput } from "../../styles/StyledInput"
 import { StyledDashboard } from "./style"
 import { BiSearch } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
+import { usePetContext } from "../../contexts/PetContext"
 
 export const Dashboard = () => {
+    
+    const { allPets } = usePetContext()
+    
     return (
         <StyledDashboard>
             <StyledHeader>
@@ -21,11 +25,13 @@ export const Dashboard = () => {
                 </form>
 
                     <StyledCarrousel>
-                        <li>
-                            {/* <img src="" alt="" />  Placeholder da imagem por enquanto*/}
-                            <h4>Nome do pet</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </li>
+                        {allPets?.map(e => (
+                            <li>
+                                <img src={e.image[0]} alt="Imagem do dog"/>
+                                <h4>{e.name}</h4>
+                                <p>{e.bio}</p>
+                            </li>
+                        ))}
                     </StyledCarrousel>
             </section>
             <section>

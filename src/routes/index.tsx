@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Dashboard } from '../pages/Dashboard';
 import { LoginPage } from '../pages/LoginPage';
-
 export const MainRoutes = () => (
   <Routes>
     <Route path={"/"} element={<h1>Landing Page</h1>}/>

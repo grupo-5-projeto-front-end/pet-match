@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { getPetsUser } from "../services/requests/getPetsUser";
 import { iBodyPatchPet, patchPet } from "../services/requests/patchPet";
@@ -49,9 +51,27 @@ export interface iPetContext {
 export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
+  const {pathname} = useLocation()
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
   const [allPets, setAllPets] = useState<iPet[] | null>(null);
+
+  // useEffect para renderizar os cards de pets na montagem da dashboard
+  useEffect(() => {
+    const loadPets = async () => {
+      try {
+        const {data} =  await api.get("/pets")
+        console.log(data)
+        setAllPets(data)
+      } catch (error) {
+        toast.error("Ops! Algo deu errado", {theme: "dark"})
+      }
+    };
+
+    if (pathname === "/dashboard") {
+      loadPets()
+    };
+  }, [pathname]);
 
   const getAllPetsUser = async (id: number): Promise<void> => {
     try {
