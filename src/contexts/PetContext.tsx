@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../services/api";
+import { getPetsUser } from "../services/requests/getPetsUser";
 
 interface iPetProps {
   children: ReactNode;
@@ -18,9 +19,35 @@ interface iCreatePetBody {
   visible: boolean;
 }
 
+export interface iPet {
+  userId: number;
+  name: string;
+  sex: string;
+  category: string;
+  breed: string;
+  age: string;
+  bio: string;
+  avatar: string;
+  image: string[];
+  visible: boolean;
+  id: number;
+}
+
 export const PetContext = createContext({});
 
 export const PetProvider = ({ children }: iPetProps) => {
+  const [userPets, setUserPets] = useState<iPet[] | null>(null);
+
+  const getAllPetsUser = async (id: number): Promise<void> => {
+    try {
+      const data = await getPetsUser(id);
+
+      setUserPets(data.pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
       await api.post("/pets", body);
@@ -30,7 +57,9 @@ export const PetProvider = ({ children }: iPetProps) => {
   };
 
   return (
-    <PetContext.Provider value={{ createPet }}>{children}</PetContext.Provider>
+    <PetContext.Provider value={{ userPets, getAllPetsUser, createPet }}>
+      {children}
+    </PetContext.Provider>
   );
 };
 
