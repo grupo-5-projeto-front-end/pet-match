@@ -68,11 +68,13 @@ export const UserProvider = ({ children }: iUserProps) => {
       window.localStorage.setItem("@petmatch:token", accessToken);
       window.localStorage.setItem("@petmatch:userid", user.id.toString());
       setUser(user);
-      toast.success("Login realizado com sucesso")
+      toast.success("Login realizado com sucesso", {theme: "dark"})
       navigate("/dashboard");
-    } catch (error) {
-      console.error(error);
-      toast.error("Ops! Algo deu errado")
+    } catch (error: any) {
+      console.log(error);
+      error.response.data == "Cannot find user" || "Incorrect password" || "Password is too short"? 
+      toast.error("Credenciais erradas", {theme: "dark"}) :
+      toast.error("Ops! Algo deu errado", {theme: "dark"})
     }
   };
 

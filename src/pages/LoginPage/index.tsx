@@ -72,13 +72,13 @@ export const LoginPage = () => {
             ></StyledInput>
             <StyledError>{errors.password?.message}</StyledError>
           </StyledInputContainer>
-           <StyledButton color="--color-white" fontSize="3" width="100%" height="70" background="--color-salmon">
+           <StyledButton color="--color-white" fontSize="2" width="100%" height="70" background="--color-salmon">
             Logar
           </StyledButton> 
           <span className="spanForgetMyPass">Esqueci minha senha</span>
           <span className="whiteLine"></span>
           <span className="spanDontHaveAcccount">Ainda não possuí conta?</span>
-           <StyledButton color="--color-white" fontSize="3" width="100%" height="70" background="--color-salmon">
+           <StyledButton color="--color-white" fontSize="2" width="100%" height="70" background="--color-salmon">
             Cadastre-se
           </StyledButton> 
         </StyledFormBase>
