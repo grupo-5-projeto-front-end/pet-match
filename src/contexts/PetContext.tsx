@@ -34,7 +34,19 @@ export interface iPet {
   id: number;
 }
 
-export const PetContext = createContext({});
+export interface iPetContext {
+  userPets: iPet[] | null;
+  currentPet: iPet | null;
+  allPets: iPet[] | null;
+  getAllPetsUser: (id: number) => Promise<void>;
+  getPetById: (id: number) => Promise<void>;
+  getAllPets: () => Promise<void>;
+  createPet: (body: iCreatePetBody) => Promise<void>;
+  handlePatchPet: (id: number, body: iBodyPatchPet) => Promise<void>;
+  deletePet: (id: number) => Promise<void>;
+}
+
+export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
@@ -117,7 +129,7 @@ export const PetProvider = ({ children }: iPetProps) => {
   );
 };
 
-export const usePetContext = () => {
+export const usePetContext = (): iPetContext => {
   const context = useContext(PetContext);
 
   return context;
