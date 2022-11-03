@@ -79,7 +79,7 @@ export const RegisterPage = () => {
             <label htmlFor="NameInput">Nome</label>
             <StyledInput
               id="NameInput"
-              placeholder="Digite sea Nome"
+              placeholder="Digite seu Nome"
               {...register("name")}
             ></StyledInput>
             <StyledError>{errors.name?.message}</StyledError>
