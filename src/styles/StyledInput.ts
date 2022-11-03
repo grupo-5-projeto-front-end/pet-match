@@ -13,7 +13,7 @@ export const StyledInput = styled.input`
 
     :focus {
         outline: none;
-        color: var(--color-gray);
+        color: var(--color-black);
         ::placeholder {
         color: var(--color-gray);
         opacity: 1; /* Firefox */
