@@ -10,7 +10,7 @@ interface iUserProps {
   children: ReactNode;
 }
 
-interface iBodyRegister {
+export interface iBodyRegister {
   name: string;
   city: string;
   adress: string;
@@ -52,9 +52,10 @@ export const UserProvider = ({ children }: iUserProps) => {
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
     try {
       await api.post("/register", body);
+      toast.success("Conta criada com sucesso!", { theme: "dark" })
       navigate("/login");
     } catch (error) {
-      console.error(error);
+      toast.error("Ops! Algo deu errado! Verifique os campos novamente!", { theme: "dark" })
     }
   };
 
