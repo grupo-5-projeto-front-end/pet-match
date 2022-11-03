@@ -10,8 +10,21 @@ import ImgPatinha from "../../assets/patinha.png";
 import { BrasilianStates } from "./BrazilianStates";
 import { useNavigate } from "react-router-dom";
 import { StyledSelect } from "../../styles/styledSelect";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { registerFormSchema as schema} from "./schema"
+import { useUserContext } from "../../contexts/UserContext";
+import { iBodyRegister } from "../../contexts/UserContext"
+import { toast } from "react-toastify";
 
 export const RegisterPage = () => {
+
+  const {onSubmitRegister} = useUserContext()
+
+  const { register, handleSubmit, formState: { errors },} = useForm<iBodyRegister>({
+    resolver: yupResolver(schema),
+  });
+  
 
   const navigate = useNavigate()
   return (
@@ -50,15 +63,16 @@ export const RegisterPage = () => {
           <h3>Bora encontrar o número daquela cadelinha?</h3>
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
-        <StyledFormBase>
+        <StyledFormBase onSubmit={handleSubmit(onSubmitRegister)}>
             <h2>Registro</h2>
           <StyledInputContainer>
             <label htmlFor="EmailInput">Email</label>
             <StyledInput
               id="EmailInput"
               placeholder="Digite seu E-mail"
+              {...register("email")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.email?.message}</StyledError>
           </StyledInputContainer>
 
           <StyledInputContainer>
@@ -66,17 +80,20 @@ export const RegisterPage = () => {
             <StyledInput
               id="NameInput"
               placeholder="Digite sea Nome"
+              {...register("name")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.name?.message}</StyledError>
           </StyledInputContainer>
 
           <StyledInputContainer>
             <label htmlFor="PassWordInput">Senha</label>
             <StyledInput
+              type="password"
               id="PassWordInput"
               placeholder="Digite sua Senha"
+              {...register("password")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.password?.message}</StyledError>
           </StyledInputContainer>
 
           <div className="selectContainer">
@@ -86,14 +103,17 @@ export const RegisterPage = () => {
                 <StyledInput
                   id="CityInput"
                   placeholder="Digite sua Cidade"
+                  {...register("city")}
                 ></StyledInput>
-                <StyledError></StyledError>
+                <StyledError>{errors.city?.message}</StyledError>
               </StyledInputContainer>
             </div>
             <div className="containerStates">
               <StyledInputContainer>
                 <label htmlFor="StateInput">Estado</label>
-                <StyledSelect id="StateInput">
+                <StyledSelect 
+                  id="StateInput"
+                  {...register("adress")}>
                   <BrasilianStates/>
                 </StyledSelect>
               </StyledInputContainer>
@@ -105,8 +125,9 @@ export const RegisterPage = () => {
             <StyledInput
               id="TelephoneInput"
               placeholder="Digite seu telefone"
+              {...register("tel")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.tel?.message}</StyledError>
           </StyledInputContainer>
 
           <StyledInputContainer>
@@ -114,8 +135,9 @@ export const RegisterPage = () => {
             <StyledInput
               id="AvatarInput"
               placeholder="Coloque sua foto"
+              {...register("avatar")}
             ></StyledInput>
-            <StyledError></StyledError>
+            <StyledError>{errors.avatar?.message}</StyledError>
           </StyledInputContainer>
 
           <StyledButton type="submit" color="--color-white" fontSize="2" width="100%" height="70" background="--color-salmon">
