@@ -12,8 +12,8 @@ import { LoadingAnimation } from "../../components/LoadingAnimation"
 
 export const Dashboard = () => {
     
-    const { allPets, loading } = usePetContext();
-    
+    const { allPets, loading, treatedSearch, setSearch } = usePetContext();
+
     if (loading) {
         return (
             <StyledLoadingDiv>
@@ -31,12 +31,22 @@ export const Dashboard = () => {
                 <StyledDashboard>
                     <section>
                         <form>
-                            <StyledInput placeholder="Pesquisar"/>
-                            <StyledButton fontSize="1.2" color="--color-white" width="50px" height="40" background="--color-salmon"><BiSearch/></StyledButton>
+                            <StyledInput placeholder="Pesquisar" onChange={event => setSearch(event.target.value)}/>
                         </form>
     
                             <StyledCarrousel>
-                                {allPets?.map(e => (
+                                {allPets?.filter(e => {
+                                    if (treatedSearch === "") {
+                                        return e
+                                    } else if (e.name.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.bio.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.sex.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.category.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.breed.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch)) {
+                                        return e
+                                    }
+                                })
+                                .map(e => (
                                     <StyledPetCard key={e.id}>
                                         <figure>
                                             <img src={e.image[0]} alt="Imagem do dog"/>

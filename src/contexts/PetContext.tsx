@@ -41,6 +41,7 @@ export interface iPetContext {
   currentPet: iPet | null;
   allPets: iPet[] | null;
   loading: boolean;
+  treatedSearch: string;
   getAllPetsUser: (id: number) => Promise<void>;
   getPetById: (id: number) => Promise<void>;
   getAllPets: () => Promise<void>;
@@ -48,6 +49,7 @@ export interface iPetContext {
   handlePatchPet: (id: number, body: iBodyPatchPet) => Promise<void>;
   deletePet: (id: number) => Promise<void>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const PetContext = createContext<iPetContext>({} as iPetContext);
@@ -59,6 +61,10 @@ export const PetProvider = ({ children }: iPetProps) => {
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
   const [allPets, setAllPets] = useState<iPet[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true)
+  const [search, setSearch] = useState<string>("")
+
+  // Tratamento do state search para pesquisa na dashboard 
+  const treatedSearch = search.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "")
 
   // useEffect para renderizar os cards de pets na montagem da dashboard
   useEffect(() => {
@@ -66,6 +72,7 @@ export const PetProvider = ({ children }: iPetProps) => {
       try {
         const { data } =  await api.get("/pets")
         setAllPets(data)
+        console.log(data)
       } catch (error: unknown) {
         toast.error("Ops! Algo deu errado. Faça seu login novamente!", {theme: "dark"})
         localStorage.clear()
@@ -144,13 +151,15 @@ export const PetProvider = ({ children }: iPetProps) => {
         currentPet,
         allPets,
         loading,
+        treatedSearch,
         getAllPetsUser,
         getPetById,
         getAllPets,
         createPet,
         handlePatchPet,
         deletePet,
-        setLoading
+        setLoading,
+        setSearch
       }}
     >
       {children}

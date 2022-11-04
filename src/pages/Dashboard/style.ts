@@ -41,17 +41,7 @@ export const StyledDashboard = styled.div `
         transition: .2s;
 
         input {
-            padding: 15px 50px 15px 15px;
-        }
-
-        button {
-            margin-left: -47px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            z-index: 2;
+            padding: 15px;
         }
     }
 
