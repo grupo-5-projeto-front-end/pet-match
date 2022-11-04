@@ -91,10 +91,11 @@ export const UserProvider = ({ children }: iUserProps) => {
     try {
       const userId = localStorage.getItem("@petmatch:userid")
       const { data } = await api.patch(`/users/${userId}`, body);
-      // const data = await patchUser(id, body);
+      toast.success("Editado com Suceso!", { theme: "dark" })
       setUser(data);
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", {theme: "dark"})
     }
   };
   const handleDeleteUser = async (id: number): Promise<void> => {

@@ -105,7 +105,6 @@ export const PetProvider = ({ children }: iPetProps) => {
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
       await api.post("/pets", body);
-      console.log("chama nenem")
     } catch (error) {
       console.error(error);
       toast.error("Ops! Algo deu errado", {theme: "dark"})

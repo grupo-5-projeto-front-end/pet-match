@@ -5,21 +5,20 @@ export const StyledFormPet = styled(StyledFormBase)`
   width: 90%;
   gap: 6px;
 
-  input{
+  input {
     width: 100%;
     border-radius: 5px;
     padding: 3px 5px;
     font-size: 1rem;
-    color:var(--color-placeholder);
+    color: var(--color-placeholder);
     background-color: var(--color-gray);
   }
-  .userId{
-    display:none
+  .userId {
+    display: none;
   }
 `;
 
 export const StyledTitleAddPet = styled.div`
-
   display: flex;
   justify-content: space-between;
   color: var(--color-white);
@@ -36,11 +35,11 @@ export const StyledSexAndCategory = styled.div`
   width: 100%;
   display: flex;
   select {
-      font-size: 1rem;
-      border-radius: 5px;
-      height: 45px;
-      background-color: var(--color-gray);
-    }
+    font-size: 1rem;
+    border-radius: 5px;
+    height: 45px;
+    background-color: var(--color-gray);
+  }
 
   label {
     color: var(--color-white);
@@ -71,7 +70,7 @@ export const StyledSexAndCategory = styled.div`
     }
   }
   .sex {
-    display:flex;
+    display: flex;
     flex-direction: column;
     select {
       font-size: 1rem;
