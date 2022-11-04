@@ -72,7 +72,6 @@ export const PetProvider = ({ children }: iPetProps) => {
       try {
         const { data } =  await api.get("/pets")
         setAllPets(data)
-        console.log(data)
       } catch (error: unknown) {
         toast.error("Ops! Algo deu errado. Faça seu login novamente!", {theme: "dark"})
         localStorage.clear()
