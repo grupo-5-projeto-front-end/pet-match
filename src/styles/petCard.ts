@@ -54,6 +54,14 @@ export const StyledPetCard = styled.li `
             position: relative;
             top: -40px;
             left: -43px;
+
+            @media all and (min-width: 768px) {
+                left: -9px;
+            }
+
+            @media all and (min-width: 1024px) {
+                left: -31px;
+            }
         }
     
         p {
@@ -63,6 +71,17 @@ export const StyledPetCard = styled.li `
             top: -10px;
             text-align: center;
         }
+    }
+
+    @media all and (min-width: 768px) {
+        height: 326px;
+        min-width: 160px;
+        max-width: 180px;
+    }
+
+    @media all and (min-width: 1024px) {
+        min-width: 210px;
+        max-width: 210px;
     }
 
 `

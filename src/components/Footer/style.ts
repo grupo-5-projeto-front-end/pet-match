@@ -9,8 +9,8 @@ export const StyledFooter = styled.footer`
     align-items: center;
     justify-content: center;
 
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    bottom: -54px;
     left: 0;
 
     background-color: var(--color-black);

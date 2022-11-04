@@ -17,9 +17,9 @@ export const Dashboard = () => {
             <StyledHeader>
                     <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
                     <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
-                </StyledHeader>
-            <StyledDashboard>
+            </StyledHeader>
 
+            <StyledDashboard>
                 <section>
                     <form>
                         <StyledInput placeholder="Pesquisar"/>
@@ -41,9 +41,10 @@ export const Dashboard = () => {
                         </StyledCarrousel>
                 </section>
                 <section>
-                    {/* <div className="suggestions">
+                    <div>
                         SUGESTÕES
-                    </div> PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
+                    </div> 
+                    {/* PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
 
                     <div className="sponsor">
                         <div className="sponsor__text">
@@ -54,8 +55,9 @@ export const Dashboard = () => {
                         <p>Parceiro oficial para adoção de amiguinhos</p>
                     </div>
                 </section>
-                <Footer/>
             </StyledDashboard>
+
+            <Footer/>
         </>
     );
 };

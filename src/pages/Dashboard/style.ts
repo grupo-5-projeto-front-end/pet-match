@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
     width: 93%;
+    height: 800px;
     margin: 0 auto;
 
     display: flex;
@@ -116,5 +117,17 @@ export const StyledDashboard = styled.div `
                     width: 70px;
                 }
             }
+    }
+
+    @media all and (min-width: 768px) {
+        width: 97%;
+        flex-direction: row;
+        gap: 20px;
+
+        margin: 50px auto 0 auto;
+
+        section {
+            width: 45%;
+        }
     }
 `
