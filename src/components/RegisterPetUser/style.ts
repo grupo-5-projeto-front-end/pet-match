@@ -1,28 +1,28 @@
 import styled from "styled-components";
-import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledFormBase } from "../../styles/styledFormBase";
 
 export const StyledFormPet = styled(StyledFormBase)`
   width: 90%;
   gap: 6px;
-  /* align-items: center; */
 
-  input {
+  input{
     width: 100%;
-    /* height: 40px; */
     border-radius: 5px;
-    padding: 6px 5px;
+    padding: 3px 5px;
+    font-size: 1rem;
+    color:var(--color-placeholder);
+    background-color: var(--color-gray);
+  }
+  .userId{
+    display:none
   }
 `;
 
 export const StyledTitleAddPet = styled.div`
-  max-width: 516px;
-  min-width: 250px;
+
   display: flex;
   justify-content: space-between;
   color: var(--color-white);
-  /* gap: 1rem; */
-
   cursor: pointer;
 
   span {
@@ -35,6 +35,12 @@ export const StyledTitleAddPet = styled.div`
 export const StyledSexAndCategory = styled.div`
   width: 100%;
   display: flex;
+  select {
+      font-size: 1rem;
+      border-radius: 5px;
+      height: 45px;
+      background-color: var(--color-gray);
+    }
 
   label {
     color: var(--color-white);
@@ -45,9 +51,11 @@ export const StyledSexAndCategory = styled.div`
   }
 
   .category {
-    width: 74%;
-    input {
-      width: 93%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    select {
+      width: 98%;
     }
     label {
       color: var(--color-white);
@@ -57,14 +65,14 @@ export const StyledSexAndCategory = styled.div`
     @media all and (min-width: 480px) {
       input {
         width: 98%;
-     
       }
       margin-right: 10px;
+      width: 74%;
     }
   }
   .sex {
-    width: 20%;
-
+    display:flex;
+    flex-direction: column;
     select {
       font-size: 1rem;
       border-radius: 5px;

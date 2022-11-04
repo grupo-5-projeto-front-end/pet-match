@@ -4,38 +4,45 @@ interface iChildren {
   children: ReactNode;
 }
 
-interface iModalProvider{
-    modal: boolean;
-    typeModal:string;
-    openModal: (open:string)=>void;
-    closeModal: ()=>void;
+interface iModalProvider {
+  isModal: boolean;
+  isModalCreatPet:boolean;
+  openModal: () => void;
+  closeModal: () => void;
+  openCreatPet: () => void;
+  closeCreatPet: () => void;
 }
 
 export const ModalContext = createContext<iModalProvider>({} as iModalProvider);
 export const ModalProvider = ({ children }: iChildren) => {
+  const [isModal, isSetModal] = useState(false);
+  const [isModalCreatPet , SetModalCreatPet ] = useState(false);
 
-  const [modal, isSetModal] = useState(false);
-
-  const [typeModal, setTypeModal] = useState("");
-
-  const openModal = (open:string) => {
-    setTypeModal("1")
-    isSetModal(!modal);
+  const openModal = () => {
+    isSetModal(!isModal);
   };
 
   const closeModal = () => {
-    isSetModal(!modal);
+    isSetModal(!isModal);
   };
 
-  return( 
-    <ModalContext.Provider value={{modal, typeModal, openModal, closeModal}}>
-        {children}
+  const openCreatPet = () => {
+    SetModalCreatPet(!isModalCreatPet);
+  };
+
+  const closeCreatPet = () => {
+    SetModalCreatPet(!isModalCreatPet);
+  };
+
+  return (
+    <ModalContext.Provider value={{ isModal , openModal, closeModal, isModalCreatPet, openCreatPet, closeCreatPet }}>
+      {children}
     </ModalContext.Provider>
-  )
+  );
 };
 
 export const useModalContext = (): iModalProvider => {
-    const context = useContext(ModalContext);
-  
-    return context;
-  };
+  const context = useContext(ModalContext);
+
+  return context;
+};

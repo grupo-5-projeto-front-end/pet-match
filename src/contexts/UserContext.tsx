@@ -72,7 +72,7 @@ export const UserProvider = ({ children }: iUserProps) => {
       navigate("/dashboard");
     } catch (error: any) {
       console.log(error);
-      error.response.data == "Cannot find user" || "Incorrect password" || "Password is too short"? 
+      error.response.data === "Cannot find user" || "Incorrect password" || "Password is too short"? 
       toast.error("Credenciais erradas", {theme: "dark"}) :
       toast.error("Ops! Algo deu errado", {theme: "dark"})
     }
@@ -90,10 +90,8 @@ export const UserProvider = ({ children }: iUserProps) => {
   const handlePatchUser = async ( body: iBodyPatchUser ): Promise<void> => {
     try {
       const userId = localStorage.getItem("@petmatch:userid")
-      console.log(userId)
       const { data } = await api.patch(`/users/${userId}`, body);
       // const data = await patchUser(id, body);
-      console.log(data)
       setUser(data);
     } catch (error) {
       console.error(error);

@@ -47,7 +47,7 @@ export const LoginPage = () => {
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </p>
-          <h3>Bora encontrar o número daquela cadelinha?</h3>
+          <h3>Bora encontrar o número daquela cachorrinha?</h3>
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
         <StyledFormBase onSubmit={handleSubmit(onSubmitLogin)}>

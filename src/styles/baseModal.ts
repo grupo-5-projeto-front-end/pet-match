@@ -6,6 +6,7 @@ background-color: hsla(0, 0%, 0%, 0.701) ;
 
 position: absolute;
 top: 0;
+z-index: 5;
 
 display: flex;
 align-items: center;

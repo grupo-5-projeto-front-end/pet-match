@@ -9,57 +9,60 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledButton } from "../Button/style";
 import { Schema } from "./schema";
+import { CategoryPet } from "./categoryPet";
+import { iCreatePetBody, usePetContext } from "../../contexts/PetContext";
 
 export const RegisterPetUser = () => {
-  const { closeModal } = useModalContext();
-
+  const { closeCreatPet } = useModalContext();
+  const { createPet } = usePetContext();
+  const userId =  localStorage.getItem("@petmatch:userid");
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(Schema)
+  } = useForm<iCreatePetBody>({
+   resolver: yupResolver(Schema)
   });
-
+  
   return (
     <StyledBaseModal>
-      <StyledFormPet>
-
- 
+      <StyledFormPet encType="multipart/form-data" onSubmit={(handleSubmit(createPet))}>
+        
         <StyledTitleAddPet>
           <h2>Adicionar Pet</h2>
           <span>
-            <GrClose onClick={()=>closeModal()}/>
+            <GrClose onClick={()=>closeCreatPet()}/>
           </span>
         </StyledTitleAddPet>
-          
- 
-       
-
+        
         <StyledInputContainer>
           <label htmlFor="name">Nome</label>
-
+          <StyledInput className="userId" value={`${userId}`} {...register("userId")} />
           <StyledInput id="name" type="text" placeholder="Digite nome do pet" {...register("name")} />
-          {/* <StyledError>{errors.name?.message}  </StyledError>  */}
+          <StyledError>{errors.name?.message}  </StyledError> 
         </StyledInputContainer>
 
         <StyledInputContainer>
-          <label htmlFor="breed">Nome do pet</label>
+          <label htmlFor="age">Idade</label>
+          <StyledInput id="age" type="number" placeholder="Digite idade pet" {...register("age")} />
+          <StyledError>{errors.age?.message}  </StyledError> 
+        </StyledInputContainer>
+
+        <StyledInputContainer>
+          <label htmlFor="breed">Raça</label>
 
           <StyledInput id="breed" type="text" placeholder="Digite a raça"  {...register("breed")} />
-          {/* <StyledError>{errors.raça?.message}  </StyledError> */}
+          <StyledError>{errors.breed?.message}  </StyledError>
         </StyledInputContainer>
 
         <StyledSexAndCategory>
         <div className="category">
             <label htmlFor="category">Categoria</label>
-            <StyledInput
-              id="category"
-              type="text"
-              placeholder="Digite a Categoria"
-              {...register("category")}
-            />
-            {/* <StyledError> {errors.category?.message} </StyledError> */}
+            <select id="category"  {...register("category")}>
+              <CategoryPet/>
+            </select>
+           
+            <StyledError> {errors.category?.message} </StyledError>
           </div>
 
           <div className="sex">
@@ -71,21 +74,27 @@ export const RegisterPetUser = () => {
               <option value="M">M</option>
             
             </select>
-            {/* <StyledError> {errors.city?.message} </StyledError> */}
+            <StyledError> {errors.sex?.message} </StyledError>
           </div>
         </StyledSexAndCategory>
 
        
         <StyledInputContainer>
-          <label htmlFor="avatar">Foto perfil do pet</label>
-          <StyledInput id="avatar" type="text" placeholder="InserirU url foto"  {...register("avatar")} />
-          <StyledError>teste </StyledError>          
+          <label   htmlFor="avatar">Foto perfil pet</label>
+          <StyledInput id="avatar" type="text" accept="image/*"  placeholder="Inserir url/foto"  {...register("avatar")} />
+          <StyledError> {errors.avatar?.message} </StyledError>         
+        </StyledInputContainer>
+
+        <StyledInputContainer>
+          <label  htmlFor="image">Fotos do pet</label>
+          <StyledInput id="image" type="file" accept="image/*"  multiple placeholder="Inserir url/foto"  {...register("image")} />
+          <StyledError> {errors.image?.message} </StyledError>          
         </StyledInputContainer>
 
         <StyledInputContainer>
           <label htmlFor="bio">bio do pet</label>
-          <StyledInput id="bio" type="text" placeholder="Fale sobre seu pet"  {...register("bio")} />
-          <StyledError>teste </StyledError>          
+          <StyledInput id="bio" type="text"  placeholder="Fale sobre seu pet"  {...register("bio")} />
+          <StyledError> {errors.bio?.message} </StyledError>          
         </StyledInputContainer>
         <div className="boxBtn">
           <StyledButton

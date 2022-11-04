@@ -1,16 +1,20 @@
 import { MainRoutes } from "./routes";
 import { UserProvider } from "./contexts/UserContext";
-import { RegisterPetUser } from "./components/RegisterPetUser/intex";
-import { useModalContext } from "./contexts/ModalContext";
+import { PetProvider } from "./contexts/PetContext";
+import { ModalProvider} from "./contexts/ModalContext";
+
 
 function App() {
 
-  const {modal,typeModal, openModal} = useModalContext()
 
   return (
     <>
       <UserProvider>
-        <MainRoutes />
+        <PetProvider>
+          <ModalProvider>
+            <MainRoutes />
+          </ModalProvider>
+        </PetProvider>
       </UserProvider>
     </>
   );
