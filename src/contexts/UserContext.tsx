@@ -5,6 +5,7 @@ import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
 import { iBodyPatchUser } from "../services/requests/patchUser";
 import { toast } from "react-toastify";
+import { useModalContext } from "./ModalContext";
 
 interface iUserProps {
   children: ReactNode;
@@ -45,6 +46,7 @@ interface iUserContext {
 export const UserContext = createContext<iUserContext>({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProps) => {
+  const { closeModal } = useModalContext();
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
 
@@ -92,6 +94,7 @@ export const UserProvider = ({ children }: iUserProps) => {
       const userId = localStorage.getItem("@petmatch:userid")
       const { data } = await api.patch(`/users/${userId}`, body);
       toast.success("Editado com Suceso!", { theme: "dark" })
+      closeModal()
       setUser(data);
     } catch (error) {
       console.error(error);

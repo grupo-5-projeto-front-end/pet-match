@@ -16,7 +16,6 @@ export const Dashboard = () => {
       <StyledHeader>
         <div>Dropdown</div>{" "}
         {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
-
         <StyledButton
           fontSize="1.2"
           color="--color-white"
@@ -47,6 +46,7 @@ export const Dashboard = () => {
             {allPets?.map((e) => (
               <StyledPetCard>
                 <figure>
+                  {/* trocar para avatar */}
                   <img src={e.image[0]} alt="Imagem do dog" />
                 </figure>
                 <div>

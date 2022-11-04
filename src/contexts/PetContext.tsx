@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { getPetsUser } from "../services/requests/getPetsUser";
 import { iBodyPatchPet, patchPet } from "../services/requests/patchPet";
+import { useModalContext } from "./ModalContext";
 
 interface iPetProps {
   children: ReactNode;
@@ -51,6 +52,7 @@ export interface iPetContext {
 export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
+  const { closeCreatPet } = useModalContext();
   const {pathname} = useLocation()
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
@@ -105,6 +107,8 @@ export const PetProvider = ({ children }: iPetProps) => {
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
       await api.post("/pets", body);
+      toast.success("Pet adicionado com sucesso!", { theme: "dark" })
+      closeCreatPet()
     } catch (error) {
       console.error(error);
       toast.error("Ops! Algo deu errado", {theme: "dark"})
