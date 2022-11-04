@@ -6,17 +6,20 @@ interface iChildren {
 
 interface iModalProvider{
     modal: boolean;
-    openModal: ()=>void;
+    typeModal:string;
+    openModal: (open:string)=>void;
     closeModal: ()=>void;
 }
-
 
 export const ModalContext = createContext<iModalProvider>({} as iModalProvider);
 export const ModalProvider = ({ children }: iChildren) => {
 
   const [modal, isSetModal] = useState(false);
 
-  const openModal = () => {
+  const [typeModal, setTypeModal] = useState("");
+
+  const openModal = (open:string) => {
+    setTypeModal("1")
     isSetModal(!modal);
   };
 
@@ -25,7 +28,7 @@ export const ModalProvider = ({ children }: iChildren) => {
   };
 
   return( 
-    <ModalContext.Provider value={{modal, openModal, closeModal}}>
+    <ModalContext.Provider value={{modal, typeModal, openModal, closeModal}}>
         {children}
     </ModalContext.Provider>
   )

@@ -13,7 +13,7 @@ export const TiitleAndCloseModal = ({ text }: iText) => {
       <h2>{text}</h2>
 
      <span>
-        <GrClose onClick={()=>closeModal()} />
+        <GrClose onClick={()=>[closeModal(), ]} />
      </span>
   
     </StyledBoxContent>
