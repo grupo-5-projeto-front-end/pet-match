@@ -2,15 +2,18 @@ import styled from "styled-components";
 
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
+    width: 93%;
+    margin: 0 auto;
 
-    header {
-        button {
-            margin-right: 8vw;
-        }
-    }
+    display: flex;
+    flex-direction: column;
 
     section {
-        width: 90%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         margin: 0 auto;
 
@@ -20,9 +23,9 @@ export const StyledDashboard = styled.div `
     }
 
     form {
-        width: 260px;
+        width: 100%;
         
-        margin: 18px auto;
+        margin: 18px 0;
 
         display: flex;
         align-items: center;
@@ -47,7 +50,7 @@ export const StyledDashboard = styled.div `
     .sponsor {
         height: 150px;
         width: 100%;
-        max-width: 470px;
+        max-width: 700px;
 
         background-color: var(--color-black);
 
@@ -101,7 +104,7 @@ export const StyledDashboard = styled.div `
 
     @media all and (min-width: 480px) {
             form {
-                width: 400px;
+                max-width: 700px;
 
                 input {
                     padding: 15px 70px 15px 15px;

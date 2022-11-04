@@ -13,51 +13,49 @@ export const Dashboard = () => {
     const { allPets } = usePetContext()
     
     return (
-        <StyledDashboard>
+        <>
             <StyledHeader>
-                <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
-                <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
-            </StyledHeader>
+                    <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
+                    <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
+                </StyledHeader>
+            <StyledDashboard>
 
-            <section>
-                <form>
-                    <StyledInput placeholder="Pesquisar"/>
-                    <StyledButton fontSize="1.2" color="--color-white" width="50px" height="40" background="--color-salmon"><BiSearch/></StyledButton>
-                </form>
+                <section>
+                    <form>
+                        <StyledInput placeholder="Pesquisar"/>
+                        <StyledButton fontSize="1.2" color="--color-white" width="50px" height="40" background="--color-salmon"><BiSearch/></StyledButton>
+                    </form>
 
-                    <StyledCarrousel>
-                        {allPets?.map(e => (
-                            <StyledPetCard>
-                                <figure>
-                                    <img src={e.image[0]} alt="Imagem do dog"/>
-                                </figure>
-                                <div>
-                                    <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
-                                    <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
-                                </div>
-                            </StyledPetCard>
-                        ))}
-                    </StyledCarrousel>
-            </section>
-            <section>
-                {/* <div className="suggestions">
-                    SUGESTÕES
-                </div> PLACEHOLDER DO COMPONENTE DE SUGESTÕES */}
+                        <StyledCarrousel>
+                            {allPets?.map(e => (
+                                <StyledPetCard>
+                                    <figure>
+                                        <img src={e.image[0]} alt="Imagem do dog"/>
+                                    </figure>
+                                    <div>
+                                        <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
+                                        <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
+                                    </div>
+                                </StyledPetCard>
+                            ))}
+                        </StyledCarrousel>
+                </section>
+                <section>
+                    {/* <div className="suggestions">
+                        SUGESTÕES
+                    </div> PLACEHOLDER DO COMPONENTE DE SUGESTÕES */}
 
-                <div className="sponsor">
-                    <div className="sponsor__text">
-                        <h4>Patrocinado</h4>
-                        <h3>ONLY PETS</h3>
+                    <div className="sponsor">
+                        <div className="sponsor__text">
+                            <h4>Patrocinado</h4>
+                            <h3>ONLY PETS</h3>
+                        </div>
+                        <div className="sponsor__divider"></div>
+                        <p>Parceiro oficial para adoção de amiguinhos</p>
                     </div>
-                    <div className="sponsor__divider"></div>
-                    <p>Parceiro oficial para adoção de amiguinhos</p>
-                </div>
-            </section>
-                <div className="carrousel_suggestions">
-
-                </div>
-
-            <Footer/>
-        </StyledDashboard>
+                </section>
+                <Footer/>
+            </StyledDashboard>
+        </>
     )
 }

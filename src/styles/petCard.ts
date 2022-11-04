@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledPetCard = styled.li `
     height: 305px;
     min-width: 232px;
+    max-width: 232px;
 
     display: flex;
     flex: 1 1 0;
