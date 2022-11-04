@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from '../pages/LoginPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
 import { RegisterPage } from '../pages/RegisterPage'
-
 
 export const MainRoutes = () => (
   <Routes>
@@ -10,6 +10,7 @@ export const MainRoutes = () => (
     <Route path={"/register"} element={<RegisterPage/>}/> 
     <Route path={"/dashboard"} element={<h1>Dashboard</h1>} />
     <Route path={"/dashboard/pet"} element={<h1>Visualizar Pet</h1>} />
-    <Route path={"*"} element={<h1>Rota não autorizada</h1>}/>
-  </Routes> 
+    <Route path={"*"} element={<NotFoundPage/>}/>
+  </Routes>
+
 )
