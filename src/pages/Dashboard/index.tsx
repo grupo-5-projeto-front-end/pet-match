@@ -28,7 +28,7 @@ export const Dashboard = () => {
 
                         <StyledCarrousel>
                             {allPets?.map(e => (
-                                <StyledPetCard>
+                                <StyledPetCard key={e.id}>
                                     <figure>
                                         <img src={e.image[0]} alt="Imagem do dog"/>
                                     </figure>

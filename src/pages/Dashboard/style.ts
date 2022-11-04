@@ -120,7 +120,7 @@ export const StyledDashboard = styled.div `
     }
 
     @media all and (min-width: 768px) {
-        width: 97%;
+        width: 94%;
         flex-direction: row;
         gap: 20px;
 
