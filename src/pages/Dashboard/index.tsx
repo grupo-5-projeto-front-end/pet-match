@@ -49,7 +49,7 @@ export const Dashboard = () => {
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
                                         <figure>
-                                            <img src={e.image[0]} alt="Imagem do dog"/>
+                                            <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>
                                         <div>
                                             <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
