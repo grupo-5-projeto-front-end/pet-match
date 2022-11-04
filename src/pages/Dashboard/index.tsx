@@ -3,7 +3,6 @@ import { Footer } from "../../components/Footer"
 import { StyledHeader } from "../../styles/header"
 import { StyledInput } from "../../styles/StyledInput"
 import { StyledDashboard, StyledLoadingDiv } from "./style"
-import { BiSearch } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
 import { StyledPetCard } from "../../styles/petCard"
@@ -44,7 +43,8 @@ export const Dashboard = () => {
                                     e.category.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
                                     e.breed.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch)) {
                                         return e
-                                    }
+                                    } 
+                                    return null
                                 })
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
