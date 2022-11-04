@@ -12,7 +12,6 @@ export const StyledDashboard = styled.div `
     width: 93%;
     height: 800px;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
 

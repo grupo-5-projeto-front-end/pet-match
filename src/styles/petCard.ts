@@ -27,6 +27,8 @@ export const StyledPetCard = styled.li `
 
 
     div {
+        width: 100%;
+        height: 70px;
         background-color: #f5f5f5;
         border: 1px solid var(--color-black);
         border-radius: 0 0 8px 8px; 
