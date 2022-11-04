@@ -60,10 +60,9 @@ export const PetProvider = ({ children }: iPetProps) => {
   useEffect(() => {
     const loadPets = async () => {
       try {
-        const {data} =  await api.get("/pets")
-        console.log(data)
+        const { data } =  await api.get("/pets")
         setAllPets(data)
-      } catch (error) {
+      } catch (error: unknown) {
         toast.error("Ops! Algo deu errado", {theme: "dark"})
       }
     };

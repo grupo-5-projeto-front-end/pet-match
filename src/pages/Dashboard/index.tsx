@@ -10,7 +10,7 @@ import { StyledPetCard } from "../../styles/petCard"
 
 export const Dashboard = () => {
     
-    const { allPets } = usePetContext()
+    const { allPets } = usePetContext();
     
     return (
         <>
@@ -43,7 +43,7 @@ export const Dashboard = () => {
                 <section>
                     {/* <div className="suggestions">
                         SUGESTÕES
-                    </div> PLACEHOLDER DO COMPONENTE DE SUGESTÕES */}
+                    </div> PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
 
                     <div className="sponsor">
                         <div className="sponsor__text">
@@ -57,5 +57,5 @@ export const Dashboard = () => {
                 <Footer/>
             </StyledDashboard>
         </>
-    )
-}
+    );
+};
