@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { StyledUserMenu, StyledLink } from "./style";
-import { StyleButton } from "../Button/style";
+import { StyledButton } from "../Button/style";
 
 const Logo = require("./Logo.png");
 
@@ -54,7 +54,7 @@ const UserMenu = () => {
             exit={{ y: -200 }}
             initial={{ y: -200 }}
           >
-            <StyleButton
+            <StyledButton
               width="100%"
               height="36"
               background="--color-salmon"
@@ -62,8 +62,8 @@ const UserMenu = () => {
               color="--color-white"
             >
               Editar perfil
-            </StyleButton>
-            <StyleButton
+            </StyledButton>
+            <StyledButton
               width="100%"
               height="36"
               background="--color-salmon"
@@ -71,7 +71,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Cadastrar pet
-            </StyleButton>
+            </StyledButton>
             <StyledLink
               to="/dashboard/pet"
               width="100%"
@@ -120,7 +120,7 @@ const UserMenu = () => {
               </div>
               <h3>{user?.name ? user.name : "Nome do perfil"}</h3>
             </div>
-            <StyleButton
+            <StyledButton
               width="100%"
               height="36"
               background="--color-salmon"
@@ -128,8 +128,8 @@ const UserMenu = () => {
               color="--color-white"
             >
               Editar perfil
-            </StyleButton>
-            <StyleButton
+            </StyledButton>
+            <StyledButton
               width="100%"
               height="36"
               background="--color-salmon"
@@ -137,7 +137,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Cadastrar pet
-            </StyleButton>
+            </StyledButton>
             <StyledLink
               to="/dashboard/pet"
               width="100%"
