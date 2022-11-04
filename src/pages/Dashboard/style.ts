@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const StyledLoadingDiv = styled.div `
+    height: 800px;
+    width: 95%;
+
+    margin: 0 auto;
+`
+
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
     width: 93%;
@@ -120,14 +127,14 @@ export const StyledDashboard = styled.div `
     }
 
     @media all and (min-width: 768px) {
-        width: 94%;
+        width: 98%;
         flex-direction: row;
         gap: 20px;
 
         margin: 50px auto 0 auto;
 
         section {
-            width: 45%;
+            width: 48%;
         }
     }
 `

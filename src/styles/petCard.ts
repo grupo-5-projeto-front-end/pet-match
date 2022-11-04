@@ -75,7 +75,7 @@ export const StyledPetCard = styled.li `
 
     @media all and (min-width: 768px) {
         height: 326px;
-        min-width: 160px;
+        min-width: 140px;
         max-width: 180px;
     }
 
