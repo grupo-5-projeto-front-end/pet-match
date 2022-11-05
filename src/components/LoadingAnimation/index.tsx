@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const dogPaw = require("../../assets/patinha.png");
 
-const LoadingAnimation = () => {
+export const LoadingAnimation = () => {
   return (
     <StyledAnimation>
       <motion.div
@@ -57,5 +57,3 @@ const LoadingAnimation = () => {
     </StyledAnimation>
   );
 };
-
-export default LoadingAnimation;

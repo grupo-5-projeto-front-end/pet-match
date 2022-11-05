@@ -2,11 +2,15 @@ import styled from "styled-components"
 
 export const StyledNotFoundPage = styled.div`
 
-    div{
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+
+gap: 10px;
+height: 100vh;
+div{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75vh;
     }
 
     header{
@@ -21,9 +25,10 @@ export const StyledNotFoundPage = styled.div`
         align-items: center;
         justify-content: center;
         background-color: var(--color-black);
-        padding: 30px;
+        padding: 8vh;
         gap: 10px;
-        margin-top: 19vh;
+        height: 45vh;
+       
 
         h1{
             color: var(--color-white);
@@ -33,6 +38,7 @@ export const StyledNotFoundPage = styled.div`
         figure{
             
             width: 100%;
+            max-height: 90%;
             display: flex;
             justify-content: center;
 

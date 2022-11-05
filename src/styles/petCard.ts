@@ -27,6 +27,8 @@ export const StyledPetCard = styled.li `
 
 
     div {
+        width: 100%;
+        height: 70px;
         background-color: #f5f5f5;
         border: 1px solid var(--color-black);
         border-radius: 0 0 8px 8px; 
@@ -75,7 +77,7 @@ export const StyledPetCard = styled.li `
 
     @media all and (min-width: 768px) {
         height: 326px;
-        min-width: 160px;
+        min-width: 140px;
         max-width: 180px;
     }
 

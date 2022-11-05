@@ -40,6 +40,8 @@ footer, header, menu, nav, section {
 }
 body {
 	line-height: 1;
+	width: 100vw;
+	overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -56,10 +58,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body{
-	width: 100vw;
-}
-
 img{
 	max-width: 100%;
 }
