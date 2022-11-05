@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledAnimation = styled.div`
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
