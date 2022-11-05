@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { iStyledLinkProps } from "./interface";
+import { iStyledMenuProps } from "./interface";
 
-export const StyledUserMenu = styled.div`
+export const StyledUserMenu = styled.div<iStyledMenuProps>`
   display: flex;
   flex-direction: column;
 
@@ -10,6 +11,8 @@ export const StyledUserMenu = styled.div`
   width: 270px;
   max-width: 100%;
   height: 100%;
+
+  z-index: 0;
 
   background-color: var(--color-black);
 
@@ -77,11 +80,9 @@ export const StyledUserMenu = styled.div`
     gap: 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     .menuButtons {
-      top: 40px;
-      max-width: 100%;
-      margin-right: 10px;
+      top: 50px;
     }
 
     & > div:first-child {
@@ -92,7 +93,17 @@ export const StyledUserMenu = styled.div`
       width: 100px;
     }
   }
+
+  @media (max-width: 375px) {
+    .menuButtons {
+      width: ${({ width }) => `${width}px`};
+    }
+
+
+  }
+
 `;
+
 
 export const StyledLink = styled(Link)<iStyledLinkProps>`
   display: flex;
