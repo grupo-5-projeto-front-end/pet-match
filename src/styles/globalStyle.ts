@@ -41,7 +41,6 @@ footer, header, menu, nav, section {
 body {
 	line-height: 1;
 	width: 100vw;
-	overflow: hidden;
 }
 ol, ul {
 	list-style: none;
