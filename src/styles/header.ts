@@ -8,9 +8,24 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     transition: .2s;
+    padding: 0 100px;
+    z-index: 3;
+
+    @media all and (max-width: 600px) {
+        height: 50px;
+        padding: 0 17px;
+    }
 
     @media all and (max-width: 480px) {
         height: 50px;
+    }
+
+    @media all and (max-width: 375px) {
+        padding: 0;
+        .logoutButton {
+            margin-inline:15px;
+            z-index: 3;
+        }
     }
 
 `;

@@ -58,6 +58,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 img{
 	max-width: 100%;
 }
@@ -65,4 +66,14 @@ img{
 input{
 	outline: none;
 }
+
+#root {
+	width: 100%;
+	max-width: 100%;
+}
+
+::-webkit-scrollbar { 
+display: none; 
+}
+
 `;

@@ -5,3 +5,7 @@ export interface iStyledLinkProps {
     fontSize: string;
     color: string;
   }
+
+export interface iStyledMenuProps {
+    width: number;
+}
