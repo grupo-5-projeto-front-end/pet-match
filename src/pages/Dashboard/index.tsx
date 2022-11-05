@@ -1,3 +1,4 @@
+
 import { StyledButton } from "../../components/Button/style"
 import { Footer } from "../../components/Footer"
 import { StyledHeader } from "../../styles/header"
@@ -80,3 +81,4 @@ export const Dashboard = () => {
         );
     }
 };
+
