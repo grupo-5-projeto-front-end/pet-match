@@ -40,6 +40,8 @@ footer, header, menu, nav, section {
 }
 body {
 	line-height: 1;
+	width: 100vw;
+	overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -55,9 +57,6 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-body, html{
-	width: 100vw;
 }
 
 img{

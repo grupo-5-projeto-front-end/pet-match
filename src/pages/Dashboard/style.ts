@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
+export const StyledLoadingDiv = styled.div `
+    height: 800px;
+    width: 95%;
+
+    margin: 0 auto;
+`
+
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
     width: 93%;
     height: 800px;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
 
@@ -34,17 +40,7 @@ export const StyledDashboard = styled.div `
         transition: .2s;
 
         input {
-            padding: 15px 50px 15px 15px;
-        }
-
-        button {
-            margin-left: -47px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            z-index: 2;
+            padding: 15px;
         }
     }
 
@@ -120,14 +116,14 @@ export const StyledDashboard = styled.div `
     }
 
     @media all and (min-width: 768px) {
-        width: 97%;
+        width: 98%;
         flex-direction: row;
         gap: 20px;
 
         margin: 50px auto 0 auto;
 
         section {
-            width: 45%;
+            width: 48%;
         }
     }
 `
