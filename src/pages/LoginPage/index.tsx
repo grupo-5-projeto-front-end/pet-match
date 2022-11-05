@@ -12,23 +12,34 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { iLoginRegister } from "../../services/requests/login";
 import { useUserContext } from "../../contexts/UserContext";
+import { StyledLinkRedirect } from "./style";
 
 export const LoginPage = () => {
+  const { onSubmitLogin } = useUserContext();
 
-    const {onSubmitLogin} = useUserContext()
-
-    const { register, handleSubmit,  formState: { errors } } = useForm<iLoginRegister>({
-        resolver: yupResolver(loginFormSchema),
-      });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iLoginRegister>({
+    resolver: yupResolver(loginFormSchema),
+  });
 
   return (
     <StyledLoginPage>
       <StyledHeader>
         <div>
           <img src={PetMatchLogo} alt="Logo PetMatch" />
-          <StyledButton fontSize="1.5" color="--color-white" width="150px" height="40" background="--color-salmon">
+          <StyledLinkRedirect
+            to="/"
+            fontSize="1.5"
+            color="--color-white"
+            width="150px"
+            height="40"
+            background="--color-salmon"
+          >
             Início
-          </StyledButton>
+          </StyledLinkRedirect>
         </div>
       </StyledHeader>
       <main>
@@ -47,11 +58,13 @@ export const LoginPage = () => {
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </p>
-          <h3>Bora encontrar o número daquela cadelinha?</h3>git
+          <h3>Bora encontrar o número daquela cadelinha?</h3>
+
+
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
         <StyledFormBase onSubmit={handleSubmit(onSubmitLogin)}>
-            <h2>Login</h2>
+          <h2>Login</h2>
           <StyledInputContainer>
             <label htmlFor="EmailInput">Email</label>
             <StyledInput
@@ -72,15 +85,28 @@ export const LoginPage = () => {
             ></StyledInput>
             <StyledError>{errors.password?.message}</StyledError>
           </StyledInputContainer>
-           <StyledButton color="--color-white" fontSize="2" width="100%" height="70" background="--color-salmon">
+          <StyledButton
+            color="--color-white"
+            fontSize="2"
+            width="100%"
+            height="70"
+            background="--color-salmon"
+          >
             Logar
-          </StyledButton> 
+          </StyledButton>
           <span className="spanForgetMyPass">Esqueci minha senha</span>
           <span className="whiteLine"></span>
           <span className="spanDontHaveAcccount">Ainda não possuí conta?</span>
-           <StyledButton color="--color-white" fontSize="2" width="100%" height="70" background="--color-salmon">
+          <StyledLinkRedirect
+            to="/register"
+            color="--color-white"
+            fontSize="2"
+            width="100%"
+            height="70"
+            background="--color-salmon"
+          >
             Cadastre-se
-          </StyledButton> 
+          </StyledLinkRedirect>
         </StyledFormBase>
       </main>
     </StyledLoginPage>
