@@ -1,12 +1,18 @@
 import { MainRoutes } from "./routes";
 import { UserProvider } from "./contexts/UserContext";
+import { PetProvider } from "./contexts/PetContext";
+import { ModalProvider } from "./contexts/ModalContext";
 
 function App() {
   return (
     <>
-      <UserProvider>
-        <MainRoutes />
-      </UserProvider>
+      <ModalProvider>
+        <UserProvider>
+          <PetProvider>
+            <MainRoutes />
+          </PetProvider>
+        </UserProvider>
+      </ModalProvider>
     </>
   );
 }

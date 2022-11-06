@@ -3,14 +3,15 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
-import { iBodyPatchUser, patchUser } from "../services/requests/patchUser";
+import { iBodyPatchUser } from "../services/requests/patchUser";
 import { toast } from "react-toastify";
+import { useModalContext } from "./ModalContext";
 
 interface iUserProps {
   children: ReactNode;
 }
 
-interface iBodyRegister {
+export interface iBodyRegister {
   name: string;
   city: string;
   adress: string;
@@ -38,24 +39,25 @@ interface iUserContext {
   onSubmitRegister: (body: iBodyRegister) => Promise<void>;
   onSubmitLogin: (body: iLoginRegister) => Promise<void>;
   getAllUsers: () => Promise<void>;
-  handlePatchUser: (id: number, body: iBodyPatchUser) => Promise<void>;
+  handlePatchUser: (body: iBodyPatchUser) => Promise<void>;
   handleDeleteUser: (id: number) => Promise<void>;
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProps) => {
+  const { closeModal } = useModalContext();
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
 
   const navigate = useNavigate();
-
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
     try {
       await api.post("/register", body);
+      toast.success("Conta criada com sucesso!", { theme: "dark" })
       navigate("/login");
     } catch (error) {
-      console.error(error);
+      toast.error("Ops! Algo deu errado! Verifique os campos novamente!", { theme: "dark" })
     }
   };
 
@@ -72,7 +74,7 @@ export const UserProvider = ({ children }: iUserProps) => {
       navigate("/dashboard");
     } catch (error: any) {
       console.log(error);
-      error.response.data == "Cannot find user" || "Incorrect password" || "Password is too short"? 
+      error.response.data === "Cannot find user" || "Incorrect password" || "Password is too short"? 
       toast.error("Credenciais erradas", {theme: "dark"}) :
       toast.error("Ops! Algo deu errado", {theme: "dark"})
     }
@@ -87,19 +89,18 @@ export const UserProvider = ({ children }: iUserProps) => {
     }
   };
 
-  const handlePatchUser = async (
-    id: number,
-    body: iBodyPatchUser
-  ): Promise<void> => {
+  const handlePatchUser = async ( body: iBodyPatchUser ): Promise<void> => {
     try {
-      const data = await patchUser(id, body);
-
+      const userId = localStorage.getItem("@petmatch:userid")
+      const { data } = await api.patch(`/users/${userId}`, body);
+      toast.success("Editado com Suceso!", { theme: "dark" })
+      closeModal()
       setUser(data);
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", {theme: "dark"})
     }
   };
-
   const handleDeleteUser = async (id: number): Promise<void> => {
     try {
       await api.delete(`/users/${id}`);

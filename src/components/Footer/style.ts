@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
     height: 90px;
-    width: 100vw;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: -54px;
     left: 0;
 
     background-color: var(--color-black);
