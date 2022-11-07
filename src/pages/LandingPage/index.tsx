@@ -6,9 +6,11 @@ import secondimage from "../../assets/gatinhosfilhotes.png";
 import { StyledLandingPage } from "./style";
 import { Footer } from "../../components/Footer";
 import { usePetContext } from "../../contexts/PetContext";
+import { useNavigate } from "react-router-dom";
 
 export const LandingPage = () => {
   const { allPets } = usePetContext();
+  const navigate = useNavigate();
 
   return (
     <StyledLandingPage>
@@ -21,6 +23,7 @@ export const LandingPage = () => {
             width="150px"
             height="40"
             background="--color-salmon"
+            onClick={() => navigate("/login")}
           >
             Entrar
           </StyledButton>
@@ -68,6 +71,7 @@ export const LandingPage = () => {
           width="150px"
           height="40"
           background="--color-salmon"
+          onClick={() => navigate("/register")}
         >
           Cadastre-se
         </StyledButton>
