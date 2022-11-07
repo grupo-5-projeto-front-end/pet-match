@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
@@ -57,35 +63,41 @@ export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
   const { closeCreatPet } = useModalContext();
-  const {pathname} = useLocation()
-  const navigate = useNavigate()
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
   const [allPets, setAllPets] = useState<iPet[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true)
-  const [search, setSearch] = useState<string>("")
+  const [loading, setLoading] = useState<boolean>(true);
+  const [search, setSearch] = useState<string>("");
 
-  // Tratamento do state search para pesquisa na dashboard 
-  const treatedSearch = search.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "")
+  // Tratamento do state search para pesquisa na dashboard
+  const treatedSearch = search
+    .toLowerCase()
+    .normalize("NFD")
+    .trim()
+    .replace(/[\u0300-\u036f]/g, "");
 
   // useEffect para renderizar os cards de pets na montagem da dashboard
   useEffect(() => {
     const loadPets = async () => {
       try {
-        const { data } =  await api.get("/pets")
-        setAllPets(data)
+        const { data } = await api.get("/pets");
+        setAllPets(data);
       } catch (error: unknown) {
-        toast.error("Ops! Algo deu errado. Faça seu login novamente!", {theme: "dark"})
-        localStorage.clear()
-        navigate("/")
+        toast.error("Ops! Algo deu errado. Faça seu login novamente!", {
+          theme: "dark",
+        });
+        localStorage.clear();
+        navigate("/");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     };
 
-    if (pathname === "/dashboard") {
-      loadPets()
-    };
+    if (pathname === "/dashboard" || pathname === "/") {
+      loadPets();
+    }
   }, [pathname, navigate]);
 
   const getAllPetsUser = async (id: number): Promise<void> => {
@@ -121,11 +133,11 @@ export const PetProvider = ({ children }: iPetProps) => {
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
       await api.post("/pets", body);
-      toast.success("Pet adicionado com sucesso!", { theme: "dark" })
-      closeCreatPet()
+      toast.success("Pet adicionado com sucesso!", { theme: "dark" });
+      closeCreatPet();
     } catch (error) {
       console.error(error);
-      toast.error("Ops! Algo deu errado", {theme: "dark"})
+      toast.error("Ops! Algo deu errado", { theme: "dark" });
     }
   };
 
@@ -163,7 +175,7 @@ export const PetProvider = ({ children }: iPetProps) => {
         handlePatchPet,
         deletePet,
         setLoading,
-        setSearch
+        setSearch,
       }}
     >
       {children}
