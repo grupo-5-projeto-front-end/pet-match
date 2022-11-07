@@ -60,21 +60,19 @@ export const StyledRegisterPage = styled.div`
             display: flex;
             padding: 0 10px;
             gap: 140px;
-            height: 90vh;
+            
+            
         }
 
         .textContainer{
             display: flex;
             width: 90%;
             max-width: 500px;
-            align-self: center;
+            margin-top: 2rem;
             gap: 55px;
             flex-direction: column;
-            align-items: center;
+            
         }
 
-        form{
-            overflow-y: scroll;
-        }
     }
 `
