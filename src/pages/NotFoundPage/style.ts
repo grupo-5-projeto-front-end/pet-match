@@ -5,6 +5,7 @@ export const StyledNotFoundPage = styled.div`
     footer{
         margin: 0px;
         bottom: -50px;
+        transition: .2s;
     }
 
     height: 100vh;
@@ -16,6 +17,7 @@ export const StyledNotFoundPage = styled.div`
         flex-direction: column;
         justify-content: center;
         height: 75vh;
+        transition: .2s;
         
         }
 
@@ -35,7 +37,7 @@ export const StyledNotFoundPage = styled.div`
             background-color: var(--color-black);
             gap: 5px;
             height: 50vh;
-        
+            transition: .2s;
 
             h1{
                 color: var(--color-white);
@@ -61,6 +63,7 @@ export const StyledNotFoundPage = styled.div`
                 img{
                     border: solid 4px var(--color-salmon);
                     border-radius: 50%;
+                    object-fit: cover;
                     
                     
                 }
