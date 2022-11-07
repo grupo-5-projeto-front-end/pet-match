@@ -10,10 +10,12 @@ export const StyledFooter = styled.footer`
     justify-content: center;
 
     position: relative;
-    bottom: -54px;
+    bottom: -5px;
     left: 0;
 
     background-color: var(--color-black);
+
+    transition: .2s;
 
     div {
         height: 70px;
@@ -32,7 +34,7 @@ export const StyledFooter = styled.footer`
         }
     }
 
-    @media all and (min-width: 768px) {
-        bottom: -190px;
+    @media all and (min-width: 782px) {
+        bottom: -300px;
     }
 `
