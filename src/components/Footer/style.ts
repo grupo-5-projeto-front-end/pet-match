@@ -31,4 +31,8 @@ export const StyledFooter = styled.footer`
             color: var(--color-white); 
         }
     }
+
+    @media all and (min-width: 768px) {
+        bottom: -190px;
+    }
 `

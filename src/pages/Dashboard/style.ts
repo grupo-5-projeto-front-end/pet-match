@@ -9,7 +9,7 @@ export const StyledLoadingDiv = styled.div `
 
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
-    width: 93%;
+    width: 100%;
     height: 800px;
     margin: 0 auto;
     display: flex;
@@ -22,11 +22,8 @@ export const StyledDashboard = styled.div `
         flex-direction: column;
         align-items: center;
 
-        margin: 0 auto;
-
         display: flex;
         flex-direction: column;
-
     }
 
     form {
@@ -117,13 +114,8 @@ export const StyledDashboard = styled.div `
 
     @media all and (min-width: 768px) {
         width: 98%;
-        flex-direction: row;
         gap: 20px;
 
-        margin: 50px auto 0 auto;
-
-        section {
-            width: 48%;
-        }
+        margin: 10px auto 0 auto
     }
 `
