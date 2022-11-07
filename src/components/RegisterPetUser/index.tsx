@@ -30,7 +30,7 @@ export const RegisterPetUser = () => {
 
   return (
     <StyledBaseModal>
-      <StyledFormPet
+      < StyledFormPet className="animate__zoomIn" 
         encType="multipart/form-data"
         onSubmit={handleSubmit(createPet)}
       >

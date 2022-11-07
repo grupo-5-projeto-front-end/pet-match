@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledFormBase } from "../../styles/styledFormBase";
+import 'animate.css';
 
 export const StyledDivEditar = styled.div`
   width: 100%;
@@ -9,6 +10,7 @@ export const StyledDivEditar = styled.div`
   margin: 0 auto;
 `;
 export const StyledForm = styled(StyledFormBase)`
+  animation-duration: 1s;
   width: 90%;
   input {
     width: 100%;
