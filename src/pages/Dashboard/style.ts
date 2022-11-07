@@ -9,8 +9,8 @@ export const StyledLoadingDiv = styled.div `
 
 export const StyledDashboard = styled.div `
     /* border: 5px solid blue; */
-    width: 93%;
-    height: 800px;
+    width: 100%;
+    height: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -22,11 +22,10 @@ export const StyledDashboard = styled.div `
         flex-direction: column;
         align-items: center;
 
-        margin: 0 auto;
-
         display: flex;
         flex-direction: column;
 
+        transition: .2s;
     }
 
     form {
@@ -47,13 +46,14 @@ export const StyledDashboard = styled.div `
     .sponsor {
         height: 150px;
         width: 100%;
-        max-width: 700px;
 
         background-color: var(--color-black);
 
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        transition: .2s;
 
         .sponsor__text {
             width: 100%;
@@ -100,30 +100,17 @@ export const StyledDashboard = styled.div `
     }
 
     @media all and (min-width: 480px) {
-            form {
-                max-width: 700px;
+        height: 700px;
 
-                input {
-                    padding: 15px 70px 15px 15px;
-                }
-
-                button {
-                    margin-left: -67px;
-
-                    width: 70px;
-                }
-            }
+        form {
+            max-width: 900px;
+        }
     }
 
-    @media all and (min-width: 768px) {
+    @media all and (min-width: 768px) {        
         width: 98%;
-        flex-direction: row;
         gap: 20px;
 
-        margin: 50px auto 0 auto;
-
-        section {
-            width: 48%;
-        }
+        margin: 10px auto 0 auto
     }
 `

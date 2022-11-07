@@ -3,7 +3,7 @@ import { UserProvider } from "./contexts/UserContext";
 import { PetProvider } from "./contexts/PetContext";
 import { ModalProvider } from "./contexts/ModalContext";
 
-function App() {
+export const  App = () => {
   return (
     <>
       <ModalProvider>
@@ -17,4 +17,3 @@ function App() {
   );
 }
 
-export default App;
