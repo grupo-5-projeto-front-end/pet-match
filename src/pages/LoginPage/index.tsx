@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { iLoginRegister } from "../../services/requests/login";
 import { useUserContext } from "../../contexts/UserContext";
-import { StyledLinkRedirect } from "./style";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 export const LoginPage = () => {
   const { onSubmitLogin } = useUserContext();
