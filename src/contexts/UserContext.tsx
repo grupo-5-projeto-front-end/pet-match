@@ -41,6 +41,7 @@ interface iUserContext {
   getAllUsers: () => Promise<void>;
   handlePatchUser: (body: iBodyPatchUser) => Promise<void>;
   handleDeleteUser: (id: number) => Promise<void>;
+  privateRoute:boolean;
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
@@ -49,6 +50,7 @@ export const UserProvider = ({ children }: iUserProps) => {
   const { closeModal } = useModalContext();
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
+  const token = localStorage.getItem("@petmatch:token")
 
   const navigate = useNavigate();
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
@@ -119,6 +121,7 @@ export const UserProvider = ({ children }: iUserProps) => {
         getAllUsers,
         handlePatchUser,
         handleDeleteUser,
+        privateRoute:!!token
       }}
     >
       {children}
