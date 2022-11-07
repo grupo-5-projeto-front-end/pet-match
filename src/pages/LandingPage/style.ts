@@ -94,6 +94,9 @@ export const StyledLandingPage = styled.div`
       gap: 0.5rem;
 
       overflow-x: auto;
+      overflow-y: hidden;
+
+      padding-bottom: 1rem;
 
       li {
         min-width: 100px;
@@ -115,10 +118,6 @@ export const StyledLandingPage = styled.div`
 
       & > ul {
         width: 50%;
-
-        padding-bottom: 1rem;
-
-        overflow-y: hidden;
 
         li {
           min-width: 200px;
