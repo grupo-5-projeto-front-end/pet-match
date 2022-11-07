@@ -100,13 +100,22 @@ export const PetProvider = ({ children }: iPetProps) => {
     }
   }, [pathname, navigate]);
 
+  useEffect(() => {
+    const id = localStorage.getItem("@petmatch:userid") as unknown as number
+    getAllPetsUser(id)
+  }, [])
+
   const getAllPetsUser = async (id: number): Promise<void> => {
+    
+
     try {
-      const data = await getPetsUser(id);
+      const data = await getPetsUser(id)
 
       setUserPets(data.pets);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false)
     }
   };
 
