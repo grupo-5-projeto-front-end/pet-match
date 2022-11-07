@@ -5,8 +5,11 @@ import firstimage from "../../assets/cachorrolandingpage.png";
 import secondimage from "../../assets/gatinhosfilhotes.png";
 import { StyledLandingPage } from "./style";
 import { Footer } from "../../components/Footer";
+import { usePetContext } from "../../contexts/PetContext";
 
 export const LandingPage = () => {
+  const { allPets } = usePetContext();
+
   return (
     <StyledLandingPage>
       <StyledHeader>
@@ -42,11 +45,15 @@ export const LandingPage = () => {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
           mollitia minima molestias dicta.
         </p>
-        {/*
-         {Carrossel futuramente} 
-         {Nome do pet}
-         {Raça}
-         */}
+        <ul>
+          {allPets?.map((pet) => {
+            return (
+              <li key={pet.id}>
+                <img src={pet.avatar} alt={`Foto do pet ${pet.name}.`} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <div>

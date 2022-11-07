@@ -4,6 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { StyledUserMenu, StyledLink } from "./style";
 import { StyledButton } from "../Button/style";
 
+
 const Logo = require("./Logo.png");
 
 const UserMenu = () => {
@@ -20,8 +21,8 @@ const UserMenu = () => {
     serWindowWidth(window.innerWidth);
   };
 
-  return windowWidth > 480 ? (
-    <StyledUserMenu>
+  return windowWidth > 600 ? (
+    <StyledUserMenu width={windowWidth} >
       <div>
         <div className="userBox">
           <div>
@@ -87,7 +88,7 @@ const UserMenu = () => {
       </AnimatePresence>
     </StyledUserMenu>
   ) : (
-    <StyledUserMenu>
+    <StyledUserMenu width={windowWidth} >
       <div>
         <img src={Logo} alt="Logo PetMatch" />
         <motion.div
@@ -151,6 +152,8 @@ const UserMenu = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      
     </StyledUserMenu>
   );
 };

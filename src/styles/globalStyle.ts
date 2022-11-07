@@ -40,6 +40,7 @@ footer, header, menu, nav, section {
 }
 body {
 	line-height: 1;
+	width: 100vw;
 }
 ol, ul {
 	list-style: none;
@@ -56,9 +57,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body{
-	width: 100vw;
-}
 
 img{
 	max-width: 100%;
@@ -67,4 +65,14 @@ img{
 input{
 	outline: none;
 }
+
+#root {
+	width: 100%;
+	max-width: 100%;
+}
+
+::-webkit-scrollbar { 
+display: none; 
+}
+
 `;
