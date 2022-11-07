@@ -1,13 +1,11 @@
-
-import { StyledButton } from "../../components/Button/style"
 import { Footer } from "../../components/Footer"
-import { StyledHeader } from "../../styles/header"
 import { StyledInput } from "../../styles/StyledInput"
 import { StyledDashboard, StyledLoadingDiv } from "./style"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
 import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
+import { DashboardHeader } from "../../components/DashboardHeader"
 
 
 export const Dashboard = () => {
@@ -23,11 +21,7 @@ export const Dashboard = () => {
     } else {
         return (
             <>
-                <StyledHeader>
-                        <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
-                        <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
-                </StyledHeader>
-    
+                <DashboardHeader/>
                 <StyledDashboard>
                     <section>
                         <form>

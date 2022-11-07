@@ -2,7 +2,7 @@ import { StyledHeader } from "../../styles/header"
 import { StyledButton } from "../Button/style";
 import UserMenu from "../UserMenu";
 
-const DashboardHeader = () => {
+export const DashboardHeader = () => {
     return (
         <StyledHeader>
             <UserMenu/>
@@ -10,5 +10,3 @@ const DashboardHeader = () => {
         </StyledHeader>
     );
 };
-
-export default DashboardHeader
