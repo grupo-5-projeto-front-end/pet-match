@@ -31,31 +31,47 @@ export const StyledLandingPage = styled.div`
     max-width: 90%;
     margin: 0 auto;
 
-    & > h1,
-    & > h2,
-    & > h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--color-black);
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      & > h1,
+      & > h2,
+      & > h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-black);
+      }
+
+      & > h2 {
+        font-size: 1rem;
+      }
+
+      & > h3 {
+        font-size: 0.75rem;
+      }
+
+      & > p {
+        font-size: 0.75rem;
+        line-height: 0.94rem;
+        text-align: justify;
+        color: var(--color-black);
+      }
+
+      & > img {
+        width: 100%;
+      }
     }
 
-    & > h2 {
-      font-size: 1rem;
-    }
+    @media (min-width: 768px) {
+      flex-direction: row;
 
-    & > h3 {
-      font-size: 0.75rem;
-    }
-
-    & > p {
-      font-size: 0.75rem;
-      line-height: 0.94rem;
-      text-align: justify;
-      color: var(--color-black);
-    }
-
-    & > img {
-      width: 100%;
+      div,
+      img {
+        width: 50%;
+        height: 100%;
+      }
     }
   }
 
@@ -64,9 +80,56 @@ export const StyledLandingPage = styled.div`
     max-width: 100%;
     padding: 10%;
 
-    & > h3,
-    & > p {
-      color: var(--color-white);
+    div {
+      & > h3,
+      & > p {
+        color: var(--color-white);
+      }
+    }
+
+    & > ul {
+      width: 90%;
+
+      display: flex;
+      gap: 0.5rem;
+
+      overflow-x: auto;
+
+      li {
+        min-width: 100px;
+        height: 100px;
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      & > div {
+        min-width: 50%;
+      }
+
+      & > ul {
+        width: 50%;
+
+        padding-bottom: 1rem;
+
+        overflow-y: hidden;
+
+        li {
+          min-width: 200px;
+          min-height: 200px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
   }
 `;
