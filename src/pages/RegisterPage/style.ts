@@ -13,6 +13,7 @@ export const StyledRegisterPage = styled.div`
                 height: 90%;
                 width: 50%;
                 max-width: 369px;
+                object-fit: contain;
             }
         }
     }
@@ -27,7 +28,7 @@ export const StyledRegisterPage = styled.div`
 
     form{
         width: 90%;
-        margin: 1rem auto;
+        margin: 15px auto;
         h2{
             font-size: 36px;
             font-weight: 700;
@@ -44,17 +45,14 @@ export const StyledRegisterPage = styled.div`
         width: 100%;
         
         .containerStates{
-            width: 30%;
+            width: 70%;
             margin-left: 2rem;
         }
     }
 
     @media (min-width: 768px){
-        .textContainer{
-            display: block;
-        }
 
-        main{
+        main {
             width: 80%;
             margin: 2rem auto;
             display: flex;
@@ -64,7 +62,7 @@ export const StyledRegisterPage = styled.div`
             
         }
 
-        .textContainer{
+        .textContainer {
             display: flex;
             width: 90%;
             max-width: 500px;
@@ -72,7 +70,10 @@ export const StyledRegisterPage = styled.div`
             gap: 55px;
             flex-direction: column;
             
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
         }
-
     }
 `
