@@ -40,7 +40,7 @@ footer, header, menu, nav, section {
 }
 body {
 	line-height: 1;
-	width: 100vw;
+	/* width: 100vw; */
 }
 ol, ul {
 	list-style: none;
@@ -71,8 +71,8 @@ input{
 	max-width: 100%;
 }
 
-::-webkit-scrollbar { 
+/* ::-webkit-scrollbar { 
 display: none; 
-}
+} */
 
 `;

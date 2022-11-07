@@ -30,7 +30,7 @@ export const RegisterPetUser = () => {
 
   return (
     <StyledBaseModal>
-      < StyledFormPet className="animate__zoomIn" 
+      <StyledFormPet className="animate__zoomIn" 
         encType="multipart/form-data"
         onSubmit={handleSubmit(createPet)}
       >
@@ -43,7 +43,7 @@ export const RegisterPetUser = () => {
 
         <StyledInputContainer>
           <label htmlFor="name">Nome</label>
-          <StyledInput
+          <StyledInput type="number"
             className="userId"
             value={`${userId}`}
             {...register("userId")}

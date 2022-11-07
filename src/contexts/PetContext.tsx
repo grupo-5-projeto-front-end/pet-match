@@ -120,6 +120,7 @@ export const PetProvider = ({ children }: iPetProps) => {
 
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
+      body.userId = +body.userId 
       const token =localStorage.getItem("@petmatch:token")
       api.defaults.headers.authorization = `Bearer ${token}`;
       await api.post("/pets", body);
