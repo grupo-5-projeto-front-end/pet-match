@@ -1,5 +1,4 @@
 import { Footer } from "../../components/Footer"
-
 import { StyledInput } from "../../styles/StyledInput"
 import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
 import { BiEdit } from "react-icons/bi"
@@ -9,7 +8,6 @@ import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
 import { useEffect } from "react"
-
 
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
@@ -21,9 +19,11 @@ export const PetDashboard = () => {
    
         return (
             <>
-            { loading ? (<StyledLoadingDiv>
+            { loading ? (
+            <StyledLoadingDiv>
                 <LoadingAnimation/>
-            </StyledLoadingDiv>) : (
+            </StyledLoadingDiv>
+            ) : (
                 <>
                 <DashboardHeader/>
                 <StyledPetDashboard>
@@ -59,12 +59,8 @@ export const PetDashboard = () => {
                                 ))}
                             </StyledCarrousel>
                     </section>
-                    <section>
-                        <div>
-                            SUGESTÕES
-                        </div> 
-                        {/* PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
-    
+                    
+                    <section>   
                         <div className="sponsor">
                             <div className="sponsor__text">
                                 <h4>Patrocinado</h4>
@@ -74,9 +70,10 @@ export const PetDashboard = () => {
                             <p>Parceiro oficial para adoção de amiguinhos</p>
                         </div>
                     </section>
+                    
                 </StyledPetDashboard>
-                
-                <Footer/></>)}
-        ;
+ 
+                <Footer/>
+                </>)};
     </>)
 }
