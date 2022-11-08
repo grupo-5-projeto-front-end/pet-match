@@ -11,6 +11,7 @@ export const StyledPetCard = styled.li `
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    position: relative;
 
     overflow: hidden;
 
@@ -96,3 +97,4 @@ export const StyledPetCard = styled.li `
         max-width: 300px;
     }
 `
+

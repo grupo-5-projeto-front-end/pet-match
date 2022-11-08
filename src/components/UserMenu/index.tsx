@@ -79,8 +79,9 @@ const UserMenu = () => {
             >
               Cadastrar pet
             </StyledButton>
+            
             <StyledLinkRedirect
-              to="/dashboard/pet"
+              to="/dashboard/my-pets"
               width="100%"
               height="36"
               background="--color-salmon"
@@ -145,8 +146,9 @@ const UserMenu = () => {
             >
               Cadastrar pet
             </StyledButton>
+
             <StyledLinkRedirect
-              to="/dashboard/pet"
+              to="/dashboard/my-pets"
               width="100%"
               height="36"
               background="--color-salmon"
