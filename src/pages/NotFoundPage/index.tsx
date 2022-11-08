@@ -1,14 +1,11 @@
 import { StyledHeader } from "../../styles/header";
 import PetMatchLogo from "../../assets/PETMATCH.png";
-import { StyledButton } from "../../components/Button/style";
 import sad_dog from "../../assets/sad_dog.webp"
 import { StyledNotFoundPage } from "./style";
 import { Footer } from "../../components/Footer";
-import { useNavigate } from "react-router-dom";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 export const NotFoundPage = () => {
-
-  const navigate = useNavigate()
 
   return (
     <>
@@ -22,16 +19,16 @@ export const NotFoundPage = () => {
             <img src={sad_dog} alt="" />
           </figure>
           <h1>Página não encontrada, o número da cachorrinha não está aqui :(</h1>
-          <StyledButton
-            width="150px"
-            background="--color-salmon"
-            color="--color-white"
+          <StyledLinkRedirect
+            to="/"
             fontSize="1.5"
+            color="--color-white"
+            width="150px"
             height="50"
-            onClick={() => navigate(-1)}
+            background="--color-salmon"
           >
             Voltar
-          </StyledButton>
+          </StyledLinkRedirect>
         </main>
         </div>
       <Footer/>
