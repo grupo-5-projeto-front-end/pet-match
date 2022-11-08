@@ -1,7 +1,7 @@
 import { Footer } from "../../components/Footer"
 import { StyledInput } from "../../styles/StyledInput"
 import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
-import { BiEdit } from "react-icons/bi"
+import { BiEdit, BiTrash } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
 import { useModalContext } from "../../contexts/ModalContext"
@@ -10,9 +10,10 @@ import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
 import { useEffect } from "react"
 import { ManagePetUser } from "../../components/ManagePetModal" 
+import { DeletePetModal } from "../../components/DeletePetModal"
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
-    const { editPet, setModalData, toggleEditPetModal } = useModalContext()
+    const { editPet, setModalData, toggleEditPetModal, toggleDeletePetModal, deletePet } = useModalContext()
     useEffect(() => {
         const id = Number(localStorage.getItem("@petmatch:userid"))
         getAllPetsUser(id)
@@ -24,10 +25,18 @@ export const PetDashboard = () => {
         
         toggleEditPetModal()
       }
+
+      const handleDeleteButton = (petId: number) => {
+        setModalData(petId)
+
+        toggleDeletePetModal()
+
+      }
    
         return (
             <>
             { editPet && <ManagePetUser /> }
+            { deletePet && <DeletePetModal /> }
             { loading ? (
             <StyledLoadingDiv>
                 <LoadingAnimation/>
@@ -57,6 +66,7 @@ export const PetDashboard = () => {
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
                                         <StyledEditButton onClick={() => handleEditButton(e)}><BiEdit size={28}/></StyledEditButton>
+                                        <StyledEditButton onClick={() => handleDeleteButton(e.id)}><BiTrash size={28}/></StyledEditButton>
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>

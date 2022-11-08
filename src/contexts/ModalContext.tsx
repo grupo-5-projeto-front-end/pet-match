@@ -15,6 +15,8 @@ interface iModalProvider {
   setModalData: (data: any) => void;
   editPet: boolean;
   toggleEditPetModal: () => void;
+  deletePet: boolean;
+  toggleDeletePetModal: () => void;
 }
 
 export const ModalContext = createContext<iModalProvider>({} as iModalProvider);
@@ -23,9 +25,14 @@ export const ModalProvider = ({ children }: iChildren) => {
   const [isModalCreatPet , SetModalCreatPet ] = useState(false);
   const [modalData, setModalData] = useState()
   const [ editPet, setEditPet] = useState(false)
+  const [ deletePet, setDeletePet] = useState(false)
 
 const toggleEditPetModal = () => {
   setEditPet((prevState) => !prevState)
+}
+
+const toggleDeletePetModal = () => {
+  setDeletePet((prevState) => !prevState)
 }
 
 
@@ -46,7 +53,7 @@ const toggleEditPetModal = () => {
   };
 
   return (
-    <ModalContext.Provider value={{ isModal , openModal, closeModal, isModalCreatPet, openCreatPet, closeCreatPet, modalData, setModalData, editPet, toggleEditPetModal }}>
+    <ModalContext.Provider value={{ isModal , openModal, closeModal, isModalCreatPet, openCreatPet, closeCreatPet, modalData, setModalData, editPet, toggleEditPetModal, deletePet, toggleDeletePetModal }}>
       {children}
     </ModalContext.Provider>
   );

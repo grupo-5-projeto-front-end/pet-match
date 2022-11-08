@@ -78,7 +78,7 @@ export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
   const token = localStorage.getItem("@petmatch:token");
-  const { closeCreatPet, toggleEditPetModal } = useModalContext();
+  const { closeCreatPet, toggleEditPetModal, toggleDeletePetModal } = useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
@@ -194,8 +194,11 @@ export const PetProvider = ({ children }: iPetProps) => {
   const deletePet = async (id: number): Promise<void> => {
     try {
       await api.delete(`/pets/${id}`);
+      toggleDeletePetModal()
+      toast.success("Pet deletado com sucesso!", { theme: "dark" });
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", { theme: "dark" });
     }
   };
 
