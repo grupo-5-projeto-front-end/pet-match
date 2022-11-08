@@ -37,7 +37,6 @@ footer{
 }
 
 `
-
 export const StyledMainPerfil = styled.div`
   width: 90%;
   margin: 1rem auto;
@@ -76,15 +75,26 @@ export const StyledDivPetPerfil = styled.div`
     height: 160px;
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
+    gap: 1rem;
     padding: 1rem;
     h2 {
-      max-width: 150px;
+      max-width: 100%;
       margin-bottom: 1rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    p{
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bio{
+      
+    }
+
   }
 
   @media  (min-width: 880px ) {
