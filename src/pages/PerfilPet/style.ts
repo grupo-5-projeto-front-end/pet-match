@@ -8,7 +8,7 @@ export const StyledMainPerfil = styled.div`
   gap: 0.8rem;
 
 
-  @media  (min-width: 770px ) {
+  @media  (min-width: 870px ) {
     flex-direction: row;
   }
 `;
@@ -38,10 +38,11 @@ export const StyledDivPetPerfil = styled.div`
     height: 160px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding: 1rem;
     h2 {
       max-width: 150px;
+      margin-bottom: 1rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;

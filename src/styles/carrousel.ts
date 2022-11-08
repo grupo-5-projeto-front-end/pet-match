@@ -4,15 +4,19 @@ export const StyledCarrousel = styled.ul `
     height: 400px;
     width: 100%;
 
-    max-width: 700px;
+    padding: 0 20px;
 
     display: flex;
     align-items: center;
     gap: 15px;
 
+    margin-bottom: 15px;
+
+    transition: .2s;
+
     overflow-x: auto;
 
-    @media all and (min-width: 768px) {
+    @media all and (min-width: 782px) {
         height: 700px;
 
         flex-wrap: wrap;

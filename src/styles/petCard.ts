@@ -11,18 +11,25 @@ export const StyledPetCard = styled.li `
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+<<<<<<< HEAD
     cursor: pointer;
+=======
+    position: relative;
+>>>>>>> 72e14f1762a2caee50c88b642b9e2ec7e75a8722
 
     overflow: hidden;
 
+    transition: .2s;
+
     figure {
         height: 242px;
-        width: 232px;
+        width: 100%;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: fill;
+            transition: .2s;
         }
     }
 
@@ -38,6 +45,8 @@ export const StyledPetCard = styled.li `
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        transition: .2s;
 
         h4 {            
             width: 140px;
@@ -58,12 +67,18 @@ export const StyledPetCard = styled.li `
             top: -40px;
             left: -43px;
 
-            @media all and (min-width: 768px) {
-                left: -9px;
-            }
+            transition: .2s;
 
-            @media all and (min-width: 1024px) {
-                left: -31px;
+            @media all and (min-width: 768px) {
+                left: -35px;
+            }
+            
+            @media all and (min-width: 900px) {
+                left: -55px;
+            }
+ 
+            @media all and (min-width: 1000px) {
+                left: -72px;
             }
         }
     
@@ -76,15 +91,14 @@ export const StyledPetCard = styled.li `
         }
     }
 
-    @media all and (min-width: 768px) {
-        height: 326px;
-        min-width: 140px;
-        max-width: 180px;
+    @media all and (min-width: 900px) {
+        min-width: 270px;
+        max-width: 270px;
     }
 
-    @media all and (min-width: 1024px) {
-        min-width: 210px;
-        max-width: 210px;
+    @media all and (min-width: 1000px) {
+        min-width: 300px;
+        max-width: 300px;
     }
-
 `
+

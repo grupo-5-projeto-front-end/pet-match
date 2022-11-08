@@ -4,7 +4,7 @@ import { StyledButton } from "../../components/Button/style";
 import { StyledLoginPage } from "./style";
 import { StyledFormBase } from "../../styles/styledFormBase";
 import { StyledInput } from "../../styles/StyledInput";
-import ImgPatinha from "../../assets/patinha.png";
+import ImgPatinha from "../../assets/2.png";
 import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledError } from "../../styles/styledError";
 import { loginFormSchema } from "./schema";
@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { iLoginRegister } from "../../services/requests/login";
 import { useUserContext } from "../../contexts/UserContext";
-import { StyledLinkRedirect } from "./style";
+import { StyledLinkRedirect } from "../../styles/styledLink" ;
 
 export const LoginPage = () => {
   const { onSubmitLogin } = useUserContext();

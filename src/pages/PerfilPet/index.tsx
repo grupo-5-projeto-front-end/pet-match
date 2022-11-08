@@ -1,31 +1,30 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { DashboardHeader } from "../../components/DashboardHeader";
+import { Footer } from "../../components/Footer";
+import { SameUserPets } from "../../components/SameUserPets";
 import { usePetContext } from "../../contexts/PetContext";
 import { StyledDivPetPerfil, StyledMainPerfil } from "./style";
 
 export const PerfilPet = () => {
-  const { getPetById, currentPet, getAllPetsAndUser, userAndPets } = usePetContext();
+  const { getPetById, currentPet, getAllPetsAndUser, userAndPets } =
+    usePetContext();
 
   const { id } = useParams();
 
   const userAndPet = async () => {
-    if(currentPet)
-    await getAllPetsAndUser(currentPet.userId);
+    if (currentPet) await getAllPetsAndUser(currentPet.userId);
   };
 
   useEffect(() => {
     if (id) {
-      getPetById(id);      
-      userAndPet()
+      getPetById(id);
+      userAndPet();
     }
-
   }, [currentPet?.userId]);
-  console.log(userAndPets, "userPet");
   return (
     <>
       <DashboardHeader />
-
       <StyledMainPerfil>
         <StyledDivPetPerfil>
           <figure>
@@ -43,17 +42,25 @@ export const PerfilPet = () => {
         {/* profile user */}
         <StyledDivPetPerfil>
           <figure>
-            <img src={userAndPets?.avatar? userAndPets.avatar:"https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png" } alt=  {userAndPets?.name}/>
+            <img
+              src={
+                userAndPets?.avatar
+                  ? userAndPets.avatar
+                  : "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png"
+              }
+              alt={userAndPets?.name}
+            />
           </figure>
 
           <div className="Content_Box">
             <h2>{userAndPets?.name}</h2>
             <p>Cidade: {userAndPets?.city}</p>
-            <p>Contato:{userAndPets?.email}</p>
-            <p>telefone:{userAndPets?.tel}</p>
+            <p>Contato: {userAndPets?.email}</p>
+            <p>telefone: {userAndPets?.tel}</p>
           </div>
         </StyledDivPetPerfil>
       </StyledMainPerfil>
+        <SameUserPets pets={userAndPets?.pets} id={Number(id)} />
     </>
   );
 };

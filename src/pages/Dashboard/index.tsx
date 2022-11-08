@@ -57,12 +57,7 @@ export const Dashboard = () => {
                                 ))}
                             </StyledCarrousel>
                     </section>
-                    <section>
-                        <div>
-                            SUGESTÕES
-                        </div> 
-                        {/* PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
-    
+                    <section>   
                         <div className="sponsor">
                             <div className="sponsor__text">
                                 <h4>Patrocinado</h4>
