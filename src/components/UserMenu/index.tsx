@@ -3,11 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { StyledUserMenu } from "./style";
 import { StyledButton } from "../Button/style";
+import { useModalContext } from "../../contexts/ModalContext";
 import { StyledLinkRedirect } from "../../styles/styledLink";
+
 
 const Logo = require("./Logo.png");
 
 const UserMenu = () => {
+  const {openModal, openCreatPet} = useModalContext()
+
   const [openMenu, setOpenMenu] = useState(false);
   const [windowWidth, serWindowWidth] = useState(window.innerWidth);
 
@@ -61,6 +65,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
+              onClick={()=>(openModal())}
             >
               Editar perfil
             </StyledButton>
@@ -70,6 +75,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
+              onClick={()=>openCreatPet()}
             >
               Cadastrar pet
             </StyledButton>
