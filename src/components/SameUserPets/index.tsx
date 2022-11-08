@@ -1,6 +1,8 @@
-import { StyledUserPets } from "./style";
+import { Link } from "react-router-dom";
+import { iPet, usePetContext } from "../../contexts/PetContext";
+import { StyledCarrousel } from "../../styles/carrousel";
 import { StyledPetCard } from "../../styles/petCard";
-import { iPet } from "../../contexts/PetContext";
+import { StyledDivPets } from "./style";
 
 interface iUserPets {
   pets?: iPet[];
@@ -8,28 +10,44 @@ interface iUserPets {
 }
 
 export const SameUserPets = ({ pets, id }: iUserPets) => {
-  const dogs = pets?.filter((dog) => dog.id !==id);
+  const dogs = pets?.filter((dog) => dog.id !== id);
 
+  const { getPetById } = usePetContext();
   return (
-    <StyledUserPets>
+    <StyledDivPets>
       <h3>Outros pets do mesmo tutor</h3>
-      <ul className="petList">
-        {dogs?.map((dog) => (
+
+      <StyledCarrousel className="more_pets">
+        {dogs?.length ? (
+          dogs?.map((dog) => (
             <StyledPetCard key={dog.id}>
-              <figure>
-                <img src={dog.avatar} alt="Imagem do dog" />
-              </figure>
-
-              <div>
-                <h4>{dog.name}</h4>
-                <p>{dog.bio}</p>
-              </div>
-            </StyledPetCard>         
-        ))}
-      </ul>
-
-      <div className="gradient"></div>
-    </StyledUserPets>
+              <Link
+                to={`/dashboard/pets/${dog.id}`}
+                onClick={() => getPetById(dog.id)}
+              >
+                <figure>
+                  <img src={dog.avatar} alt="Imagem do dog" />
+                </figure>
+                <div>
+                  <h4>
+                    {dog.name.length > 15
+                      ? `${dog.name.substring(0, 15)}...`
+                      : dog.name}
+                  </h4>
+                  <p>
+                    {dog.bio.length > 50
+                      ? `${dog.bio.substring(0, 50)}...`
+                      : dog.bio}
+                  </p>
+                </div>
+              </Link>
+            </StyledPetCard>
+          ))
+        ) : (
+          <h2>Nao a outros Pets cadatrados </h2>
+        )}
+      </StyledCarrousel>
+    </StyledDivPets>
   );
 };
 
