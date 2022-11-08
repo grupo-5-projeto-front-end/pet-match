@@ -136,7 +136,7 @@ export const RegisterPetUser = () => {
             color="--color-white"
             fontSize="1.3"
             height="51"
-            width="93%"
+            width="100%"
           >
             Adicionar pet
           </StyledButton>

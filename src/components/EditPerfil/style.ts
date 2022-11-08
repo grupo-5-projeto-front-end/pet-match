@@ -49,6 +49,7 @@ export const StyledBoxContentCidade = styled.div`
       border-radius: 5px;
       height: 43px;
       background-color: var(--color-gray) ;
+      width: 110%;
     }
   }
 `;
