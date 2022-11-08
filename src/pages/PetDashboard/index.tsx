@@ -4,6 +4,7 @@ import { StyledHeader } from "../../styles/header"
 import { StyledInput } from "../../styles/StyledInput"
 import { StyledPetDashboard, StyledCarrousel } from "./style"
 import { BiSearch } from "react-icons/bi"
+import { StyledLinkRedirect } from "../../styles/styledLink"
 
 
 export const PetDashboard = () => {
@@ -11,7 +12,16 @@ export const PetDashboard = () => {
         <StyledPetDashboard>
             <StyledHeader>
                 <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
-                <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
+                <StyledLinkRedirect
+                to="/dashboard"
+                fontSize="1.5"
+                color="--color-white"
+                width="150px"
+                height="40"
+                background="--color-salmon" 
+                >
+                    Voltar
+                </StyledLinkRedirect>
             </StyledHeader>
 
           
