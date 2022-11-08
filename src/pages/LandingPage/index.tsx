@@ -1,4 +1,3 @@
-import { StyledButton } from "../../components/Button/style";
 import { StyledHeader } from "../../styles/header";
 import PetMatchLogo from "../../assets/PETMATCH.png";
 import firstimage from "../../assets/cachorrolandingpage.png";
@@ -6,27 +5,26 @@ import secondimage from "../../assets/gatinhosfilhotes.png";
 import { StyledLandingPage } from "./style";
 import { Footer } from "../../components/Footer";
 import { usePetContext } from "../../contexts/PetContext";
-import { useNavigate } from "react-router-dom";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 export const LandingPage = () => {
   const { allPets } = usePetContext();
-  const navigate = useNavigate();
 
   return (
     <StyledLandingPage>
       <StyledHeader>
         <div>
           <img src={PetMatchLogo} alt="Logo PetMatch" />
-          <StyledButton
+          <StyledLinkRedirect
+            to="/login"
             fontSize="1.5"
             color="--color-white"
             width="150px"
             height="40"
             background="--color-salmon"
-            onClick={() => navigate("/login")}
           >
             Entrar
-          </StyledButton>
+          </StyledLinkRedirect>
         </div>
       </StyledHeader>
       <div>
@@ -65,16 +63,16 @@ export const LandingPage = () => {
 
       <div>
         <h2>Ainda não possui conta?</h2>
-        <StyledButton
+        <StyledLinkRedirect
+          to="/register"
           fontSize="1.5"
           color="--color-white"
-          width="150px"
+          width="180px"
           height="40"
           background="--color-salmon"
-          onClick={() => navigate("/register")}
         >
           Cadastre-se
-        </StyledButton>
+        </StyledLinkRedirect>
       </div>
 
       <Footer />

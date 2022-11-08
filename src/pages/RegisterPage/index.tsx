@@ -8,14 +8,13 @@ import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledInput } from "../../styles/StyledInput";
 import ImgPatinha from "../../assets/patinha.png";
 import { BrasilianStates } from "./BrazilianStates";
-import { useNavigate } from "react-router-dom";
 import { StyledSelect } from "../../styles/styledSelect";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { registerFormSchema as schema} from "./schema"
 import { useUserContext } from "../../contexts/UserContext";
 import { iBodyRegister } from "../../contexts/UserContext"
-import { toast } from "react-toastify";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 export const RegisterPage = () => {
 
@@ -25,23 +24,21 @@ export const RegisterPage = () => {
     resolver: yupResolver(schema),
   });
   
-
-  const navigate = useNavigate()
   return (
     <StyledRegisterPage>
       <StyledHeader>
         <div className="headerContainer">
           <img src={PetMatchLogo} alt="Logo PetMatch" />
-          <StyledButton
+          <StyledLinkRedirect
+            to="/"
             fontSize="1.5"
             color="--color-white"
             width="150px"
             height="40"
             background="--color-salmon"
-            onClick={() => {navigate("/")}}
           >
             Início
-          </StyledButton>
+          </StyledLinkRedirect>
         </div>
       </StyledHeader>
       <main>

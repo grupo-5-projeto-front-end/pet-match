@@ -10,6 +10,8 @@ export const StyledCarrousel = styled.ul `
     align-items: center;
     gap: 15px;
 
+    margin-bottom: 15px;
+
     transition: .2s;
 
     overflow-x: auto;
