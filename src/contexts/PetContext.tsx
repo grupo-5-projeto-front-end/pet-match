@@ -99,11 +99,7 @@ export const PetProvider = ({ children }: iPetProps) => {
       loadPets();
     }
   }, [pathname, navigate]);
-
-  useEffect(() => {
-    const id = localStorage.getItem("@petmatch:userid") as unknown as number
-    getAllPetsUser(id)
-  }, [])
+  
 
   const getAllPetsUser = async (id: number): Promise<void> => {
     
@@ -114,6 +110,8 @@ export const PetProvider = ({ children }: iPetProps) => {
       setUserPets(data.pets);
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", {theme: "dark"})
+      navigate("/dashboard")
     } finally {
       setLoading(false)
     }

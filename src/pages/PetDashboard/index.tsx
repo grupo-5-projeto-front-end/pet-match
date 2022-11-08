@@ -8,11 +8,16 @@ import { usePetContext } from "../../contexts/PetContext"
 import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
+import { useEffect } from "react"
 
 
 export const PetDashboard = () => {
-    const { userPets, loading, treatedSearch, setSearch } = usePetContext();
+    const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
  
+    useEffect(() => {
+        const id = Number(localStorage.getItem("@petmatch:userid"))
+        getAllPetsUser(id)
+      }, [getAllPetsUser])
    
         return (
             <>
