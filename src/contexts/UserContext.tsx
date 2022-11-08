@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
 import { iBodyPatchUser } from "../services/requests/patchUser";
@@ -54,14 +54,17 @@ export const UserProvider = ({ children }: iUserProps) => {
   const { closeModal } = useModalContext();
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
+  const { pathname } = useLocation();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const id = window.localStorage.getItem("@petmatch:userid");
 
-    getUserById(Number(id));
-  }, []);
+    if (pathname === "/dashboard") {
+      getUserById(Number(id));
+    }
+  }, [pathname]);
 
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
     try {
