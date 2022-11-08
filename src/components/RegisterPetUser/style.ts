@@ -8,7 +8,7 @@ export const StyledFormPet = styled(StyledFormBase)`
   animation-duration: 1s;
 
   input {
-    width: 100%;
+    width: 108%;
     border-radius: 5px;
     padding: 3px 5px;
     font-size: 1rem;
@@ -41,6 +41,7 @@ export const StyledSexAndCategory = styled.div`
     border-radius: 5px;
     height: 45px;
     background-color: var(--color-gray);
+    width: 160%;
   }
 
   label {
