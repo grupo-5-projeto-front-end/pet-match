@@ -13,7 +13,7 @@ export const StyledRegisterPage = styled.div`
                 height: 90%;
                 width: 50%;
                 max-width: 369px;
-                object-fit: contain;
+                object-fit: cover;
             }
         }
     }
@@ -47,6 +47,10 @@ export const StyledRegisterPage = styled.div`
         .containerStates{
             width: 70%;
             margin-left: 2rem;
+
+            select{
+                width: 106%;
+            }
         }
     }
 

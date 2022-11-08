@@ -6,7 +6,7 @@ import { StyledError } from "../../styles/styledError";
 import { StyledFormBase } from "../../styles/styledFormBase";
 import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledInput } from "../../styles/StyledInput";
-import ImgPatinha from "../../assets/patinha.png";
+import ImgPatinha from "../../assets/2.png";
 import { BrasilianStates } from "./BrazilianStates";
 import { StyledSelect } from "../../styles/styledSelect";
 import { yupResolver } from "@hookform/resolvers/yup";
