@@ -78,6 +78,18 @@ export const StyledRegisterPage = styled.div`
                 width: 100%;
                 object-fit: contain;
             }
+
+            p {
+                font-size: 0.9rem;
+                font-weight: 400;
+                line-height: 0.94rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-align: left;
+            }
         }
     }
 `

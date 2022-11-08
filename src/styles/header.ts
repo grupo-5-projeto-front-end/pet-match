@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
     transition: .2s;
     padding: 0 100px;
     z-index: 3;
+    
 
     @media all and (max-width: 600px) {
         height: 50px;

@@ -31,10 +31,12 @@ export const LandingPage = () => {
         <div>
           <h1>Encontre o par perfeito para seu pet!</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
-            molestias laboriosam tenetur harum incidunt iure nesciunt at impedit
-            placeat temporibus optio soluta facilis laudantium quis repellendus,
-            exercitationem molestiae officiis sunt.
+            Aqui na PetMatch, nós nos dedicamos à proporcionar qualidade de vida e bons relacionamento para os seus pets, 
+            ofecerendo uma platorma intuitiva e acessível que permite que você interaja com outros donos de pet com objetivos iguais aos seus
+            e encontre o par ideal para seu animalzinho!
+          </p>
+          <p>
+            Você apenas precisa criar seu perfil com os detalhes necessários e começar a buscar!
           </p>
           <h2>Bora encontrar o número daquela cachorrinha?</h2>
         </div>
@@ -43,11 +45,10 @@ export const LandingPage = () => {
 
       <div id="black">
         <div>
-          <h3>Confira alguns dos nossos matches (e seus filhotinhos!)</h3>
+          <h3>Confira alguns dos nossos matches (e seus filhotinhos)!</h3>
           <img src={secondimage} alt="Gatinhos filhotes" />
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-            mollitia minima molestias dicta.
+            Muitas histórias de sucesso começaram no PetMatch, desde donos buscando filhotes à empresas divulgando seus animais!
           </p>
         </div>
         <ul>
