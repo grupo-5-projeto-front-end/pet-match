@@ -4,7 +4,7 @@ import { StyledButton } from "../../components/Button/style";
 import { StyledLoginPage } from "./style";
 import { StyledFormBase } from "../../styles/styledFormBase";
 import { StyledInput } from "../../styles/StyledInput";
-import ImgPatinha from "../../assets/patinha.png";
+import ImgPatinha from "../../assets/2.png";
 import { StyledInputContainer } from "../../styles/inputContainer";
 import { StyledError } from "../../styles/styledError";
 import { loginFormSchema } from "./schema";

@@ -28,6 +28,14 @@ export const StyledLoginPage = styled.div`
       color: var(--color-white);
       margin-bottom: 35px;
     }
+
+    div{
+      width: 95%;
+    }
+
+    input{
+      width: 100%;
+    }
   }
 
   .inputBox {
