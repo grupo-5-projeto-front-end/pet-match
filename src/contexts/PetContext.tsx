@@ -37,13 +37,31 @@ export interface iPet {
   id: number;
 }
 
+export interface IuserAndPets {
+  adress: string;
+  avatar:string;
+  city:string;
+  email:string;
+  pets: iPet[];
+  id:string;
+  name:string;
+  password?: string
+  tel:string;
+}
+
+
+
+
+
 export interface iPetContext {
   userPets: iPet[] | null;
   currentPet: iPet | null;
+  userAndPets: IuserAndPets | null;
   allPets: iPet[] | null;
   loading: boolean;
   treatedSearch: string;
   getAllPetsUser: (id: number) => Promise<void>;
+  getAllPetsAndUser: (id: number) => Promise<void>;
   getPetById: (id: number|string) => Promise<void>;
   getAllPets: () => Promise<void>;
   createPet: (body: iCreatePetBody) => Promise<void>;
@@ -60,6 +78,7 @@ export const PetProvider = ({ children }: iPetProps) => {
   const {pathname} = useLocation()
   const navigate = useNavigate()
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
+  const [userAndPets, setUserAndPets] = useState<IuserAndPets | null>(null);
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
   const [allPets, setAllPets] = useState<iPet[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true)
@@ -94,6 +113,15 @@ export const PetProvider = ({ children }: iPetProps) => {
       const data = await getPetsUser(id);
 
       setUserPets(data.pets);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  const getAllPetsAndUser = async (id: number): Promise<void> => {
+    try {
+      const { data } = await api.get(`/users/${id}/?_embed=pets`);
+      setUserAndPets(data);
     } catch (error) {
       console.error(error);
     }
@@ -155,10 +183,12 @@ export const PetProvider = ({ children }: iPetProps) => {
       value={{
         userPets,
         currentPet,
+        userAndPets,
         allPets,
         loading,
         treatedSearch,
         getAllPetsUser,
+        getAllPetsAndUser,
         getPetById,
         getAllPets,
         createPet,

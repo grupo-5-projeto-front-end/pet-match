@@ -12,6 +12,7 @@ export interface iBodyPatchUser {
   favoritePets?: [];
 }
 
+
 // export const patchUser = async ( id: number, body: iBodyPatchUser): Promise<iUser> => {
 //   const { data } = await api.patch(`/users/${id}`, body);
 
