@@ -107,6 +107,7 @@ export const StyledLoginPage = styled.div`
       p {
         font-size: 0.8rem;
         font-weight: 400;
+        line-height: 0.94rem;
       }
 
       h2 {
