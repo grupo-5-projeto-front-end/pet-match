@@ -1,27 +1,20 @@
 import styled from "styled-components";
 
-export const StyledCarrousel = styled.ul `
-    height: 400px;
-    width: 100%;
+export const StyledCarrousel = styled.ul`
+  width: 90%;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 
-    padding: 0 20px;
+  overflow: scroll hidden;
 
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  gap: 1rem;
 
-    margin-bottom: 15px;
+  @media (min-width: 769px) {
+    height: 650px;
 
-    transition: .2s;
+    overflow: hidden scroll;
 
-    overflow-x: auto;
-
-    @media all and (min-width: 782px) {
-        height: 700px;
-
-        flex-wrap: wrap;
-
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-`
+    flex-wrap: wrap;
+  }
+`;
