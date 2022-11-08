@@ -45,19 +45,15 @@ export interface iPet {
 
 export interface IuserAndPets {
   adress: string;
-  avatar:string;
-  city:string;
-  email:string;
+  avatar: string;
+  city: string;
+  email: string;
   pets: iPet[];
-  id:string;
-  name:string;
-  password?: string
-  tel:string;
+  id: string;
+  name: string;
+  password?: string;
+  tel: string;
 }
-
-
-
-
 
 export interface iPetContext {
   userPets: iPet[] | null;
@@ -68,7 +64,7 @@ export interface iPetContext {
   treatedSearch: string;
   getAllPetsUser: (id: number) => Promise<void>;
   getAllPetsAndUser: (id: number) => Promise<void>;
-  getPetById: (id: number|string) => Promise<void>;
+  getPetById: (id: number | string) => Promise<void>;
   getAllPets: () => Promise<void>;
   createPet: (body: iCreatePetBody) => Promise<void>;
   handlePatchPet: (id: number, body: iBodyPatchPet) => Promise<void>;
@@ -80,7 +76,7 @@ export interface iPetContext {
 export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
-  const token = localStorage.getItem("@petmatch:token")
+  const token = localStorage.getItem("@petmatch:token");
   const { closeCreatPet } = useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -119,29 +115,24 @@ export const PetProvider = ({ children }: iPetProps) => {
       loadPets();
     }
   }, [pathname, navigate]);
-  
 
   const getAllPetsUser = async (id: number): Promise<void> => {
-    
-
     try {
-      
       api.defaults.headers.authorization = `Bearer ${token}`;
-      const data = await getPetsUser(id)
+      const data = await getPetsUser(id);
 
       setUserPets(data.pets);
     } catch (error) {
       console.error(error);
-      toast.error("Ops! Algo deu errado", {theme: "dark"})
-      navigate("/dashboard")
+      toast.error("Ops! Algo deu errado", { theme: "dark" });
+      navigate("/dashboard");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
-  
+
   const getAllPetsAndUser = async (id: number): Promise<void> => {
     try {
-      
       api.defaults.headers.authorization = `Bearer ${token}`;
       const { data } = await api.get(`/users/${id}/?_embed=pets`);
       setUserAndPets(data);
@@ -150,8 +141,7 @@ export const PetProvider = ({ children }: iPetProps) => {
     }
   };
 
-  const getPetById = async (id: string|number): Promise<void> => {
-
+  const getPetById = async (id: string | number): Promise<void> => {
     try {
       const { data } = await api.get(`/pets/${id}`);
 
@@ -173,12 +163,13 @@ export const PetProvider = ({ children }: iPetProps) => {
 
   const createPet = async (body: iCreatePetBody): Promise<void> => {
     try {
-      body.userId = +body.userId 
-      const token =localStorage.getItem("@petmatch:token")
+      body.userId = +body.userId;
+      const token = localStorage.getItem("@petmatch:token");
       api.defaults.headers.authorization = `Bearer ${token}`;
       await api.post("/pets", body);
       toast.success("Pet adicionado com sucesso!", { theme: "dark" });
       closeCreatPet();
+      getAllPets();
     } catch (error) {
       console.error(error);
       toast.error("Ops! Algo deu errado", { theme: "dark" });
