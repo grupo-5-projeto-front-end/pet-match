@@ -47,6 +47,10 @@ export const StyledRegisterPage = styled.div`
         .containerStates{
             width: 70%;
             margin-left: 2rem;
+
+            select{
+                width: 106%;
+            }
         }
     }
 
