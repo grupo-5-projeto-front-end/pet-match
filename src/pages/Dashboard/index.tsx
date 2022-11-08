@@ -6,6 +6,7 @@ import { usePetContext } from "../../contexts/PetContext"
 import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
+import { Link } from "react-router-dom"
 
 
 export const Dashboard = () => {
@@ -42,7 +43,8 @@ export const Dashboard = () => {
                                     return null
                                 })
                                 .map(e => (
-                                    <StyledPetCard key={e.id}>
+                                    <StyledPetCard key={e.id} >
+                                        <Link to={`/dashboard/pets/${e.id}`} >                                        
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>
@@ -50,16 +52,12 @@ export const Dashboard = () => {
                                             <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
                                             <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
                                         </div>
+                                        </Link>
                                     </StyledPetCard>
                                 ))}
                             </StyledCarrousel>
                     </section>
-                    <section>
-                        <div>
-                            SUGESTÕES
-                        </div> 
-                        {/* PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
-    
+                    <section>   
                         <div className="sponsor">
                             <div className="sponsor__text">
                                 <h4>Patrocinado</h4>

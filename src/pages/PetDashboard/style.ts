@@ -1,93 +1,135 @@
 import styled from "styled-components"
 
-export const StyledCarrousel = styled.ul `
-    height: 400px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    overflow-x: auto;
+export const StyledLoadingDiv = styled.div `
+    height: 800px;
+    width: 95%;
 
-    @media all and (min-width: 480px) {
-        width: 50vw;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-
-        
-        
-
-    }
-
+    margin: 0 auto;
 `
+
+
+
+
 export const StyledPetDashboard = styled.div`
-header {
-    div {
-        margin-left: 8vw;
-    }
-        button {
-            margin-right: 8vw;
-        }
-    }
+width: 100%;
+    height: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
     section {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
+
         display: flex;
         flex-direction: column;
-        ul {
-            li {
-                height: 325px;
-                min-width: 232px;
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    h4 {
-                        margin-top: -40px;
-                        margin-bottom: 40px;
-                        background-color: #fff;
-                    }
+        align-items: center;
 
-                    
-                }
-            }
-        }
+        display: flex;
+        flex-direction: column;
+
+        transition: .2s;
     }
+
     form {
-        width: 260px;
+        width: 100%;
         
-        margin: 18px auto;
+        margin: 18px 0;
+
         display: flex;
         align-items: center;
+
         transition: .2s;
+
         input {
-            padding: 15px 50px 15px 15px;
-        }
-        button {
-            margin-left: -47px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
+            padding: 15px;
         }
     }
-    
-    
-   
-    @media all and (min-width: 480px) {
-            form {
-                width: 400px;
-                input {
-                    padding: 15px 70px 15px 15px;
-                }
-                button {
-                    margin-left: -67px;
-                    width: 70px;
-                }
-            }
+
+    .sponsor {
+        height: 150px;
+        width: 100%;
+
+        background-color: var(--color-black);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        transition: .2s;
+
+        .sponsor__text {
+            width: 100%;
             
-            ul {
-                li {
-                    width: 240px;
-                }
-            }}
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h4 {
+                font-size: 0.8rem;
+                font-weight: 300;
+                color: var(--color-white);
+                line-height: 20px;
+
+                margin: 5px 0 0 10px;
+            }
+
+            h3 {
+                font-size: 3rem;
+                font-weight: 700;
+                color: var(--color-white);
+                line-height: 50px;
+
+                margin: 15px 0 15px 10px;
+            }
+        }
+
+        .sponsor__divider {
+            height: 130px;
+            width: 1px;
+
+            margin: 0 20px;
+
+            background-color: var(--color-white);
+        }
+
+        p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-white);
+
+            margin-right: 10px;
+        }
+    }
+
+    @media all and (min-width: 480px) {
+        height: 700px;
+
+        form {
+            max-width: 900px;
+        }
+    }
+
+    @media all and (min-width: 768px) {        
+        width: 98%;
+        gap: 20px;
+
+        margin: 10px auto 0 auto
+    }
+`
+
+export const StyledEditButton = styled.span`
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 8px 8px 0  0;
+    border-radius: 4px;
+    background-color: var(--color-salmon);
+    color: #fff;
+
 `

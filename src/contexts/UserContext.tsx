@@ -1,6 +1,11 @@
-import { toNamespacedPath } from "node:path/win32";
-import { createContext, ReactNode, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginRegister, login } from "../services/requests/login";
 import { iBodyPatchUser } from "../services/requests/patchUser";
@@ -50,16 +55,29 @@ export const UserProvider = ({ children }: iUserProps) => {
   const { closeModal } = useModalContext();
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
+
   const token = localStorage.getItem("@petmatch:token")
+  const { pathname } = useLocation();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const id = window.localStorage.getItem("@petmatch:userid");
+
+    if (pathname === "/dashboard") {
+      getUserById(Number(id));
+    }
+  }, [pathname]);
+
   const onSubmitRegister = async (body: iBodyRegister): Promise<void> => {
     try {
       await api.post("/register", body);
-      toast.success("Conta criada com sucesso!", { theme: "dark" })
+      toast.success("Conta criada com sucesso!", { theme: "dark" });
       navigate("/login");
     } catch (error) {
-      toast.error("Ops! Algo deu errado! Verifique os campos novamente!", { theme: "dark" })
+      toast.error("Ops! Algo deu errado! Verifique os campos novamente!", {
+        theme: "dark",
+      });
     }
   };
 
@@ -72,13 +90,24 @@ export const UserProvider = ({ children }: iUserProps) => {
       window.localStorage.setItem("@petmatch:token", accessToken);
       window.localStorage.setItem("@petmatch:userid", user.id.toString());
       setUser(user);
-      toast.success("Login realizado com sucesso", {theme: "dark"})
+      toast.success("Login realizado com sucesso", { theme: "dark" });
       navigate("/dashboard");
     } catch (error: any) {
       console.log(error);
-      error.response.data === "Cannot find user" || "Incorrect password" || "Password is too short"? 
-      toast.error("Credenciais erradas", {theme: "dark"}) :
-      toast.error("Ops! Algo deu errado", {theme: "dark"})
+      error.response.data === "Cannot find user" ||
+      "Incorrect password" ||
+      "Password is too short"
+        ? toast.error("Credenciais erradas", { theme: "dark" })
+        : toast.error("Ops! Algo deu errado", { theme: "dark" });
+    }
+  };
+
+  const getUserById = async (id: number): Promise<void> => {
+    try {
+      const { data } = await api.get(`/users/${id}`);
+      setUser(data);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -91,16 +120,16 @@ export const UserProvider = ({ children }: iUserProps) => {
     }
   };
 
-  const handlePatchUser = async ( body: iBodyPatchUser ): Promise<void> => {
+  const handlePatchUser = async (body: iBodyPatchUser): Promise<void> => {
     try {
-      const userId = localStorage.getItem("@petmatch:userid")
+      const userId = localStorage.getItem("@petmatch:userid");
       const { data } = await api.patch(`/users/${userId}`, body);
-      toast.success("Editado com Suceso!", { theme: "dark" })
-      closeModal()
+      toast.success("Editado com Suceso!", { theme: "dark" });
+      closeModal();
       setUser(data);
     } catch (error) {
       console.error(error);
-      toast.error("Ops! Algo deu errado", {theme: "dark"})
+      toast.error("Ops! Algo deu errado", { theme: "dark" });
     }
   };
   const handleDeleteUser = async (id: number): Promise<void> => {

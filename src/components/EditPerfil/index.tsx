@@ -10,6 +10,7 @@ import { StyledInput } from "../../styles/StyledInput";
 import { useUserContext } from "../../contexts/UserContext";
 import { iUseEdit } from "./interface";
 
+
 export const EditPerfil = () => {
   const { user, handlePatchUser } = useUserContext();
 
@@ -23,7 +24,7 @@ export const EditPerfil = () => {
 
   return (
     <StyledBaseModal>
-      <StyledForm onSubmit={handleSubmit((data)=>handlePatchUser(data))}>
+      <StyledForm onSubmit={handleSubmit((data)=>handlePatchUser(data))} className="animate__zoomIn" >
         
         <TiitleAndCloseModal text={"Editar Perfil"} />
 
