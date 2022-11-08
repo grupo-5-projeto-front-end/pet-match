@@ -21,12 +21,12 @@ export const NotFoundPage = () => {
           <figure>
             <img src={sad_dog} alt="" />
           </figure>
-          <h1>O número da cachorrinha não está aqui :(</h1>
+          <h1>Página não encontrada, o número da cachorrinha não está aqui :(</h1>
           <StyledButton
             width="150px"
             background="--color-salmon"
             color="--color-white"
-            fontSize="2"
+            fontSize="1.5"
             height="50"
             onClick={() => navigate(-1)}
           >
@@ -34,9 +34,10 @@ export const NotFoundPage = () => {
           </StyledButton>
         </main>
         </div>
+      <Footer/>
+      
       </StyledNotFoundPage>
 
-      <Footer/>
     </>
   );
 };

@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { StyledUserMenu, StyledLink } from "./style";
+import { StyledUserMenu } from "./style";
 import { StyledButton } from "../Button/style";
 import { useModalContext } from "../../contexts/ModalContext";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 
 const Logo = require("./Logo.png");
@@ -78,7 +79,7 @@ const UserMenu = () => {
             >
               Cadastrar pet
             </StyledButton>
-            <StyledLink
+            <StyledLinkRedirect
               to="/dashboard/pet"
               width="100%"
               height="36"
@@ -87,7 +88,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Meus pets
-            </StyledLink>
+            </StyledLinkRedirect>
           </motion.div>
         )}
       </AnimatePresence>
@@ -144,7 +145,7 @@ const UserMenu = () => {
             >
               Cadastrar pet
             </StyledButton>
-            <StyledLink
+            <StyledLinkRedirect
               to="/dashboard/pet"
               width="100%"
               height="36"
@@ -153,7 +154,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Meus pets
-            </StyledLink>
+            </StyledLinkRedirect>
           </motion.div>
         )}
       </AnimatePresence>

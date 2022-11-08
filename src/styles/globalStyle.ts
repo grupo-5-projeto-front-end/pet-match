@@ -65,6 +65,19 @@ input{
 	outline: none;
 }
 
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-placeholder);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-salmon);
+}
+
 #root {
 	width: 100%;
 	max-width: 100%;
