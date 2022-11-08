@@ -44,7 +44,7 @@ export interface iPetContext {
   loading: boolean;
   treatedSearch: string;
   getAllPetsUser: (id: number) => Promise<void>;
-  getPetById: (id: number) => Promise<void>;
+  getPetById: (id: number|string) => Promise<void>;
   getAllPets: () => Promise<void>;
   createPet: (body: iCreatePetBody) => Promise<void>;
   handlePatchPet: (id: number, body: iBodyPatchPet) => Promise<void>;
@@ -89,6 +89,7 @@ export const PetProvider = ({ children }: iPetProps) => {
   }, [pathname, navigate]);
 
   const getAllPetsUser = async (id: number): Promise<void> => {
+
     try {
       const data = await getPetsUser(id);
 
@@ -98,7 +99,8 @@ export const PetProvider = ({ children }: iPetProps) => {
     }
   };
 
-  const getPetById = async (id: number): Promise<void> => {
+  const getPetById = async (id: string|number): Promise<void> => {
+
     try {
       const { data } = await api.get(`/pets/${id}`);
 
