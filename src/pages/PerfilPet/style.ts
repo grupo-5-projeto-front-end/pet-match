@@ -1,5 +1,43 @@
 import styled from "styled-components";
 
+
+
+export const StyledUserPets = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+.box_backOut{
+  border-radius: 5px;
+  width: 70px;
+  display: flex;
+  align-self: flex-end;
+  background-color: var(--color-salmon);
+  margin-right: .9rem;
+  .back_Dash{
+    width :100px;
+    height: 50px;
+    font-weight: 700;
+    color: var(--color-white);
+
+    display: flex; align-items: center;
+    justify-content: center;
+  }
+  @media  (min-width: 601px ) {
+    margin-right: 6.3rem;
+   
+  }
+
+
+
+}
+
+footer{
+      bottom: 0;
+}
+
+`
+
 export const StyledMainPerfil = styled.div`
   width: 90%;
   margin: 1rem auto;

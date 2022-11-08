@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const StyledUserPets = styled.section`
 
+
+export const StyledUserPets = styled.section`
     position: relative;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 1.5rem;
     align-items: flex-start;
 
     height: 484px;
@@ -15,6 +16,7 @@ export const StyledUserPets = styled.section`
     margin: 0 auto;
 
     border: solid 1px var(--color-black);
+    
 
     h3 {
         font-style: normal;
@@ -28,7 +30,9 @@ export const StyledUserPets = styled.section`
         flex-direction: row;
         width: 100%;
         gap: 40px;
-        overflow: auto;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding-bottom: 1rem;
     }
 
     .gradient {
@@ -36,7 +40,7 @@ export const StyledUserPets = styled.section`
         top: 0;
         right: 0;
         bottom: 0;
-        left: 70%;
+        left: 95%;
         pointer-events: none;
 
         background-image: linear-gradient(to right, #0000 , white);
