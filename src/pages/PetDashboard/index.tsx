@@ -4,21 +4,30 @@ import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
 import { BiEdit } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
+import { useModalContext } from "../../contexts/ModalContext"
 import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
 import { useEffect } from "react"
-
+import { ManagePetUser } from "../../components/ManagePetModal" 
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
- 
+    const { editPet, setModalData, toggleEditPetModal } = useModalContext()
     useEffect(() => {
         const id = Number(localStorage.getItem("@petmatch:userid"))
         getAllPetsUser(id)
       }, [getAllPetsUser])
+
+
+      const handleEditButton = (petData: any) => {
+        setModalData(petData)
+        
+        toggleEditPetModal()
+      }
    
         return (
             <>
+            { editPet && <ManagePetUser /> }
             { loading ? (
             <StyledLoadingDiv>
                 <LoadingAnimation/>
@@ -47,7 +56,7 @@ export const PetDashboard = () => {
                                 })
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
-                                        <StyledEditButton><BiEdit size={28}/></StyledEditButton>
+                                        <StyledEditButton onClick={() => handleEditButton(e)}><BiEdit size={28}/></StyledEditButton>
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>

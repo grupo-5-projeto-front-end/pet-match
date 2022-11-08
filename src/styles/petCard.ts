@@ -11,11 +11,8 @@ export const StyledPetCard = styled.li `
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-<<<<<<< HEAD
     cursor: pointer;
-=======
     position: relative;
->>>>>>> 72e14f1762a2caee50c88b642b9e2ec7e75a8722
 
     overflow: hidden;
 

@@ -12,6 +12,7 @@ import { getPetsUser } from "../services/requests/getPetsUser";
 import { iBodyPatchPet, patchPet } from "../services/requests/patchPet";
 import { useModalContext } from "./ModalContext";
 
+
 interface iPetProps {
   children: ReactNode;
 }
@@ -77,7 +78,7 @@ export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
   const token = localStorage.getItem("@petmatch:token");
-  const { closeCreatPet } = useModalContext();
+  const { closeCreatPet, toggleEditPetModal } = useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
@@ -182,8 +183,11 @@ export const PetProvider = ({ children }: iPetProps) => {
   ): Promise<void> => {
     try {
       await patchPet(id, body);
+      toggleEditPetModal()
+      toast.success("Pet atualizado com sucesso!", { theme: "dark" });
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", { theme: "dark" });
     }
   };
 
