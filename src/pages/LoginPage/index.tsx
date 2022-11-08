@@ -45,7 +45,7 @@ export const LoginPage = () => {
       <main>
         <div className="textContainer">
           <h2>
-            Encontre o par ideal do seu pet!
+            Como esse processo funciona?
           </h2>
           <p>
             Aqui na PetMatch temos uma plataforma confiável para a escolha de um parceiro que seja perfeito para seu pet!
@@ -53,11 +53,15 @@ export const LoginPage = () => {
           <p>
             Este website facilita o processo de encontrar o par ideal para seu animalzinho, de acordo com suas expectativas e 
             do conforto do seu lar. 
-            De forma similar a sites e aplicativos de encontro para humanos que facilitam o encontro de um parceiro de acordo com suas preferências, você apenas precisa
-            cadastrar seus dados e estará pronto para encontrar os candidatos ideais!
-            Colocando todas as informações necessárias sobre seu pet, você será capaz de visualizar os animais pertencentes à outros donos no seu aplicativo e seus dados, permitindo-o
-            contatar seus donos ou utilizar seus detalhes conforme for conveniente!
+
+            Ao inserir suas credenciais e fazer o login, você será direcionado para nossa área do cliente, em que conseguirá visualizar os animais pertencentes à outras pessoas!
+            Além de interagir com outros animais, você também poderá registrar seus próprios pets, para que eles sejam vistos por outros usuários e possam ser selecionados por eles!
+            Quando encontrar o par ideal, poderá visualizar os dados de seu dono para conseguir entrar em contato e decidir como será a interação de ambos.
           </p>
+
+          <h3>
+            Preparado para alcançar seu objetivo de encontrar o par perfeito para seu pet?
+          </h3>
 
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
