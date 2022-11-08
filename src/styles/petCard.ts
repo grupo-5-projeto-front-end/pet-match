@@ -1,104 +1,72 @@
 import styled from "styled-components";
 
-export const StyledPetCard = styled.li `
-    height: 305px;
-    min-width: 232px;
-    max-width: 232px;
+export const StyledPetCard = styled.li`
+  min-width: 200px;
+  height: 300px;
 
-    display: flex;
-    flex: 1 1 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-<<<<<<< HEAD
-    cursor: pointer;
-=======
-    position: relative;
->>>>>>> 72e14f1762a2caee50c88b642b9e2ec7e75a8722
+  @media (min-width: 769px) {
+    width: calc(95% / 3);
+    height: 350px;
+  }
 
-    overflow: hidden;
+  @media (min-width: 1095px) {
+    width: calc(95% / 4);
+    height: 400px;
+  }
 
-    transition: .2s;
-
+  & > a {
     figure {
-        height: 242px;
+      width: 100%;
+      height: 80%;
+
+      border: solid 1px var(--color-black);
+      border-radius: 8px 8px 0 0;
+
+      img {
         width: 100%;
+        height: 100%;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            transition: .2s;
-        }
+        object-fit: cover;
+
+        border-radius: 8px 8px 0 0;
+      }
     }
-
 
     div {
-        width: 100%;
-        height: 70px;
-        background-color: #f5f5f5;
-        border: 1px solid var(--color-black);
-        border-radius: 0 0 8px 8px; 
+      background-color: var(--color-black);
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      height: 20%;
 
-        transition: .2s;
+      border-radius: 0 0 8px 8px;
 
-        h4 {            
-            width: 140px;
-            height: 30px;
+      padding: 0.5rem;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
+      position: relative;
 
-            font-weight: 500;
-            font-size: 1rem;
+      h4 {
+        color: var(--color-white);
+        font-size: 1rem;
+        font-weight: 700;
 
-            background-color: var(--color-black);
-            color: var(--color-white);
+        width: fit-content;
+        padding: 8px;
+        background-color: var(--color-black);
 
-            position: relative;
-            top: -40px;
-            left: -43px;
+        position: absolute;
+        top: -45px;
+        left: 10px;
+      }
 
-            transition: .2s;
+      p {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--color-white);
 
-            @media all and (min-width: 768px) {
-                left: -35px;
-            }
-            
-            @media all and (min-width: 900px) {
-                left: -55px;
-            }
- 
-            @media all and (min-width: 1000px) {
-                left: -72px;
-            }
-        }
-    
-        p {
-            width: 90%;
-
-            position: relative;
-            top: -10px;
-            text-align: center;
-        }
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
-
-    @media all and (min-width: 900px) {
-        min-width: 270px;
-        max-width: 270px;
-    }
-
-    @media all and (min-width: 1000px) {
-        min-width: 300px;
-        max-width: 300px;
-    }
-`
-
+  }
+`;
