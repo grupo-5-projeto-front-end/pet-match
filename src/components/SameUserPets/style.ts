@@ -11,6 +11,8 @@ export const StyledUserPets = styled.section`
 
     height: 484px;
     padding: 20px;
+    width: 90%;
+    margin: 0 auto;
 
     border: solid 1px var(--color-black);
 

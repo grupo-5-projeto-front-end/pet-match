@@ -80,6 +80,7 @@ export interface iPetContext {
 export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
+  const token = localStorage.getItem("@petmatch:token")
   const { closeCreatPet } = useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -124,6 +125,8 @@ export const PetProvider = ({ children }: iPetProps) => {
     
 
     try {
+      
+      api.defaults.headers.authorization = `Bearer ${token}`;
       const data = await getPetsUser(id)
 
       setUserPets(data.pets);
@@ -138,6 +141,8 @@ export const PetProvider = ({ children }: iPetProps) => {
   
   const getAllPetsAndUser = async (id: number): Promise<void> => {
     try {
+      
+      api.defaults.headers.authorization = `Bearer ${token}`;
       const { data } = await api.get(`/users/${id}/?_embed=pets`);
       setUserAndPets(data);
     } catch (error) {

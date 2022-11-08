@@ -26,7 +26,7 @@ export const PerfilPet = () => {
     <>
       <DashboardHeader />
       <StyledMainPerfil>
-        <StyledDivPetPerfil>
+        <StyledDivPetPerfil >
           <figure>
             <img src={currentPet?.avatar} alt={currentPet?.name} />
           </figure>

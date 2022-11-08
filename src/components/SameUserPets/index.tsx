@@ -10,13 +10,11 @@ interface iUserPets {
 export const SameUserPets = ({ pets, id }: iUserPets) => {
   const dogs = pets?.filter((dog) => dog.id !==id);
 
-  console.log(dogs);
   return (
     <StyledUserPets>
       <h3>Outros pets do mesmo tutor</h3>
       <ul className="petList">
         {dogs?.map((dog) => (
-          <>
             <StyledPetCard key={dog.id}>
               <figure>
                 <img src={dog.avatar} alt="Imagem do dog" />
@@ -26,8 +24,7 @@ export const SameUserPets = ({ pets, id }: iUserPets) => {
                 <h4>{dog.name}</h4>
                 <p>{dog.bio}</p>
               </div>
-            </StyledPetCard>
-          </>
+            </StyledPetCard>         
         ))}
       </ul>
 
