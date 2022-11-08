@@ -43,7 +43,11 @@ export const StyledPetCard = styled.li`
 
       position: relative;
 
+      z-index: -1;
+
+
       h4 {
+        z-index: -1;
         color: var(--color-white);
         font-size: 1rem;
         font-weight: 700;
@@ -58,6 +62,8 @@ export const StyledPetCard = styled.li`
       }
 
       p {
+        z-index: -1;
+
         font-size: 0.8rem;
         font-weight: 500;
         color: var(--color-white);
