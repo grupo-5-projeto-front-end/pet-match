@@ -1,6 +1,6 @@
 import { Footer } from "../../components/Footer"
 import { StyledInput } from "../../styles/StyledInput"
-import { StyledPetDashboard} from "./style"
+import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
 import { BiEdit } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
@@ -8,7 +8,6 @@ import { StyledPetCard } from "../../styles/petCard"
 import { LoadingAnimation } from "../../components/LoadingAnimation"
 import { DashboardHeader } from "../../components/DashboardHeader"
 import { useEffect } from "react"
-import { StyledLoadingDiv } from "../Dashboard/style"
 
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
@@ -48,7 +47,7 @@ export const PetDashboard = () => {
                                 })
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
-                                        <button><BiEdit size={28}/></button>
+                                        <StyledEditButton><BiEdit size={28}/></StyledEditButton>
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>
@@ -74,6 +73,7 @@ export const PetDashboard = () => {
                     
                 </StyledPetDashboard>
  
-                <Footer/></>)};
+                <Footer/>
+                </>)};
     </>)
 }
