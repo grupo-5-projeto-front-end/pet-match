@@ -1,71 +1,37 @@
-import { StyledUserPets } from "./style"
+import { StyledUserPets } from "./style";
 import { StyledPetCard } from "../../styles/petCard";
+import { iPet } from "../../contexts/PetContext";
 
-export const SameUserPets = () => {
-    return (
-        <StyledUserPets>
-            <h3>Outros pets do mesmo tutor</h3>
-            <div className="petList">
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-                <StyledPetCard>
-                    <figure>
-                        <img src="https://www.purina.co.uk/sites/default/files/2020-11/Working%20Dogs%20Everything%20You%20Need%20to%20KnowTEASER.jpeg" alt="Imagem do dog"/>
-                    </figure>
-                    <div>
-                        <h4>Doguinho</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, nam?</p>
-                    </div>
-                </StyledPetCard>
-            </div>
-            <div className="gradient"></div>
-        </StyledUserPets>
-    );
+interface iUserPets {
+  pets?: iPet[];
+  id?: number;
+}
+
+export const SameUserPets = ({ pets, id }: iUserPets) => {
+  const dogs = pets?.filter((dog) => dog.id !==id);
+
+  return (
+    <StyledUserPets>
+      <h3>Outros pets do mesmo tutor</h3>
+      <ul className="petList">
+        {dogs?.map((dog) => (
+            <StyledPetCard key={dog.id}>
+              <figure>
+                <img src={dog.avatar} alt="Imagem do dog" />
+              </figure>
+
+              <div>
+                <h4>{dog.name}</h4>
+                <p>{dog.bio}</p>
+              </div>
+            </StyledPetCard>         
+        ))}
+      </ul>
+
+      <div className="gradient"></div>
+    </StyledUserPets>
+  );
 };
-
 
 // {/* <StyledPetCard key={e.id}>
 //     <figure>

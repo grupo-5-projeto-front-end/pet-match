@@ -43,14 +43,32 @@ export interface iPet {
   id: number;
 }
 
+export interface IuserAndPets {
+  adress: string;
+  avatar:string;
+  city:string;
+  email:string;
+  pets: iPet[];
+  id:string;
+  name:string;
+  password?: string
+  tel:string;
+}
+
+
+
+
+
 export interface iPetContext {
   userPets: iPet[] | null;
   currentPet: iPet | null;
+  userAndPets: IuserAndPets | null;
   allPets: iPet[] | null;
   loading: boolean;
   treatedSearch: string;
   getAllPetsUser: (id: number) => Promise<void>;
-  getPetById: (id: number) => Promise<void>;
+  getAllPetsAndUser: (id: number) => Promise<void>;
+  getPetById: (id: number|string) => Promise<void>;
   getAllPets: () => Promise<void>;
   createPet: (body: iCreatePetBody) => Promise<void>;
   handlePatchPet: (id: number, body: iBodyPatchPet) => Promise<void>;
@@ -62,10 +80,12 @@ export interface iPetContext {
 export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
+  const token = localStorage.getItem("@petmatch:token")
   const { closeCreatPet } = useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
+  const [userAndPets, setUserAndPets] = useState<IuserAndPets | null>(null);
   const [currentPet, setCurrentPet] = useState<iPet | null>(null);
   const [allPets, setAllPets] = useState<iPet[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -105,6 +125,8 @@ export const PetProvider = ({ children }: iPetProps) => {
     
 
     try {
+      
+      api.defaults.headers.authorization = `Bearer ${token}`;
       const data = await getPetsUser(id)
 
       setUserPets(data.pets);
@@ -116,8 +138,20 @@ export const PetProvider = ({ children }: iPetProps) => {
       setLoading(false)
     }
   };
+  
+  const getAllPetsAndUser = async (id: number): Promise<void> => {
+    try {
+      
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      const { data } = await api.get(`/users/${id}/?_embed=pets`);
+      setUserAndPets(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const getPetById = async (id: number): Promise<void> => {
+  const getPetById = async (id: string|number): Promise<void> => {
+
     try {
       const { data } = await api.get(`/pets/${id}`);
 
@@ -175,10 +209,12 @@ export const PetProvider = ({ children }: iPetProps) => {
       value={{
         userPets,
         currentPet,
+        userAndPets,
         allPets,
         loading,
         treatedSearch,
         getAllPetsUser,
+        getAllPetsAndUser,
         getPetById,
         getAllPets,
         createPet,
