@@ -99,14 +99,21 @@ export const PetProvider = ({ children }: iPetProps) => {
       loadPets();
     }
   }, [pathname, navigate]);
+  
 
   const getAllPetsUser = async (id: number): Promise<void> => {
+    
+
     try {
-      const data = await getPetsUser(id);
+      const data = await getPetsUser(id)
 
       setUserPets(data.pets);
     } catch (error) {
       console.error(error);
+      toast.error("Ops! Algo deu errado", {theme: "dark"})
+      navigate("/dashboard")
+    } finally {
+      setLoading(false)
     }
   };
 

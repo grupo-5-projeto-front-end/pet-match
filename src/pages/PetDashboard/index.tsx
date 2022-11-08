@@ -1,60 +1,82 @@
-import { StyledButton } from "../../components/Button/style"
 import { Footer } from "../../components/Footer"
-import { StyledHeader } from "../../styles/header"
+
 import { StyledInput } from "../../styles/StyledInput"
-import { StyledPetDashboard, StyledCarrousel } from "./style"
-import { BiSearch } from "react-icons/bi"
+import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
+import { BiEdit } from "react-icons/bi"
+import  {StyledCarrousel } from "../../styles/carrousel"
+import { usePetContext } from "../../contexts/PetContext"
+import { StyledPetCard } from "../../styles/petCard"
+import { LoadingAnimation } from "../../components/LoadingAnimation"
+import { DashboardHeader } from "../../components/DashboardHeader"
+import { useEffect } from "react"
 
 
 export const PetDashboard = () => {
-    return (
-        <StyledPetDashboard>
-            <StyledHeader>
-                <div>Dropdown</div> {/* Isso é um placeholder para o menu de dropdown e não será estilizado por isso */}
-                <StyledButton fontSize="1.2" color="--color-white" width="70px" height="40" background="--color-salmon">Sair</StyledButton>
-            </StyledHeader>
-
-          
-
-            <section>
-                <form>
-                    <StyledInput placeholder="Pesquisar"/>
-                    <StyledButton fontSize="1.2" color="--color-white" width="50px" height="40" background="--color-salmon"><BiSearch/></StyledButton>
-                </form>
-                <StyledCarrousel>
-                        <li>
-                        <div><img src="https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.2.1955713432.1667510521" alt="" />
-                            <h4>Nome do pet</h4>
+    const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
+ 
+    useEffect(() => {
+        const id = Number(localStorage.getItem("@petmatch:userid"))
+        getAllPetsUser(id)
+      }, [getAllPetsUser])
+   
+        return (
+            <>
+            { loading ? (<StyledLoadingDiv>
+                <LoadingAnimation/>
+            </StyledLoadingDiv>) : (
+                <>
+                <DashboardHeader/>
+                <StyledPetDashboard>
+                    <section>
+                        <form>
+                            <StyledInput placeholder="Pesquisar" onChange={event => setSearch(event.target.value)}/>
+                        </form>
+    
+                            <StyledCarrousel>
+                                {userPets?.filter(e => {
+                                    if (treatedSearch === "") {
+                                        return e
+                                    } else if (e.name.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.bio.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.sex.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.category.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch) || 
+                                    e.breed.toLowerCase().normalize("NFD").trim().replace(/[\u0300-\u036f]/g, "").includes(treatedSearch)) {
+                                        return e
+                                    } 
+                                    return null
+                                })
+                                .map(e => (
+                                    <StyledPetCard key={e.id}>
+                                        <StyledEditButton><BiEdit size={28}/></StyledEditButton>
+                                        <figure>
+                                            <img src={e.avatar} alt="Imagem do dog"/>
+                                        </figure>
+                                        <div>
+                                            <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
+                                            <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
+                                        </div>
+                                    </StyledPetCard>
+                                ))}
+                            </StyledCarrousel>
+                    </section>
+                    <section>
+                        <div>
+                            SUGESTÕES
+                        </div> 
+                        {/* PLACEHOLDER DO LOCAL SUGERIDO DO COMPONENTE DE SUGESTÕES */}
+    
+                        <div className="sponsor">
+                            <div className="sponsor__text">
+                                <h4>Patrocinado</h4>
+                                <h3>ONLY PETS</h3>
                             </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </li>
-                        <li>
-                            <div><img src="https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.2.1955713432.1667510521" alt="" />
-                            <h4>Nome do pet</h4>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </li>
-                        <li>
-                            <div><img src="https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.2.1955713432.1667510521" alt="" />
-                            <h4>Nome do pet</h4>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </li>
-                        <li>
-                        <div><img src="https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.2.1955713432.1667510521" alt="" />
-                            <h4>Nome do pet</h4>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </li>
-                    </StyledCarrousel>
-                   
-            </section>
-
-                <div className="carrousel_suggestions">
-
-                </div>
-
-            <Footer/>
-        </StyledPetDashboard>
-    )
+                            <div className="sponsor__divider"></div>
+                            <p>Parceiro oficial para adoção de amiguinhos</p>
+                        </div>
+                    </section>
+                </StyledPetDashboard>
+                
+                <Footer/></>)}
+        ;
+    </>)
 }
