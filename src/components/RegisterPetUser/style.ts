@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { StyledFormBase } from "../../styles/styledFormBase";
+import 'animate.css';
 
 export const StyledFormPet = styled(StyledFormBase)`
   width: 90%;
   gap: 6px;
+  animation-duration: 1s;
 
   input {
     width: 100%;

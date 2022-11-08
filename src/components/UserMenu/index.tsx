@@ -1,13 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { StyledUserMenu, StyledLink } from "./style";
+import { StyledUserMenu } from "./style";
 import { StyledButton } from "../Button/style";
+import { useModalContext } from "../../contexts/ModalContext";
+import { StyledLinkRedirect } from "../../styles/styledLink";
 
 
 const Logo = require("./Logo.png");
 
 const UserMenu = () => {
+  const {openModal, openCreatPet} = useModalContext()
+
   const [openMenu, setOpenMenu] = useState(false);
   const [windowWidth, serWindowWidth] = useState(window.innerWidth);
 
@@ -61,6 +65,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
+              onClick={()=>(openModal())}
             >
               Editar perfil
             </StyledButton>
@@ -70,10 +75,12 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
+              onClick={()=>openCreatPet()}
             >
               Cadastrar pet
             </StyledButton>
-            <StyledLink
+            
+            <StyledLinkRedirect
               to="/dashboard/my-pets"
               width="100%"
               height="36"
@@ -82,7 +89,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Meus pets
-            </StyledLink>
+            </StyledLinkRedirect>
           </motion.div>
         )}
       </AnimatePresence>
@@ -139,7 +146,8 @@ const UserMenu = () => {
             >
               Cadastrar pet
             </StyledButton>
-            <StyledLink
+
+            <StyledLinkRedirect
               to="/dashboard/my-pets"
               width="100%"
               height="36"
@@ -148,7 +156,7 @@ const UserMenu = () => {
               color="--color-white"
             >
               Meus pets
-            </StyledLink>
+            </StyledLinkRedirect>
           </motion.div>
         )}
       </AnimatePresence>
