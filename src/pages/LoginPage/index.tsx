@@ -45,21 +45,23 @@ export const LoginPage = () => {
       <main>
         <div className="textContainer">
           <h2>
-            Texto de chamada falando sobre oe benefícios de se cadastrar aqui
+            Como esse processo funciona?
           </h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Aqui na PetMatch temos uma plataforma confiável para a escolha de um parceiro que seja perfeito para seu pet!
           </p>
-          <h3>Bora encontrar o número daquela cadelinha?</h3>
+          <p>
+            Este website facilita o processo de encontrar o par ideal para seu animalzinho, de acordo com suas expectativas e 
+            do conforto do seu lar. 
 
+            Ao inserir suas credenciais e fazer o login, você será direcionado para nossa área do cliente, em que conseguirá visualizar os animais pertencentes à outras pessoas!
+            Além de interagir com outros animais, você também poderá registrar seus próprios pets, para que eles sejam vistos por outros usuários e possam ser selecionados por eles!
+            Quando encontrar o par ideal, poderá visualizar os dados de seu dono para conseguir entrar em contato e decidir como será a interação de ambos.
+          </p>
+
+          <h3>
+            Preparado para alcançar seu objetivo de encontrar o par perfeito para seu pet?
+          </h3>
 
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>

@@ -44,20 +44,18 @@ export const RegisterPage = () => {
       <main>
         <div className="textContainer">
           <h2>
-            Texto de chamada falando sobre oe benefícios de se cadastrar aqui
+            Encontre o par ideal do seu pet!
           </h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Você está quase lá! Falta pouco para começar a conhecer candidatos!
           </p>
-          <h3>Bora encontrar o número daquela cadelinha?</h3>
+          <p>
+            De forma similar a sites e aplicativos de encontro para humanos que facilitam o encontro de um parceiro de acordo com suas preferências, você apenas precisa
+            cadastrar seus dados (e os dados de seu(s) pet(s)) e estará pronto para encontrar os candidatos ideais!
+            Inserindo todas as informações necessárias, você será capaz de visualizar os animais pertencentes à outras pessoas e seus dados, permitindo-o
+            contatar seus donos ou utilizar seus detalhes conforme for conveniente!
+          </p>
+
           <img src={ImgPatinha} alt="Imagem de uma patinha de cachorro" />
         </div>
         <StyledFormBase onSubmit={handleSubmit(onSubmitRegister)}>
