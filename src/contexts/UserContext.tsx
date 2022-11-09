@@ -46,7 +46,7 @@ interface iUserContext {
   getAllUsers: () => Promise<void>;
   handlePatchUser: (body: iBodyPatchUser) => Promise<void>;
   handleDeleteUser: (id: number) => Promise<void>;
-  privateRoute:boolean;
+  privateRoute: boolean;
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
@@ -56,7 +56,7 @@ export const UserProvider = ({ children }: iUserProps) => {
   const [user, setUser] = useState<iUser | null>(null);
   const [listOfUsers, setListOfUsers] = useState<iUser[] | null>(null);
 
-  const token = localStorage.getItem("@petmatch:token")
+  const token = localStorage.getItem("@petmatch:token");
   const { pathname } = useLocation();
 
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ export const UserProvider = ({ children }: iUserProps) => {
   useEffect(() => {
     const id = window.localStorage.getItem("@petmatch:userid");
 
-    if (pathname === "/dashboard") {
+    if (pathname.includes("/dashboard")) {
       getUserById(Number(id));
     }
   }, [pathname]);
@@ -151,7 +151,7 @@ export const UserProvider = ({ children }: iUserProps) => {
         getAllUsers,
         handlePatchUser,
         handleDeleteUser,
-        privateRoute:!!token
+        privateRoute: !!token,
       }}
     >
       {children}
