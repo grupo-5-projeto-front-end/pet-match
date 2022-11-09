@@ -12,7 +12,6 @@ import { getPetsUser } from "../services/requests/getPetsUser";
 import { iBodyPatchPet, patchPet } from "../services/requests/patchPet";
 import { useModalContext } from "./ModalContext";
 
-
 interface iPetProps {
   children: ReactNode;
 }
@@ -78,7 +77,8 @@ export const PetContext = createContext<iPetContext>({} as iPetContext);
 
 export const PetProvider = ({ children }: iPetProps) => {
   const token = localStorage.getItem("@petmatch:token");
-  const { closeCreatPet, toggleEditPetModal, toggleDeletePetModal } = useModalContext();
+  const { closeCreatPet, toggleEditPetModal, toggleDeletePetModal } =
+    useModalContext();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [userPets, setUserPets] = useState<iPet[] | null>(null);
@@ -114,6 +114,10 @@ export const PetProvider = ({ children }: iPetProps) => {
 
     if (pathname === "/dashboard" || pathname === "/") {
       loadPets();
+    }
+
+    if (pathname !== "/dashboard" && token) {
+      navigate("/dashboard");
     }
   }, [pathname, navigate]);
 
@@ -183,7 +187,7 @@ export const PetProvider = ({ children }: iPetProps) => {
   ): Promise<void> => {
     try {
       await patchPet(id, body);
-      toggleEditPetModal()
+      toggleEditPetModal();
       toast.success("Pet atualizado com sucesso!", { theme: "dark" });
     } catch (error) {
       console.error(error);
@@ -194,7 +198,7 @@ export const PetProvider = ({ children }: iPetProps) => {
   const deletePet = async (id: number): Promise<void> => {
     try {
       await api.delete(`/pets/${id}`);
-      toggleDeletePetModal()
+      toggleDeletePetModal();
       toast.success("Pet deletado com sucesso!", { theme: "dark" });
     } catch (error) {
       console.error(error);
