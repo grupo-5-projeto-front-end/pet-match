@@ -11,7 +11,9 @@ export const StyledUserMenu = styled.div<iStyledMenuProps>`
   max-width: 100%;
   height: 100%;
 
-  z-index: 0;
+  background-color: red;
+
+  z-index: 1;
 
   background-color: var(--color-black);
 
