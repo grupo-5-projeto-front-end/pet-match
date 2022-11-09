@@ -12,6 +12,7 @@ import { useEffect } from "react"
 import { ManagePetUser } from "../../components/ManagePetModal" 
 import { DeletePetModal } from "../../components/DeletePetModal"
 import { StyledLinkRedirect } from "../../styles/styledLink"
+import { Link } from "react-router-dom"
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
     const { editPet, setModalData, toggleEditPetModal, toggleDeletePetModal, deletePet } = useModalContext()
@@ -81,13 +82,14 @@ export const PetDashboard = () => {
                                     <StyledPetCard key={e.id}>
                                         <StyledEditButton onClick={() => handleEditButton(e)}><BiEdit size={28}/></StyledEditButton>
                                         <StyledDeleteButton onClick={() => handleDeleteButton(e.id)}><BiTrash size={28}/></StyledDeleteButton>
+                                        <Link to={`/dashboard/pets/${e.id}`}>
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>
                                         <div>
                                             <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
                                             <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
-                                        </div>
+                                        </div></Link>
                                     </StyledPetCard>
                                 ))}
                             </StyledCarrousel>

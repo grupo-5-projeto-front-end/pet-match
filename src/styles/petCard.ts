@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledPetCard = styled.li`
   min-width: 200px;
   height: 300px;
+  position: relative;
 
   @media (min-width: 769px) {
     width: calc(95% / 3);
