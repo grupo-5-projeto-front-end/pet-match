@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { StyledFormBase } from "../../styles/styledFormBase";
-import 'animate.css';
+import "animate.css";
 
 export const StyledFormPet = styled(StyledFormBase)`
   width: 90%;
@@ -36,12 +36,13 @@ export const StyledTitleAddPet = styled.div`
 export const StyledSexAndCategory = styled.div`
   width: 100%;
   display: flex;
+  gap: 5px;
+
   select {
     font-size: 1rem;
     border-radius: 5px;
     height: 45px;
     background-color: var(--color-gray);
-    width: 160%;
   }
 
   label {
@@ -55,9 +56,9 @@ export const StyledSexAndCategory = styled.div`
   .category {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 68%;
     select {
-      width: 98%;
+      width: 100%;
     }
     label {
       color: var(--color-white);
@@ -68,6 +69,7 @@ export const StyledSexAndCategory = styled.div`
       input {
         width: 98%;
       }
+
       margin-right: 10px;
       width: 74%;
     }
@@ -75,7 +77,9 @@ export const StyledSexAndCategory = styled.div`
   .sex {
     display: flex;
     flex-direction: column;
+    width: 28%;
     select {
+      width: 100%;
       font-size: 1rem;
       border-radius: 5px;
       height: 45px;
