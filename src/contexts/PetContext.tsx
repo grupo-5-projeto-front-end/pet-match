@@ -116,7 +116,7 @@ export const PetProvider = ({ children }: iPetProps) => {
       loadPets();
     }
 
-    if (pathname !== "/dashboard" && token) {
+    if (!pathname.includes("/dashboard") && token) {
       navigate("/dashboard");
     }
   }, [pathname, navigate]);
