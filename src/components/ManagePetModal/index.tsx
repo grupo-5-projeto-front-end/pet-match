@@ -34,8 +34,8 @@ export const ManagePetUser = () => {
   breed: modalData?.breed || "",
   age: modalData?.age || "",
   bio: modalData?.bio || "",
-  image: modalData?.image || "",
-  //visible: modalData?.visible || false,
+  avatar: modalData?.avatar || "",
+  
      }
   });
 
@@ -145,7 +145,7 @@ export const ManagePetUser = () => {
             color="--color-white"
             fontSize="1.3"
             height="51"
-            width="93%"
+            width="100%"
           >
             Editar pet
           </StyledButton>

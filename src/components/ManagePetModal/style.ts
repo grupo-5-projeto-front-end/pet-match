@@ -3,12 +3,12 @@ import { StyledFormBase } from "../../styles/styledFormBase";
 import 'animate.css';
 
 export const StyledFormPet = styled(StyledFormBase)`
-  width: 90%;
+  width: 100%;
   gap: 6px;
   animation-duration: 1s;
 
   input {
-    width: 100%;
+    width: 109%;
     border-radius: 5px;
     padding: 3px 5px;
     font-size: 1rem;
@@ -65,10 +65,10 @@ export const StyledSexAndCategory = styled.div`
 
     @media all and (min-width: 480px) {
       input {
-        width: 98%;
+        width: 100%;
       }
       margin-right: 10px;
-      width: 74%;
+      width: 100%;
     }
   }
   .sex {

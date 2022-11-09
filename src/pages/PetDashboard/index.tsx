@@ -1,6 +1,6 @@
 import { Footer } from "../../components/Footer"
 import { StyledInput } from "../../styles/StyledInput"
-import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton } from "./style"
+import { StyledPetDashboard, StyledLoadingDiv, StyledEditButton, StyledDeleteButton, StyledLinkWrapper } from "./style"
 import { BiEdit, BiTrash } from "react-icons/bi"
 import { StyledCarrousel } from "../../styles/carrousel"
 import { usePetContext } from "../../contexts/PetContext"
@@ -11,6 +11,7 @@ import { DashboardHeader } from "../../components/DashboardHeader"
 import { useEffect } from "react"
 import { ManagePetUser } from "../../components/ManagePetModal" 
 import { DeletePetModal } from "../../components/DeletePetModal"
+import { StyledLinkRedirect } from "../../styles/styledLink"
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
     const { editPet, setModalData, toggleEditPetModal, toggleDeletePetModal, deletePet } = useModalContext()
@@ -44,7 +45,20 @@ export const PetDashboard = () => {
             ) : (
                 <>
                 <DashboardHeader/>
+             <StyledLinkWrapper>
+            <StyledLinkRedirect
+            to="/dashboard"
+            fontSize="1.2"
+            color="--color-white"
+            width="70px"
+            height="50"
+            background="--color-salmon"
+            
+          >
+            Voltar
+          </StyledLinkRedirect></StyledLinkWrapper>
                 <StyledPetDashboard>
+                    
                     <section>
                         <form>
                             <StyledInput placeholder="Pesquisar" onChange={event => setSearch(event.target.value)}/>
@@ -66,7 +80,7 @@ export const PetDashboard = () => {
                                 .map(e => (
                                     <StyledPetCard key={e.id}>
                                         <StyledEditButton onClick={() => handleEditButton(e)}><BiEdit size={28}/></StyledEditButton>
-                                        <StyledEditButton onClick={() => handleDeleteButton(e.id)}><BiTrash size={28}/></StyledEditButton>
+                                        <StyledDeleteButton onClick={() => handleDeleteButton(e.id)}><BiTrash size={28}/></StyledDeleteButton>
                                         <figure>
                                             <img src={e.avatar} alt="Imagem do dog"/>
                                         </figure>

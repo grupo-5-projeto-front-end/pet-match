@@ -25,7 +25,7 @@ const { deletePet } = usePetContext()
             color="--color-white"
             fontSize="1.3"
             height="51"
-            width="93%"
+            width="100%"
             type="button"
             onClick={()=> deletePet(modalData)}
             >DELETAR</StyledButton></StyledFormPet>
