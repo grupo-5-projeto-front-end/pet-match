@@ -1,7 +1,7 @@
 import { StyledHeader } from "../../styles/header";
 import PetMatchLogo from "../../assets/PETMATCH.png";
-import firstimage from "../../assets/cachorrolandingpage.png";
-import secondimage from "../../assets/gatinhosfilhotes.png";
+import firstimage from "../../assets/imagemParaLandingPage1.jpg";
+import secondimage from "../../assets/gatinhos.jpg";
 import { StyledLandingPage } from "./style";
 import { Footer } from "../../components/Footer";
 import { usePetContext } from "../../contexts/PetContext";
@@ -31,12 +31,15 @@ export const LandingPage = () => {
         <div>
           <h1>Encontre o par perfeito para seu pet!</h1>
           <p>
-            Aqui na PetMatch, nós nos dedicamos à proporcionar qualidade de vida e bons relacionamento para os seus pets, 
-            ofecerendo uma platorma intuitiva e acessível que permite que você interaja com outros donos de pet com objetivos iguais aos seus
-            e encontre o par ideal para seu animalzinho!
+            Aqui na PetMatch, nós nos dedicamos à proporcionar qualidade de vida
+            e bons relacionamento para os seus pets, ofecerendo uma platorma
+            intuitiva e acessível que permite que você interaja com outros donos
+            de pet com objetivos iguais aos seus e encontre o par ideal para seu
+            animalzinho!
           </p>
           <p>
-            Você apenas precisa criar seu perfil com os detalhes necessários e começar a buscar!
+            Você apenas precisa criar seu perfil com os detalhes necessários e
+            começar a buscar!
           </p>
           <h2>Bora encontrar o número daquela cachorrinha?</h2>
         </div>
@@ -48,7 +51,8 @@ export const LandingPage = () => {
           <h3>Confira alguns dos nossos matches (e seus filhotinhos)!</h3>
           <img src={secondimage} alt="Gatinhos filhotes" />
           <p>
-            Muitas histórias de sucesso começaram no PetMatch, desde donos buscando filhotes à empresas divulgando seus animais!
+            Muitas histórias de sucesso começaram no PetMatch, desde donos
+            buscando filhotes à empresas divulgando seus animais!
           </p>
         </div>
         <ul>

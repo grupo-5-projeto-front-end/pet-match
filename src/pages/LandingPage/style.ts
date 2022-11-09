@@ -9,17 +9,26 @@ export const StyledLandingPage = styled.div`
   header {
     div {
       width: 100%;
+      padding: 1rem;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10%;
 
       img {
-        height: 90%;
-        width: 50%;
-        max-width: 369px;
+        width: calc(100% / 2);
+        max-width: 220px;
+      }
+
+      a {
+        width: calc(100% / 2);
+        max-width: 120px;
       }
     }
+  }
+
+  & > footer {
+    bottom: 0;
   }
 
   & > div {
@@ -39,22 +48,22 @@ export const StyledLandingPage = styled.div`
       & > h1,
       & > h2,
       & > h3 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--color-black);
       }
 
       & > h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
       }
 
       & > h3 {
-        font-size: 0.75rem;
+        font-size: 1rem;
       }
 
       & > p {
-        font-size: 0.75rem;
-        line-height: 0.94rem;
+        font-size: 1rem;
+        line-height: 1.25rem;
         text-align: justify;
         color: var(--color-black);
       }
@@ -66,10 +75,11 @@ export const StyledLandingPage = styled.div`
 
     @media (min-width: 768px) {
       flex-direction: row;
+      justify-content: space-between;
 
       div,
       img {
-        width: 50%;
+        width: 45%;
         height: 100%;
       }
     }
@@ -84,6 +94,12 @@ export const StyledLandingPage = styled.div`
       & > h3,
       & > p {
         color: var(--color-white);
+      }
+
+      & > img {
+        height: 232px;
+        object-fit: cover;
+        border-radius: 8px;
       }
     }
 
