@@ -1,24 +1,18 @@
 import styled from "styled-components"
 
 export const StyledNotFoundPage = styled.div`
-
-    footer{
-        margin: 0px;
-        bottom: -50px;
-        transition: .2s;
-    }
-
     height: 100vh;
     background-color: var(--color-black) ;
         
-    div{
+    .wrapper{
         
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 75vh;
+        height: 100%;
         transition: .2s;
-        
+        background-color: var(--color-black);
+
         }
 
         header{
@@ -34,7 +28,6 @@ export const StyledNotFoundPage = styled.div`
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: var(--color-black);
             gap: 5px;
             height: 50vh;
             transition: .2s;
@@ -70,7 +63,14 @@ export const StyledNotFoundPage = styled.div`
 
             }
 
-            
+            a {
+                z-index: 2;
+            }            
+        }
+
+        footer{
+            bottom: 90px;
+            transition: .2s;
         }
 
         @media screen and (min-width: 768px) {
@@ -79,11 +79,8 @@ export const StyledNotFoundPage = styled.div`
             }
 
             footer{
-                bottom: -50px;
-            }
-
-            div{
-                height: unset;
-            }
+                margin-top: 20px;
+                bottom: 100px;
+            }            
         }
 `
