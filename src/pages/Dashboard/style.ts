@@ -41,7 +41,7 @@ export const StyledDashboard = styled.div`
     }
   }
 
-  .sponsor {
+  /* .sponsor {
     height: 150px;
     width: 100%;
 
@@ -95,7 +95,7 @@ export const StyledDashboard = styled.div`
 
       margin-right: 10px;
     }
-  }
+  } */
 
   @media all and (min-width: 480px) {
     height: 700px;

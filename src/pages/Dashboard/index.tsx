@@ -7,6 +7,7 @@ import { StyledPetCard } from "../../styles/petCard";
 import { LoadingAnimation } from "../../components/LoadingAnimation";
 import { DashboardHeader } from "../../components/DashboardHeader";
 import { Link } from "react-router-dom";
+import { Advertisements } from "../../components/Advertisements";
 
 export const Dashboard = () => {
   const { allPets, loading, treatedSearch, setSearch } = usePetContext();
@@ -92,18 +93,10 @@ export const Dashboard = () => {
                 ))}
             </StyledCarrousel>
           </section>
-          <section>
-            <div className="sponsor">
-              <div className="sponsor__text">
-                <h4>Patrocinado</h4>
-                <h3>ONLY PETS</h3>
-              </div>
-              <div className="sponsor__divider"></div>
-              <p>Parceiro oficial para adoção de amiguinhos</p>
-            </div>
-          </section>
-        </StyledDashboard>
+          
+          <Advertisements/>
         <Footer />
+        </StyledDashboard>
       </>
     );
   }
