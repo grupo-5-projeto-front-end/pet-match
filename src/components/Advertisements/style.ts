@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StyledAside = styled.aside`
+export const StyledAside = styled.aside`    
+    margin-bottom: 1rem;
   .sponsor {
-    /* height: 150px; */
     width: 100%;
     background-color: var(--color-black);
     flex-direction: column;
@@ -11,6 +11,7 @@ export const StyledAside = styled.aside`
     gap: 5px;
     transition: 0.2s;
     padding: 1rem;
+    
     > div {
       padding-bottom: 5px;
       border-bottom:solid 1px var(--color-salmon);

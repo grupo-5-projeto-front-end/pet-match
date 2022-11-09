@@ -13,6 +13,7 @@ import { ManagePetUser } from "../../components/ManagePetModal"
 import { DeletePetModal } from "../../components/DeletePetModal"
 import { StyledLinkRedirect } from "../../styles/styledLink"
 import { Link } from "react-router-dom"
+import { Advertisements } from "../../components/Advertisements"
 export const PetDashboard = () => {
     const { userPets, loading, treatedSearch, setSearch, getAllPetsUser } = usePetContext();
     const { editPet, setModalData, toggleEditPetModal, toggleDeletePetModal, deletePet } = useModalContext()
@@ -94,8 +95,8 @@ export const PetDashboard = () => {
                                 ))}
                             </StyledCarrousel>
                     </section>
-                    
-                    <section>   
+                    <Advertisements/>
+                    {/* <section>   
                         <div className="sponsor">
                             <div className="sponsor__text">
                                 <h4>Patrocinado</h4>
@@ -104,11 +105,11 @@ export const PetDashboard = () => {
                             <div className="sponsor__divider"></div>
                             <p>Parceiro oficial para adoção de amiguinhos</p>
                         </div>
-                    </section>
+                    </section> */}
                     
+                <Footer/>
                 </StyledPetDashboard>
  
-                <Footer/>
                 </>)};
     </>)
 }

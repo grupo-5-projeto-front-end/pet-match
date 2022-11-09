@@ -100,7 +100,7 @@ export const StyledFooter = styled.footer`
 
   }
 
-  /* @media all and (min-width: 782px) {
+  @media all and (min-width: 782px) {
     bottom: -300px;
-  } */
+  }
 `;
