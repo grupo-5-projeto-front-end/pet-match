@@ -29,8 +29,8 @@ export const Footer = () => {
                         <span><a href="https://github.com/GregStoz" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="https://www.linkedin.com/in/gregory-santos-dev/" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
                         <span><a href="https://github.com/devIgorSilveira" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="http://www.linkedin.com/in/igorcoutodasilveira" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
                         <span><a href="https://github.com/lucasvazo" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="https://www.linkedin.com/in/lucasvazn/" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
-                        <span><a href="https://github.com/matheuscg13" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="http://google.com.br" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
-                        <span><a href="https://github.com/Vinicius-reis2" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="http://google.com.br" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
+                        <span><a href="https://github.com/matheuscg13" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="https://www.linkedin.com/in/matheus-gonçalves-449162240/" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
+                        <span><a href="https://github.com/Vinicius-reis2" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="https://www.linkedin.com/mwlite/in/paulo-vinicius-27a23a241" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
                         <span><a href="https://github.com/VinofSteel" target="_blank" rel="noopener noreferrer"><BsGithub/></a> <a href="https://www.linkedin.com/in/vinicius-nascimento-82884023b/" target="_blank" rel="noopener noreferrer"><BsLinkedin/></a></span>
                     </div>
                 </div>
