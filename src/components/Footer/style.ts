@@ -24,25 +24,41 @@ export const StyledFooter = styled.footer`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 15px;
+    gap: 8px;
 
     h3 {
       font-weight: 700;
       font-size: 1.2rem;
       line-height: 12px;
       text-align: left;
-      color: var(--color-white);
+      color: var(--color-salmon);
       width: 80px;
     }
 
     p {
       font-weight: 500;
-      font-size: 0.9rem;
-      line-height: 11px;
+      font-size: 0.7rem;
+      line-height: 14px;
       color: var(--color-white);
+
+      @media all and (min-width: 425px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 0.7rem;
+      line-height: 12px;
+      color: var(--color-white);
+
+      @media all and (min-width: 425px) {
+        font-size: 0.9rem;
+      }
     }
 
     .textContainer__wrapper {
+      height: 90%;
       display: flex;
       width: 100%;
       align-items: center;
@@ -59,9 +75,24 @@ export const StyledFooter = styled.footer`
         flex-direction: column;
         gap: 1.5px;
 
+        span {
+          display: flex;
+          gap: 2px;
+
+          @media all and (min-width: 425px) {
+            gap: 5px;
+          }
+        }
+
         a {
           font-size: 1rem;
+          font-weight: 500;
           color: var(--color-white);
+          transition: .2s;
+        }
+
+        a:hover {
+          color: var(--color-salmon );
         }
       }
 
