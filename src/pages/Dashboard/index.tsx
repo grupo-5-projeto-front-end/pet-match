@@ -30,7 +30,7 @@ export const Dashboard = () => {
               />
             </form>
 
-            <StyledCarrousel>
+            <StyledCarrousel className="animate__fadeIn">
               {allPets
                 ?.filter((e) => {
                   if (treatedSearch === "") {
@@ -84,9 +84,7 @@ export const Dashboard = () => {
                             : e.name}
                         </h4>
                         <p>
-                          {e.bio.length > 50
-                            ? `${e.bio.substring(0, 50)}...`
-                            : e.bio}
+                          {e.bio}
                         </p>
                       </div>
                     </Link>

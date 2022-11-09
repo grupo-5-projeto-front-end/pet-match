@@ -123,6 +123,7 @@ export const UserProvider = ({ children }: iUserProps) => {
   const handlePatchUser = async (body: iBodyPatchUser): Promise<void> => {
     try {
       const userId = localStorage.getItem("@petmatch:userid");
+      api.defaults.headers.authorization = `Bearer ${token}`;
       const { data } = await api.patch(`/users/${userId}`, body);
       toast.success("Editado com Suceso!", { theme: "dark" });
       closeModal();
