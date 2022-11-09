@@ -10,11 +10,20 @@ export const StyledHeader = styled.header`
     transition: .2s;
     padding: 0 100px;
     z-index: 3;
+
+    .logo {
+            height: 40%;
+    }
     
 
     @media all and (max-width: 600px) {
         height: 50px;
         padding: 0 17px;
+
+        .logo {
+            display: none;
+        }
+
     }
 
     @media all and (max-width: 480px) {
