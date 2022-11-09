@@ -65,7 +65,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
-              onClick={()=>(openModal())}
+              onClick={()=>([openModal(),setOpenMenu(!openMenu)])}
             >
               Editar perfil
             </StyledButton>
@@ -75,7 +75,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1.2"
               color="--color-white"
-              onClick={()=>openCreatPet()}
+              onClick={()=>[openCreatPet(),setOpenMenu(!openMenu)]}
             >
               Cadastrar pet
             </StyledButton>
@@ -134,6 +134,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1"
               color="--color-white"
+              onClick={()=>([openModal(),setOpenMenu(!openMenu)])}
             >
               Editar perfil
             </StyledButton>
@@ -143,6 +144,7 @@ const UserMenu = () => {
               background="--color-salmon"
               fontSize="1"
               color="--color-white"
+              onClick={()=>[openCreatPet(),setOpenMenu(!openMenu)]}
             >
               Cadastrar pet
             </StyledButton>
