@@ -4,7 +4,7 @@ export const StyledCarrousel = styled.ul`
   width: 90%;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-
+  animation-duration: 2s;
   overflow: scroll hidden;
 
   display: flex;

@@ -1,12 +1,13 @@
 import { Footer } from "../../components/Footer";
 import { StyledInput } from "../../styles/StyledInput";
-import { StyledDashboard, StyledLoadingDiv } from "./style";
+import { StyledDashboard, StyledLoadingDiv, StyledFooterEdit } from "./style";
 import { StyledCarrousel } from "../../styles/carrousel";
 import { usePetContext } from "../../contexts/PetContext";
 import { StyledPetCard } from "../../styles/petCard";
 import { LoadingAnimation } from "../../components/LoadingAnimation";
 import { DashboardHeader } from "../../components/DashboardHeader";
 import { Link } from "react-router-dom";
+import { Advertisements } from "../../components/Advertisements";
 
 export const Dashboard = () => {
   const { allPets, loading, treatedSearch, setSearch } = usePetContext();
@@ -30,7 +31,7 @@ export const Dashboard = () => {
               />
             </form>
 
-            <StyledCarrousel>
+            <StyledCarrousel className="animate__fadeIn">
               {allPets
                 ?.filter((e) => {
                   if (treatedSearch === "") {
@@ -84,9 +85,7 @@ export const Dashboard = () => {
                             : e.name}
                         </h4>
                         <p>
-                          {e.bio.length > 50
-                            ? `${e.bio.substring(0, 50)}...`
-                            : e.bio}
+                          {e.bio}
                         </p>
                       </div>
                     </Link>
@@ -94,18 +93,12 @@ export const Dashboard = () => {
                 ))}
             </StyledCarrousel>
           </section>
-          <section>
-            <div className="sponsor">
-              <div className="sponsor__text">
-                <h4>Patrocinado</h4>
-                <h3>ONLY PETS</h3>
-              </div>
-              <div className="sponsor__divider"></div>
-              <p>Parceiro oficial para adoção de amiguinhos</p>
-            </div>
-          </section>
+          
+          <Advertisements/>
         </StyledDashboard>
-        <Footer />
+        <StyledFooterEdit>
+          <Footer />
+        </StyledFooterEdit>
       </>
     );
   }
