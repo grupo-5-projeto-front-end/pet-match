@@ -62,9 +62,14 @@ export const PetDashboard = () => {
                 <StyledPetDashboard>
                     
                     <section>
+                        <>
                         <form>
                             <StyledInput placeholder="Pesquisar" onChange={event => setSearch(event.target.value)}/>
                         </form>
+
+                            {userPets?.length == 0 ? (
+                                <h2 className="YouDontHaveAnyPetContainer">Você ainda não possui nenhum pet cadastrado</h2>
+                            ) : (
     
                             <StyledCarrousel>
                                 {userPets?.filter(e => {
@@ -94,6 +99,8 @@ export const PetDashboard = () => {
                                     </StyledPetCard>
                                 ))}
                             </StyledCarrousel>
+                            )}
+                            </>
                     </section>
                     <Advertisements/>
                     {/* <section>   

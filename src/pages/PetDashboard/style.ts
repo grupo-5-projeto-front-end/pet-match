@@ -62,6 +62,18 @@ width: 100%;
 
         margin: 10px auto 0 auto
     }
+
+    .YouDontHaveAnyPetContainer{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 35px;
+        margin-top: 5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 5px solid var(--color-black);
+    }
 `
 
 export const StyledEditButton = styled.span`
