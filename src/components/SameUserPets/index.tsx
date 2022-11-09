@@ -44,19 +44,9 @@ export const SameUserPets = ({ pets, id }: iUserPets) => {
             </StyledPetCard>
           ))
         ) : (
-          <h2>Nao a outros Pets cadatrados </h2>
+          <h2>Não há outros pets cadatrados </h2>
         )}
       </StyledCarrousel>
     </StyledDivPets>
   );
 };
-
-// {/* <StyledPetCard key={e.id}>
-//     <figure>
-//         <img src={e.avatar} alt="Imagem do dog"/>
-//     </figure>
-//     <div>
-//         <h4>{e.name.length > 15 ? `${e.name.substring(0, 15)}...` : e.name}</h4>
-//         <p>{e.bio.length > 50 ? `${e.bio.substring(0, 50)}...` : e.bio}</p>
-//     </div>
-// </StyledPetCard> */}
