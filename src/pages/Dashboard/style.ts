@@ -12,48 +12,55 @@ export const StyledDashboard = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  footer{
-    bottom: 0px;
-  }
-  section {
-    width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    section {
+      width: 100%;
 
-    display: flex;
-    flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    transition: 0.2s;
-  }
+      display: flex;
+      flex-direction: column;
 
-  form {
-    width: 100%;
-
-    margin: 18px 0;
-
-    display: flex;
-    align-items: center;
-
-    transition: 0.2s;
-
-    input {
-      padding: 15px;
+      transition: 0.2s;
     }
-  }
-
-  @media all and (min-width: 480px) {
-    height: 700px;
 
     form {
-      max-width: 900px;
+      width: 100%;
+
+      margin: 18px 0;
+
+      display: flex;
+      align-items: center;
+
+      transition: 0.2s;
+
+      input {
+        padding: 15px;
+      }
     }
-  }
 
-  @media all and (min-width: 768px) {
-    width: 98%;
-    gap: 20px;
+    @media all and (min-width: 480px) {
+      height: 700px;
 
+      form {
+        max-width: 900px;
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      width: 98%;
+      gap: 20px;
   }
 `;
+
+export const StyledFooterEdit = styled.div `
+  footer {
+    bottom: -300px;
+
+    @media all and (min-width: 768px) {
+      bottom: -350px;
+    }
+  }
+`

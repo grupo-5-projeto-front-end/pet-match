@@ -1,6 +1,6 @@
 import { Footer } from "../../components/Footer";
 import { StyledInput } from "../../styles/StyledInput";
-import { StyledDashboard, StyledLoadingDiv } from "./style";
+import { StyledDashboard, StyledLoadingDiv, StyledFooterEdit } from "./style";
 import { StyledCarrousel } from "../../styles/carrousel";
 import { usePetContext } from "../../contexts/PetContext";
 import { StyledPetCard } from "../../styles/petCard";
@@ -95,8 +95,10 @@ export const Dashboard = () => {
           </section>
           
           <Advertisements/>
-        <Footer />
         </StyledDashboard>
+        <StyledFooterEdit>
+          <Footer />
+        </StyledFooterEdit>
       </>
     );
   }

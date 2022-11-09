@@ -18,6 +18,7 @@ export const StyledAside = styled.aside`
     }
     .sponsor__text {
       width: 100%;
+      padding: 0 30px;
 
       display: flex;
       flex-direction: column;
@@ -28,7 +29,8 @@ export const StyledAside = styled.aside`
         font-weight: 300;
         color: var(--color-white);
         line-height: 20px;
-        margin: 5px 0 0 10px;
+
+        margin: 5px 0 0 0;
       }
 
       h3 {
@@ -37,7 +39,13 @@ export const StyledAside = styled.aside`
         color: var(--color-white);
         line-height: 50px;
 
-        margin: 15px 0 15px 10px;
+        margin: 15px 0 15px 0;
+      }
+
+      span {
+        color: var(--color-salmon);
+        font-weight: 600;
+        margin-bottom: 5px;
       }
     }
 
