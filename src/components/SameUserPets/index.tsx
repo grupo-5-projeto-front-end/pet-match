@@ -44,7 +44,7 @@ export const SameUserPets = ({ pets, id }: iUserPets) => {
             </StyledPetCard>
           ))
         ) : (
-          <h2>Nao a outros Pets cadatrados </h2>
+          <h2>Não ha outros Pets cadatrados </h2>
         )}
       </StyledCarrousel>
     </StyledDivPets>
