@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const StyledLoadingDiv = styled.div`
   height: 800px;
   width: 95%;
-
   margin: 0 auto;
 `;
 
 export const StyledDashboard = styled.div`
-  /* border: 5px solid blue; */
   width: 100%;
   height: 700px;
   margin: 0 auto;

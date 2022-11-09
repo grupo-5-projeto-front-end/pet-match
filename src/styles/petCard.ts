@@ -4,6 +4,11 @@ export const StyledPetCard = styled.li`
   min-width: 200px;
   height: 300px;
   position: relative;
+  border-radius: 10px;
+  transition: .2s linear;
+  :hover{
+    box-shadow: 1px 1px 7px 0px #000;
+  }
 
   @media (min-width: 769px) {
     width: calc(95% / 3);
@@ -22,7 +27,7 @@ export const StyledPetCard = styled.li`
 
       border: solid 1px var(--color-black);
       border-radius: 8px 8px 0 0;
-
+  }
       img {
         width: 100%;
         height: 100%;
@@ -31,7 +36,7 @@ export const StyledPetCard = styled.li`
 
         border-radius: 8px 8px 0 0;
       }
-    }
+    
 
     div {
       background-color: var(--color-black);

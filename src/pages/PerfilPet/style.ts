@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
-
-
 export const StyledUserPets = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  
+.box_infor{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 830px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .box_backOut{
   border-radius: 5px;
@@ -28,9 +35,15 @@ export const StyledUserPets = styled.section`
    
   }
 
-
-
 }
+
+.box_title{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+
+  }
 
 footer{
       bottom: 0;
@@ -43,7 +56,7 @@ export const StyledMainPerfil = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
+  animation-duration: 2s;
 
   @media  (min-width: 870px ) {
     flex-direction: row;
@@ -58,7 +71,6 @@ export const StyledDivPetPerfil = styled.div`
   width: 100%;
   border: solid 2px var(--color-gray);
  
-
   figure {
     max-width: 200px;
     min-width: 200px;
@@ -66,6 +78,7 @@ export const StyledDivPetPerfil = styled.div`
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -76,7 +89,8 @@ export const StyledDivPetPerfil = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem;
+    padding: 5px;
+    height: max-content;
     h2 {
       max-width: 100%;
       margin-bottom: 1rem;
@@ -86,13 +100,10 @@ export const StyledDivPetPerfil = styled.div`
     }
 
     p{
-      width: 100%;
+      width: 230px;
+      margin-bottom: 5px;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    .bio{
-      
     }
 
   }
@@ -105,7 +116,5 @@ export const StyledDivPetPerfil = styled.div`
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-
-
 
 `;
